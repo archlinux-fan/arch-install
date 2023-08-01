@@ -4,8 +4,10 @@ ln -sf /usr/share/zoneinfo/Europe/Ljubljana /etc/localtime
 hwclock --systohc
 sed -i '178s/.//' /etc/locale.gen
 locale-gen
-echo "LANG=en_US.UTF-8" >> /etc/locale.conf
-echo "KEYMAP=de_CH-latin1" >> /etc/vconsole.conf
+echo "sl_SI.UTF-8 UTF-8" >> /etc/locale.conf
+echo "KEYMAP=slovene
+FONT=lat2-16
+FONT_MAP=8859-2" >> /etc/vconsole.conf
 echo "arch" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
