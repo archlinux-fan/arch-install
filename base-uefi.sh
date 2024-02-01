@@ -61,7 +61,6 @@ systemctl enable bluetooth
 
 
 
-
 # echo "marko ALL=(ALL) ALL" >> /etc/sudoers.d/marko - to ne dela
 printf "EDITOR=nano visudo"
 printf "Uncomment %wheel ... "
