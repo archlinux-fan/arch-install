@@ -16,7 +16,9 @@ sudo pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-panel xfce4-pulse
 # xfce4-power-manager - for laptop battery
 # sudo pacman -S xfce4-power-manager
 
-sudo pacman -S xorg-server
+
+# spodnji in xorg.xinit se že gor inštalirata
+# sudo pacman -S xorg-server
 
 : <<'END_COMMENT'
 
