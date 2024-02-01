@@ -51,6 +51,13 @@ systemctl enable fstrim.timer
 printf "EDITOR=nano visudo"
 printf "Uncomment %wheel ... "
 printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
-printf Defaults !tty_tickets"
+printf "Defaults !tty_tickets"
+
+printf "microcode + graphic card drivers install"
+printf "pacman -S amd-ucode xf86-video-amdgpu"
+printf "pacman -S intel-ucode"
+printf "pacman -S --noconfirm nvidia nvidia-utils nvidia-settings"
+printf " "
+
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
 
