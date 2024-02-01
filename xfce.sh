@@ -1,21 +1,22 @@
 #!/bin/bash
 
-pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 
-pacman -S network-manager-applet
+sudo pacman -S network-manager-applet
 
 # pavucontrol spodaj najbrš nerabim ker imamm xfce4-pulseaudio-plugin
-# pacman -S pavucontrol 
+# sudo pacman -S pavucontrol 
 
 # icons and theme
-# ttf-ms-fonts (to get Times new roman fonts etc?)
-pacman -S arc-gtk-theme arc-icon-theme simple-and-soft-cursor papirus-icon-theme
+# yay ttf-ms-fonts (to get Times new roman fonts etc?)
+sudo pacman -S arc-gtk-theme arc-icon-theme papirus-icon-theme
+yay simple-and-soft-cursor
 
-pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-panel xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-taskmanager xfce4-terminal xfce4-time-out-plugin xfce4-weather-plugin xfdesktop xfwm4 xfwm4-themes
+sudo pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-panel xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-taskmanager xfce4-terminal xfce4-time-out-plugin xfce4-weather-plugin xfdesktop xfwm4 xfwm4-themes
 # xfce4-power-manager - for laptop battery
-# pacman -S xfce4-power-manager
+# sudo pacman -S xfce4-power-manager
 
-pacman -S xorg-server
+sudo pacman -S xorg-server
 
 : <<'END_COMMENT'
 
