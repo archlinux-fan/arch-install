@@ -1,10 +1,17 @@
 #!/bin/bash
 
+# AUR
+# yay
+printf "install yay first! then delete this"
+exit 1;
+
+
 # file system
 pacman -S file-roller thunar thunar-archive-plugin thunar-volman
 
 # internet
-pacman -S chromium brave-bin transmission-gtk
+yay brave-bin
+pacman -S chromium transmission-gtk
 
 # media
 # guvcview - web-cam settings
@@ -50,15 +57,6 @@ pacman -S rofi mousepad
 
 
 # nss-mdns - dont know. For printer?
-
-
-# AUR
-# yay
-# audacious-gtk3 4.3.1-1
-# audacious-plugins-gtk3 4.3.1-1
-# brave-bin 1:1.62.153-1
-# hardinfo 0.5.1.816.g877ea2b-2
-# simple-and-soft-cursor 0.2-9
 # ttf-ms-fonts 2.0-12
 
 # music
