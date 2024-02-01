@@ -22,18 +22,17 @@ usermod -G wheel,storage,audio,video,power -s /bin/bash marko
 pacman -S grub efibootmgr dosfstools mtools
 
 
-# Run grub install
-grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 
-# če imaš še windows particijo potem rabiš
+# če imaš še windows particijo in rabiš dual boot potem:
 pacman -S os-prober
 sudo nano /etc/default/grub
 # uncomment GRUB_DISABLE_OS_PROBER_FALSE
 
-grub-mkconfig -o /boot/grub/grub.cfg
+# For Windows installed in UEFI mode, make sure the EFI system partition containing the Windows Boot Manager (bootmgfw.efi) is mounted. Run os-prober as root to detect and generate an entry for it
+mkdir /mnt/win11
+mount /dev/ime_win_EFI_particije /mnt/win
 
-
-
+# Run grub install
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB #change the directory to /boot/efi is you mounted the EFI partition at /boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 
