@@ -19,6 +19,11 @@ sudo pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-panel xfce4-pulse
 
 sudo systemctl enable lightdm
 
+
+printf " 
+reboot now
+"
+
 # spodnji in xorg.xinit se že gor inštalirata
 # sudo pacman -S xorg-server
 
