@@ -55,9 +55,9 @@ printf "Defaults !tty_tickets"
 printf " "
 printf "microcode + graphic card drivers install"
 printf "pacman -S amd-ucode mesa libva-mesa-driver mesa-vdpau xf86-video-amdgpu" # xf86-video-vesa libva-utils # amd grafika
-printf "pacman -S intel-ucode" # intel grafika
-printf "pacman -S --noconfirm nvidia nvidia-utils nvidia-settings" # nvidia grafika
-printf "mesa-utils mesa-vdpau" # za hardware acceleration?
+printf "pacman -S intel-ucode # intel grafika"
+printf "pacman -S --noconfirm nvidia nvidia-utils nvidia-settings # nvidia grafika"
+printf "mesa-utils mesa-vdpau za hardware acceleration?"
 printf " "
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
 
