@@ -3,7 +3,7 @@
 # AUR
 # yay
 printf "install yay first! then delete this"
-exit 1;
+# add confirm or exit here
 
 
 # file system
@@ -31,9 +31,9 @@ pacman -S guvcview mpv ristretto scrot
 pacman -S rofi mousepad
 
 # System info tools
-# hardinfo
-# neofetch
-# vdpauinfo
+# yay hardinfo
+# pacman -S neofetch
+# pacman -S vdpauinfo
 
 # Office docs
 # libreoffice-still
