@@ -12,7 +12,7 @@ sudo pacman -S network-manager-applet
 sudo pacman -S arc-gtk-theme arc-icon-theme papirus-icon-theme
 yay -S simple-and-soft-cursor
 
-sudo pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-panel xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-taskmanager xfce4-terminal xfce4-time-out-plugin xfce4-weather-plugin xfdesktop xfwm4 xfwm4-themes
+sudo pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-notifyd xfce4-panel xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-taskmanager xfce4-terminal xfce4-time-out-plugin xfce4-weather-plugin xfdesktop xfwm4 xfwm4-themes
 # xfce4-power-manager - for laptop battery
 # sudo pacman -S xfce4-power-manager
 
