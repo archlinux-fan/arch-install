@@ -8,7 +8,9 @@ sleep 5
 
 
 # file system
-sudo pacman -S file-roller thunar thunar-archive-plugin thunar-volman
+# gvfs - auto mounting disks and partitions? 
+# gvfs-mtp - 
+sudo pacman -S file-roller gvfs thunar thunar-archive-plugin thunar-volman
 
 # internet
 yay -S brave-bin
@@ -50,9 +52,6 @@ sudo pacman -S rofi mousepad
 # galculator - calculator (I never use it)
 # ghostscript - dont know
 
-
-# gvfs - auto mounting disks and partitions? 
-# gvfs-mtp - 
 
 # zram-generator
 
