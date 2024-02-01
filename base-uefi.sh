@@ -55,7 +55,7 @@ printf "Add the below line which makes it so that you don't have to reinsert pas
 printf "Defaults !tty_tickets"
 printf " "
 printf "microcode + graphic card drivers install"
-printf "pacman -S amd-ucode xf86-video-amdgpu libva-mesa-driver libva-utils libva-vdpau-driver" # amd grafika
+printf "pacman -S amd-ucode libva-mesa-driver libva-utils libva-vdpau-driver xf86-video-amdgpu xf86-video-vesa" # amd grafika
 printf "pacman -S intel-ucode" # intel grafika
 printf "pacman -S --noconfirm nvidia nvidia-utils nvidia-settings" # nvidia grafika
 printf "mesa-utils mesa-vdpau" # za hardware acceleration?
