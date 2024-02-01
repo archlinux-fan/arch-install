@@ -23,7 +23,7 @@ echo marko:password | root
 usermod -G wheel,storage,audio,video,power -s /bin/bash marko
 
 # Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
-pacman -S grub efibootmgr dosfstools mtools base-devel
+sudo pacman -S grub efibootmgr dosfstools mtools base-devel
 
 # Run grub install
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB #change the directory to /boot/efi is you mounted the EFI partition at /boot/efi
@@ -33,7 +33,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # You can add xorg to the installation packages, I usually add it at the DE or WM install script
 # You can remove the tlp package if you are installing on a desktop or vm
 
-pacman -S bash-completion bluez bluez-utils cups firewalld linux-headers networkmanager reflector
+sudo pacman -S bash-completion bluez bluez-utils cups firewalld linux-headers networkmanager reflector
 # network-manager-applet dialog wpa_supplicant avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils cups hplip alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi acpi_call tlp virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset  flatpak sof-firmware nss-mdns acpid terminus-font
 
 systemctl enable NetworkManager
@@ -49,7 +49,7 @@ systemctl enable cups.service
 
 
 # sound
-pacman -S pipewire pipewire-pulse wireplumber
+sudo pacman -S pipewire pipewire-pulse wireplumber
 
 # echo "marko ALL=(ALL) ALL" >> /etc/sudoers.d/marko - to ne dela
 printf "EDITOR=nano visudo"
@@ -58,9 +58,9 @@ printf "Add the below line which makes it so that you don't have to reinsert pas
 printf "Defaults !tty_tickets"
 printf " "
 printf "microcode + graphic card drivers install"
-printf "pacman -S amd-ucode mesa libva-mesa-driver mesa-vdpau xf86-video-amdgpu" # xf86-video-vesa libva-utils # amd grafika
-printf "pacman -S intel-ucode # intel grafika"
-printf "pacman -S --noconfirm nvidia nvidia-utils nvidia-settings # nvidia grafika"
+printf "sudo pacman -S amd-ucode mesa libva-mesa-driver mesa-vdpau xf86-video-amdgpu" # xf86-video-vesa libva-utils # amd grafika
+printf "sudo pacman -S intel-ucode # intel grafika"
+printf "sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings # nvidia grafika"
 printf "mesa-utils mesa-vdpau za hardware acceleration?"
 printf " "
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
