@@ -4,6 +4,7 @@
 # yay
 printf "install yay first! then delete this"
 # add confirm or exit here
+sleep 5
 
 
 # file system
