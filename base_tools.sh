@@ -7,11 +7,11 @@ printf "install yay first! then delete this"
 
 
 # file system
-pacman -S file-roller thunar thunar-archive-plugin thunar-volman
+sudo pacman -S file-roller thunar thunar-archive-plugin thunar-volman
 
 # internet
-yay brave-bin
-pacman -S chromium transmission-gtk
+yay -S brave-bin
+sudo pacman -S chromium transmission-gtk
 
 # media
 # guvcview - web-cam settings
@@ -19,7 +19,7 @@ pacman -S chromium transmission-gtk
 # scrot - screenshot tool
 # mtpaint
 
-pacman -S guvcview mpv ristretto scrot
+sudo pacman -S guvcview mpv ristretto scrot
 
 # Other
 # rofi - tool za search/run
@@ -28,12 +28,12 @@ pacman -S guvcview mpv ristretto scrot
 # rnote - more beautiful mtpaint
 # gpick - color picker tool (I never use it)
 # gsimplecal - calendar (I never use it)
-pacman -S rofi mousepad
+sudo pacman -S rofi mousepad
 
 # System info tools
 # yay hardinfo
-# pacman -S neofetch
-# pacman -S vdpauinfo
+# sudo pacman -S neofetch
+# sudo pacman -S vdpauinfo
 
 # Office docs
 # libreoffice-still
@@ -60,4 +60,4 @@ pacman -S rofi mousepad
 # ttf-ms-fonts 2.0-12
 
 # music
-# yay -S audacious-gtk3 audacious-plugins-gtk3
+yay -S audacious-gtk3 audacious-plugins-gtk3
