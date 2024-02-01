@@ -41,7 +41,7 @@ systemctl enable firewalld
 
 useradd -m marko
 echo marko:password | root
-usermod -aG wheel, storage, audio, video, power, -s /bin/bash marko
+usermod -G wheel, storage, audio, video, power -s /bin/bash marko
 
 # echo "marko ALL=(ALL) ALL" >> /etc/sudoers.d/marko - to ne dela
 printf "EDITOR=nano visudo"
