@@ -1,69 +1,66 @@
 #!/bin/bash
 
-# icons and theme
-pacman -S arc-gtk-theme arc-icon-theme simple-and-soft-cursor papirus-icon-theme
+# file system
+pacman -S file-roller thunar thunar-archive-plugin thunar-volman
 
 # internet
-pacman -S file-roller 
+pacman -S chromium brave-bin transmission-gtk
 
-# internet
-pacman -S chromium brave-bin 
+# media
+# guvcview - web-cam settings
+# ristretto - image viewer
+# scrot - screenshot tool
+# mtpaint
 
-# mediia
-pacman -S guvcview mpv mtpaint
+pacman -S guvcview mpv ristretto scrot
+
+# Other
+# rofi - tool za search/run
+# mousepad - text editor
+# peek - animated gif recorder
+# rnote - more beautiful mtpaint
+# gpick - color picker tool (I never use it)
+# gsimplecal - calendar (I never use it)
+pacman -S rofi mousepad
+
+# System info tools
+# hardinfo
+# neofetch
+# vdpauinfo
+
+# Office docs
+# libreoffice-still
+
+# baobab - disk tool?
+# bleachbit - cleaning tool
+
+# catfish - search tool?
+# celluloid - (najbrš ne rabim - simple media player)
+
+# firejail - za testiranje brez da si fillaš .config mapo
+
+# galculator - calculator (I never use it)
+# ghostscript - dont know
 
 
-baobab # disk tool?
-bleachbit # cleaning tool
+# gvfs - auto mounting disks and partitions? 
+# gvfs-mtp - 
 
-catfish # search tool?
-celluloid # (najbrš ne rabim - simple media player)
+# zram-generator
 
-firejail # za testiranje brez da si fillaš .config mapo
 
-galculator
-ghostscript
+# nss-mdns - dont know. For printer?
 
-gpick
-grub
-gsimplecal
 
-gvfs
-gvfs-mtp
-hardinfo
-libreoffice-still
 
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
 
-
-mousepad
-
-neofetch
 network-manager-applet
 
-nss-mdns
-
-
 pavucontrol
-peek
 
-reflector
-ristretto
-rnote
-rofi
-scrot
-sudo
-thunar
-thunar-archive-plugin
-thunar-volman
-transmission-gtk
-ttf-ms-fonts
-vdpauinfo
-wireplumber
-xf86-video-amdgpu
-xf86-video-vesa
 xfce4-battery-plugin
 xfce4-clipman-plugin
 xfce4-panel
@@ -125,7 +122,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yay
-zram-generator
 
 
 
