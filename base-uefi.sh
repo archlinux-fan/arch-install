@@ -37,8 +37,7 @@ systemctl enable bluetooth
 systemctl enable firewalld
 systemctl enable reflector.timer
 systemctl enable fstrim.timer
-
-# systemctl enable cups.service
+systemctl enable cups.service
 # systemctl enable sshd
 # systemctl enable avahi-daemon
 # systemctl enable acpid
