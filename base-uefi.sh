@@ -46,7 +46,7 @@ systemctl enable fstrim.timer
 
 
 # sound
-pacman -S pipewire pipewire-pulse
+pacman -S pipewire pipewire-pulse wireplumber
 
 # echo "marko ALL=(ALL) ALL" >> /etc/sudoers.d/marko - to ne dela
 printf "EDITOR=nano visudo"
