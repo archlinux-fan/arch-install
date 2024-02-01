@@ -9,7 +9,7 @@ sleep 5
 
 # file system
 # gvfs - auto mounting disks and partitions? 
-# gvfs-mtp - 
+# gvfs-mtp - auto mounting phone
 sudo pacman -S file-roller gvfs thunar thunar-archive-plugin thunar-volman
 
 # internet
