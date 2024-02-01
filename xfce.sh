@@ -8,9 +8,9 @@ sudo pacman -S network-manager-applet
 # sudo pacman -S pavucontrol 
 
 # icons and theme
-# yay ttf-ms-fonts (to get Times new roman fonts etc?)
+# yay -S ttf-ms-fonts (to get Times new roman fonts etc?)
 sudo pacman -S arc-gtk-theme arc-icon-theme papirus-icon-theme
-yay simple-and-soft-cursor
+yay -S simple-and-soft-cursor
 
 sudo pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-panel xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-taskmanager xfce4-terminal xfce4-time-out-plugin xfce4-weather-plugin xfdesktop xfwm4 xfwm4-themes
 # xfce4-power-manager - for laptop battery
