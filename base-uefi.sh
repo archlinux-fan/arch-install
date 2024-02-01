@@ -26,11 +26,6 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB #cha
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
-# pacman -S amd-ucode xf86-video-amdgpu
-# pacman -S intel-ucode 
-# pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
-
-
 # You can add xorg to the installation packages, I usually add it at the DE or WM install script
 # You can remove the tlp package if you are installing on a desktop or vm
 
