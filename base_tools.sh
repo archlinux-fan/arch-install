@@ -52,78 +52,14 @@ pacman -S rofi mousepad
 # nss-mdns - dont know. For printer?
 
 
-
-lightdm
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
-
-network-manager-applet
-
-pavucontrol
-
-xfce4-battery-plugin
-xfce4-clipman-plugin
-xfce4-panel
-xfce4-power-manager
-xfce4-pulseaudio-plugin
-xfce4-screensaver
-xfce4-screenshooter
-xfce4-session
-xfce4-settings
-xfce4-taskmanager
-xfce4-terminal
-xfce4-time-out-plugin
-xfce4-weather-plugin
-xfdesktop
-xfwm4
-xfwm4-themes
-xorg-bdftopcf
-xorg-docs
-xorg-font-util
-xorg-fonts-100dpi
-xorg-fonts-75dpi
-xorg-fonts-encodings
-xorg-iceauth
-xorg-mkfontscale
-xorg-server
-xorg-server-common
-xorg-server-devel
-xorg-server-xephyr
-xorg-server-xnest
-xorg-server-xvfb
-xorg-sessreg
-xorg-setxkbmap
-xorg-smproxy
-xorg-x11perf
-xorg-xbacklight
-xorg-xcmsdb
-xorg-xcursorgen
-xorg-xdpyinfo
-xorg-xdriinfo
-xorg-xev
-xorg-xgamma
-xorg-xhost
-xorg-xinit
-xorg-xinput
-xorg-xkbcomp
-xorg-xkbevd
-xorg-xkbutils
-xorg-xkill
-xorg-xlsatoms
-xorg-xlsclients
-xorg-xpr
-xorg-xrandr
-xorg-xrefresh
-xorg-xset
-xorg-xsetroot
-xorg-xvinfo
-xorg-xwayland
-xorg-xwd
-xorg-xwininfo
-xorg-xwud
-yay
-
-
+# AUR
+# yay
+# audacious-gtk3 4.3.1-1
+# audacious-plugins-gtk3 4.3.1-1
+# brave-bin 1:1.62.153-1
+# hardinfo 0.5.1.816.g877ea2b-2
+# simple-and-soft-cursor 0.2-9
+# ttf-ms-fonts 2.0-12
 
 # music
 # yay -S audacious-gtk3 audacious-plugins-gtk3
