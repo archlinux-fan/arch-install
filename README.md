@@ -21,27 +21,27 @@ A small summary:
 12. run with ./base-uefi.sh
 
 
-# 1. Na winsih naredi free plac za 2 particije. 800MB za Dual boot, kjer sta kernela (navadni in LTS), ter drugo kjer bo linux.
+1. Na winsih naredi free plac za 2 particije. 800MB za Dual boot, kjer sta kernela (navadni in LTS), ter drugo kjer bo linux.
 
-# 2. Z Rufusom inštaliraj Arch .iso fajl. Naj bo GPT, ker MBR je zastarelo in ne dela za EFI oz bolj nov UEFI (rabiš za dual boot, če ne je boot samo z BIOSom)
+2. Z Rufusom inštaliraj Arch .iso fajl. Naj bo GPT, ker MBR je zastarelo in ne dela za EFI oz bolj nov UEFI (rabiš za dual boot, če ne je boot samo z BIOSom)
 
-# 3. v BIOSU disablaj secure boot.
+3. v BIOSU disablaj secure boot.
 
-# 4. Zalaufaj Arch iz USB-ja
+4. Zalaufaj Arch iz USB-ja
 
-# 5. Za črke vpiši:
+5. Za črke vpiši:
 ```Bash
 loadkeys slovene
 setfont lat2-16
 ```
 
 
-# 6. če imaš že preko kabla internet za test če dela
+6. če imaš že preko kabla internet za test če dela
 ```Bash
 ping 8.8.8.8 
 ```
 
-# 6a. Zrihtaj wifi network drugače  
+6a. Zrihtaj wifi network drugače  
 ```Bash
 iwctl
 device-list
@@ -56,13 +56,13 @@ pacman -Sy archlinux-keyring # (sinhronizira in inštalira še to zadnjo verzijo
 ```
 
 
-# 7. Naredi particije
+7. Naredi particije
 zlistaj particije in diske
 ```Bash
 lsblk
 ```
 
-# pojdi v tool za particije. Zalaufaš ga z cfdisk /dev/ime_diska, kamor bi rad inštaliral linux in boot particijo
+pojdi v tool za particije. Zalaufaš ga z cfdisk /dev/ime_diska, kamor bi rad inštaliral linux in boot particijo
 ```Bash
 cfdisk /dev/ime_diska (nvme0n1, sda1,...)
 ```
@@ -71,26 +71,25 @@ narediš boot particijo 800M (če imaš Win + Linux, drugače je lahko manjša m
 narediš root partcijo z vsem ostalim prostorom (če nočeš swap particije). Za TYPE pustiš Linux filesystem.
 Write - vpiši "yes" in ENTER
 
-# 8. Formatiraj particije
+8. Formatiraj particije
 ```Bash
 mkfs.fat -F 32 /dev/efi_system_partition
 mkfs.ext4 /dev/root_partition
 ```
 
-# 9. Mount obeh particij
+9. Mount obeh particij + morda potem še win EFI particije, če rabiš dual boot z winsi
 ```Bash
 Mount big partion (file system)
 mount /dev/ime_diska /mnt
 mkdir /mnt/boot
 mount /dev/ime_diska /mnt/boot
 ```
-
-# preveri če vse štima
+preveri če vse štima
 ```Bash
 lsblk
 ```
 
-# 8. Install stuff
+10. Install stuff
 Speed tip:
 ```Bash
 pacman -Sy nano
@@ -98,53 +97,53 @@ nano /etc/pacman.conf
 uncomment ParalelDownloads = 5
 ```
 
-# install base firmware (-i je pomoje da te vpraša vmes da potrdiš. -K je pa da nek prazen keyring vmes. Acceptaj default)
+install base firmware (-i je pomoje da te vpraša vmes da potrdiš. -K je pa da nek prazen keyring vmes. Acceptaj default)
 ```Bash
 pacstrap -Ki /mnt base linux linux-lts linux-firmware
 ```
 
-# 9. Mountaj particij fiksno za zmeraj. Prej so bile samo na USB
+11. Mountaj particij fiksno za zmeraj. Prej so bile samo na USB
 Generate file system table (fstab)
 ```Bash
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
-
-# Preveriš lahko z:
+Preveriš lahko z:
 ```Bash
 cat /mnt/etc/fstab
 ```
 
-# Go to chroot to our new root on nvme0n1p5
+#12. Go to chroot to our new root on nvme0n1p5
 ```Bash
 arch-chroot /mnt /bin/bash # /bin/bash je dodal najbrš da mu baš bolj dela al kaj
 ```
 
 
-# če imaš še windows particijo in rabiš dual boot potem:
+13. OPTIONAL če imaš še windows particijo in rabiš dual boot potem:
 ```Bash
 pacman -S os-prober ntfs-3g (morda oba rabiš samo začasno. Ne vem pa kaj je pol ko se kernel updata)
 sudo nano /etc/default/grub
 uncomment GRUB_DISABLE_OS_PROBER_FALSE
 ```
-
-# For Windows installed in UEFI mode, make sure the EFI system partition containing the Windows Boot Manager (bootmgfw.efi) is mounted. Run os-prober as root to detect and generate an entry for it
+For Windows installed in UEFI mode, make sure the EFI system partition containing the Windows Boot Manager (bootmgfw.efi) is mounted. Run os-prober as root to detect and generate an entry for it
 ```Bash
 mkdir /mnt/win11
 mount /dev/ime_win_EFI_particije /mnt/win
 ```
 
-# 10. Posnami git, sudo in stakni skripto
+14. Posnami git, sudo in stakni skripto
 Download the git repository with git clone https://github.com/archlinux-fan/arch-install.git
 
 ```Bash
 pacman -Sy git sudo nano
 ```
 
+```Bash
 git clone https://github.com/archlinux-fan/arch-install.git # mora bit public najbrš
 
 cd arch-install
 chmod +x base-uefi.sh
 run with sudo ./base_uefi.sh
+```
 
 # AUR
 Install yay, ker ga rabiš za naslednjo skripto
@@ -153,14 +152,15 @@ Install yay, ker ga rabiš za naslednjo skripto
 ```
 
 
-# Exit the chroot environment by typing exit or pressing Ctrl+d.
+Exit the chroot environment by typing exit or pressing Ctrl+d.
 
-# Optionally manually unmount all the partitions with umount -R /mnt: this allows noticing any "busy" partitions, and finding the cause with fuser(1).
+Optionally manually unmount all the partitions with umount -R /mnt: this allows noticing any "busy" partitions, and finding the cause with fuser(1).
 
-# Finally, restart the machine by typing reboot: any partitions still mounted will be automatically unmounted by systemd. Remember to remove the installation medium and then login into the new system with the root acco
+Finally, restart the machine by typing reboot: any partitions still mounted will be automatically unmounted by systemd. Remember to remove the installation medium and then login into the new system with the root acco
 
-# ne vem kaj je to
+ne vem kaj je to
 ```Bash
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 ```
+
