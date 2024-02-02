@@ -3,8 +3,14 @@
 ln -sf /usr/share/zoneinfo/Europe/Ljubljana /etc/localtime
 hwclock --systohc
 
-sed -i '178s/.//' /etc/locale.gen
+# Uncomment languages before locale-generation. Or just add them at the bottom of the file /etc/locale.gen:
+echo "en_US.UTF-8 UTF-8
+sl_SI.UTF-8 UTF-8" >> /etc/locale.gen
+
+# locale-generation
 locale-gen
+
+# Select prefered languages in /etc/locale.conf:
 echo "LANG=en_US.UTF-8
 LC_CTYPE=sl_SI.UTF-8
 LC_NUMERIC=sl_SI.UTF-8
@@ -20,20 +26,27 @@ LC_MEASUREMENT=sl_SI.UTF-8
 LC_IDENTIFICATION=sl_SI.UTF-8
 LC_ALL=" >> /etc/locale.conf
 
+# Select prefered languages for console in /etc/vconsole.conf
 echo "KEYMAP=slovene
 FONT=lat2-16
 FONT_MAP=8859-2" >> /etc/vconsole.conf
 
+# Hostname settings
 echo "arch" >> /etc/hostname
 
+# Hosts settings
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
+
+# Users and pass
+# Set root pass
 echo root:password | root
 
+# Add user and add it to groups
 useradd -m marko
 echo marko:password | root
-usermod -G wheel,storage,audio,video,power -s /bin/bash marko
+usermod -aG wheel,storage,audio,video,power -s /bin/bash marko
 
 # Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
 sudo pacman -S grub efibootmgr dosfstools mtools base-devel
@@ -44,9 +57,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 
 # You can add xorg to the installation packages, I usually add it at the DE or WM install script
-# You can remove the tlp package if you are installing on a desktop or vm
 
-sudo pacman -S bash-completion bluez bluez-utils cups firewalld linux-headers networkmanager reflector
+
+sudo pacman -S bluez bluez-utils cups firewalld linux-headers networkmanager reflector
 # network-manager-applet dialog wpa_supplicant avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils cups hplip alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi acpi_call tlp virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset  flatpak sof-firmware nss-mdns acpid terminus-font
 
 systemctl enable NetworkManager
