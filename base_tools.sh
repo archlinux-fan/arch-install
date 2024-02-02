@@ -31,7 +31,8 @@ sudo pacman -S guvcview mpv ristretto scrot
 # rnote - more beautiful mtpaint
 # gpick - color picker tool (I never use it)
 # gsimplecal - calendar (I never use it)
-sudo pacman -S rofi mousepad
+# bash-completion - use tab to complete words in bash
+sudo pacman -S rofi mousepad bash-completion
 
 # System info tools
 # yay hardinfo
