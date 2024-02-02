@@ -49,7 +49,7 @@ pacman -Sy archlinux-keyring # (sinhronizira in inštalira še to zadnjo verzijo
 
 
 # 7. Naredi particije
-# zlistaj particije in diske
+zlistaj particije in diske
 lsblk
 
 # pojdi v tool za particije. Zalaufaš ga z cfdisk /dev/ime_diska, kamor bi rad inštaliral linux in boot particijo
@@ -73,8 +73,7 @@ mount /dev/ime_diska /mnt/boot
 lsblk
 
 # 8. Install stuff
-
-# Speed tip:
+Speed tip:
 pacman -Sy nano
 nano /etc/pacman.conf
 uncomment ParalelDownloads = 5
