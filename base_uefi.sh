@@ -5,7 +5,20 @@ hwclock --systohc
 
 sed -i '178s/.//' /etc/locale.gen
 locale-gen
-echo "LANG=sl_SI.UTF-8" >> /etc/locale.conf
+echo "LANG=en_US.UTF-8
+LC_CTYPE=sl_SI.UTF-8
+LC_NUMERIC=sl_SI.UTF-8
+LC_TIME=sl_SI.UTF-8
+LC_COLLATE=sl_SI.UTF-8
+LC_MONETARY=sl_SI.UTF-8
+LC_MESSAGES=en_US.UTF-8
+LC_PAPER=sl_SI.UTF-8
+LC_NAME=sl_SI.UTF-8
+LC_ADDRESS=sl_SI.UTF-8
+LC_TELEPHONE=sl_SI.UTF-8
+LC_MEASUREMENT=sl_SI.UTF-8
+LC_IDENTIFICATION=sl_SI.UTF-8
+LC_ALL=" >> /etc/locale.conf
 
 echo "KEYMAP=slovene
 FONT=lat2-16
