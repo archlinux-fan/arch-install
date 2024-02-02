@@ -145,7 +145,7 @@ chmod +x base-uefi.sh
 run with sudo ./base_uefi.sh
 ```
 
-# AUR
+AUR
 Install yay, ker ga rabiš za naslednjo skripto
 ```Bash
 ./yay.sh
