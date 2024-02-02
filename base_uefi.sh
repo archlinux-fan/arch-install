@@ -35,9 +35,9 @@ FONT_MAP=8859-2" >> /etc/vconsole.conf
 echo "arch" >> /etc/hostname
 
 # Hosts settings
-echo "127.0.0.1 localhost" >> /etc/hosts
-echo "::1       localhost" >> /etc/hosts
-echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
+echo "127.0.0.1  localhost" >> /etc/hosts
+echo "::1        localhost" >> /etc/hosts
+echo "127.0.1.1  arch.localdomain arch" >> /etc/hosts
 
 # Users and pass
 # Set root pass
@@ -83,6 +83,9 @@ printf "Uncomment %wheel ... "
 printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
 printf "Defaults !tty_tickets"
 printf " "
+
+sleep 5
+
 printf "microcode + graphic card drivers install"
 printf "sudo pacman -S amd-ucode mesa libva-mesa-driver mesa-vdpau xf86-video-amdgpu" # xf86-video-vesa libva-utils # amd grafika
 printf "sudo pacman -S intel-ucode # intel grafika"
