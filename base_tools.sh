@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# AUR
-# yay
-printf "install yay first! then delete this"
-# add confirm or exit here
-sleep 5
-
-
 # file system
 # gvfs - auto mounting disks and partitions? 
 # gvfs-mtp - auto mounting phone
@@ -58,7 +51,7 @@ sudo pacman -S rofi mousepad bash-completion
 
 
 # nss-mdns - dont know. For printer?
-# ttf-ms-fonts 2.0-12
+# yay ttf-ms-fonts
 
 # music
 yay -S audacious-gtk3 audacious-plugins-gtk3
