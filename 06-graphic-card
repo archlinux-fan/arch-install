@@ -7,4 +7,5 @@ pacman -S libva-utils
 
 # Verifying VDPAU
 # Install vdpauinfo to verify if the VDPAU driver is loaded correctly and retrieve a full report of the configuration:
+pacman -S vdpauinfo
 
