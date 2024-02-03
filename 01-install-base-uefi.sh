@@ -29,6 +29,7 @@ LC_MEASUREMENT=sl_SI.UTF-8
 LC_IDENTIFICATION=sl_SI.UTF-8
 LC_ALL=" >> /etc/locale.conf
 
+# /etc/X11/xorg.conf.d00-keyboard.conf file is need for Slovenian keyboard
 cp /etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d
 
 # If you set the console keyboard layout, make the changes persistent in /etc/vconsole.conf
