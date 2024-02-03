@@ -73,6 +73,9 @@ systemctl enable NetworkManager
 sudo pacman -S bluez bluez-utils 
 systemctl enable bluetooth
 
+# sound
+pacman -S pipewire pipewire-pulse wireplumber
+
 
 # echo "marko ALL=(ALL) ALL" >> /etc/sudoers.d/marko - to ne dela
 printf "\e[1;32mUncomment %wheel ALL=(ALL:ALL) ALL in sudoers file with\e[0m"
