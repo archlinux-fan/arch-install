@@ -1,16 +1,19 @@
 #!/bin/bash
 
+# Set the time zone:
 ln -sf /usr/share/zoneinfo/Europe/Ljubljana /etc/localtime
+
+# Run hwclock(8) to generate /etc/adjtime:
 hwclock --systohc
 
-# Uncomment languages before locale-generation. Or just add them at the bottom of the file /etc/locale.gen:
-echo "en_US.UTF-8 UTF-8
-sl_SI.UTF-8 UTF-8" >> /etc/locale.gen
+# Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales. Or just add them at the bottom of the file:
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+echo "sl_SI.UTF-8 UTF-8" >> /etc/locale.gen
 
-# locale-generation
+# Generate the locales by running:
 locale-gen
 
-# Select prefered languages in /etc/locale.conf:
+# Create the /etc/locale.conf file, and set the LANG variable accordingly. Select prefered languages:
 echo "LANG=en_US.UTF-8
 LC_CTYPE=sl_SI.UTF-8
 LC_NUMERIC=sl_SI.UTF-8
@@ -26,10 +29,11 @@ LC_MEASUREMENT=sl_SI.UTF-8
 LC_IDENTIFICATION=sl_SI.UTF-8
 LC_ALL=" >> /etc/locale.conf
 
-# Select prefered languages for console in /etc/vconsole.conf
+# If you set the console keyboard layout, make the changes persistent in /etc/vconsole.conf
 echo "KEYMAP=slovene
-FONT=lat2-16
-FONT_MAP=8859-2" >> /etc/vconsole.conf
+FONT=lat2-16" >> /etc/vconsole.conf
+# To spodaj nisem ziher, če je res potreno dodat
+echo "FONT_MAP=8859-2" >> /etc/vconsole.conf
 
 # Hostname settings
 echo "arch" >> /etc/hostname
