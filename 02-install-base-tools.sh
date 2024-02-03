@@ -6,8 +6,8 @@
 sudo pacman -S file-roller gvfs thunar thunar-archive-plugin thunar-volman
 
 # internet
-yay -S brave-bin
-sudo pacman -S chromium transmission-gtk
+# sudo pacman -S chromium 
+sudo pacman -S transmission-gtk
 
 # media
 # guvcview - web-cam settings
@@ -28,7 +28,6 @@ sudo pacman -S guvcview mpv ristretto scrot
 sudo pacman -S rofi mousepad bash-completion
 
 # System info tools
-# yay hardinfo
 # sudo pacman -S neofetch
 # sudo pacman -S vdpauinfo
 
@@ -51,7 +50,3 @@ sudo pacman -S rofi mousepad bash-completion
 
 
 # nss-mdns - dont know. For printer?
-# yay ttf-ms-fonts
-
-# music
-yay -S audacious-gtk3 audacious-plugins-gtk3
