@@ -39,20 +39,26 @@ FONT=lat2-16" >> /etc/vconsole.conf
 echo "FONT_MAP=8859-2" >> /etc/vconsole.conf
 
 # Hostname settings
-echo "arch" >> /etc/hostname
+echo "Chose the hostname for your computer: (one word, small letters)"
+read hostname
+echo $hostname >> /etc/hostname
 
 # Hosts settings
 echo "127.0.0.1  localhost" >> /etc/hosts
 echo "::1        localhost" >> /etc/hosts
-echo "127.0.1.1  arch.localdomain arch" >> /etc/hosts
+echo "127.0.1.1  $hostname.localdomain $hostname" >> /etc/hosts
 
 # Users and pass
 # Set root pass
-echo root:password | root
+
+# Hostname settings
+echo "Chose the password for the root and user: (one word, small letters)"
+read password
+echo root:$password | chpasswd # chpasswd is a command to create pass
 
 # Add user and add it to groups
 useradd -m marko
-echo marko:password | root
+echo marko:$password | chpasswd
 usermod -G wheel -a marko
 
 # Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
