@@ -125,7 +125,7 @@ cat /mnt/etc/fstab
 
 #12. Go to chroot to our new root on nvme0n1p5
 ```Bash
-arch-chroot /mnt /bin/bash # /bin/bash je dodal najbrš da mu baš bolj dela al kaj
+arch-chroot /mnt
 ```
 
 
