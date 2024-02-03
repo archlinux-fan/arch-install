@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# sound
-pacman -S pipewire pipewire-pulse wireplumber
-
 # Firewall
 pacman -S firewalld 
 systemctl enable firewalld
