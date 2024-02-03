@@ -80,13 +80,14 @@ Use timedatectl to ensure the system clock is accurate:
 timedatectl
 ```
 
+8. Sinhronize packages
 ```Bash
 pacman -Sy # (Sinhroniziraj pakete)
 pacman -Sy archlinux-keyring # (sinhronizira in inštalira še to zadnjo verzijo, ampak najbrš je itak že na USB nova zadnja)
 ```
 
 
-8. Partition the disks
+9. Partition the disks
 list partitions and disks
 ```Bash
 lsblk
@@ -101,13 +102,13 @@ narediš boot particijo 800M (če imaš Win + Linux, drugače je lahko manjša m
 narediš root partcijo z vsem ostalim prostorom (če nočeš swap particije). Za TYPE pustiš Linux filesystem.
 Write - vpiši "yes" in ENTER
 
-9. Format the partitions
+10. Format the partitions
 ```Bash
 mkfs.fat -F 32 /dev/efi_system_partition
 mkfs.ext4 /dev/root_partition
 ```
 
-10. Mount the file systems
+11. Mount the file systems
  + morda potem še win EFI particije, če rabiš dual boot z winsi
 ```Bash
 Mount big partion (file system)
@@ -122,7 +123,7 @@ test again with
 lsblk
 ```
 
-11. Install essential packages
+12. Install essential packages
 Speed tip:
 ```Bash
 pacman -Sy nano
@@ -142,7 +143,7 @@ pacstrap -Ki /mnt base linux linux-lts linux-firmware
 ```
 
 Configure the system
-12. Mountaj particij fiksno za zmeraj. Prej so bile samo na USB
+13. Mountaj particij fiksno za zmeraj. Prej so bile samo na USB
 Generate file system table (fstab)
 ```Bash
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -153,14 +154,14 @@ cat /mnt/etc/fstab
 ```
 
 
-#13. Chroot
+14. Chroot
 Change root into the new system
 ```Bash
 arch-chroot /mnt
 ```
 
 
-14. OPTIONAL če imaš še windows particijo in rabiš dual boot potem:
+15. OPTIONAL če imaš še windows particijo in rabiš dual boot potem:
 ```Bash
 pacman -S os-prober ntfs-3g (morda oba rabiš samo začasno. Ne vem pa kaj je pol ko se kernel updata)
 sudo nano /etc/default/grub
@@ -172,7 +173,7 @@ mkdir /mnt/win11
 mount /dev/ime_win_EFI_particije /mnt/win
 ```
 
-15. Posnami git, sudo in stakni skripto
+16. Posnami git, sudo in stakni skripto
 Download the git repository with git clone https://github.com/archlinux-fan/arch-install.git
 
 ```Bash
@@ -189,8 +190,8 @@ run with sudo ./base_uefi.sh
 
 ne vem kaj je to
 ```Bash
-sudo pacman-key --init
-sudo pacman-key --populate archlinux
+sudo pacman-key --init # The command sets up the key management system.
+sudo pacman-key --populate archlinux # The command adds the necessary keys to trust official Arch Linux packages
 ```
 
 
