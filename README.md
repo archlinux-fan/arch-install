@@ -5,6 +5,8 @@ Modify the packages to your liking, make the script executable with chmod +x scr
 A script for the base install on MBR/Legacy will be available soon.
 Remember that the first part of the Arch Linux install is manual, that is you will have to partition, format and mount the disk yourself. Install the base packages and make sure to inlcude git so that you can clone the repository in chroot.
 
+Follow official instalation guide: - https://wiki.archlinux.org/title/Installation_guide
+
 A small summary:
 
 1. If needed, load your keymap
@@ -38,9 +40,12 @@ localectl list-keymaps
 Load keys
 ```Bash
 loadkeys slovene
-setfont lat2-16
 ```
 
+Console fonts are located in /usr/share/kbd/consolefonts/. Set them
+```Bash
+setfont lat2-16
+```
 
 6. če imaš že preko kabla internet za test če dela
 ```Bash
