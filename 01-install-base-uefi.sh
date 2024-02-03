@@ -50,16 +50,18 @@ echo "127.0.1.1  $hostname.localdomain $hostname" >> /etc/hosts
 
 # Users and pass
 # Set root pass
-
-# Hostname settings
-echo "Chose the password for the root and user: (one word, small letters)"
-read password
-echo root:$password | chpasswd # chpasswd is a command to create pass
+echo "Chose the password for the root user: (one word, small letters)"
+read rootpass
+echo root:$rootpass | chpasswd # chpasswd is a command to create pass
 
 # Add user and add it to groups
-useradd -m marko
-echo marko:$password | chpasswd
-usermod -G wheel -a marko
+echo "Chose your username: (one word, small letters)"
+read username
+echo "Chose the password for the $username user: (one word, small letters)"
+read userpass
+useradd -m $username
+echo $username:$userpass | chpasswd
+usermod -G wheel -a $username
 
 # Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
 sudo pacman -S grub efibootmgr dosfstools mtools base-devel
