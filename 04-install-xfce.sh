@@ -8,7 +8,7 @@ systemctl enable lightdm
 
 pacman -S network-manager-applet
 pacman -S pavucontrol # rabiš ga, da štelaš sound, ko klikneš v panelu na xfce4-pulseaudio-plugin
-
+pacman -S xorg-xkill
 
 # theme - morda ne rabim, ker staknem nordic z yay potem
 # pacman -S arc-gtk-theme arc-icon-theme 
@@ -42,14 +42,11 @@ xorg-fonts-75dpi
 xorg-fonts-encodings
 xorg-iceauth
 xorg-mkfontscale
-xorg-server
-xorg-server-common
 xorg-server-devel
 xorg-server-xephyr
 xorg-server-xnest
 xorg-server-xvfb
 xorg-sessreg
-xorg-setxkbmap
 xorg-smproxy
 xorg-x11perf
 xorg-xbacklight
@@ -60,18 +57,15 @@ xorg-xdriinfo
 xorg-xev
 xorg-xgamma
 xorg-xhost
-xorg-xinit
 xorg-xinput
 xorg-xkbcomp
 xorg-xkbevd
 xorg-xkbutils
-xorg-xkill
 xorg-xlsatoms
 xorg-xlsclients
 xorg-xpr
 xorg-xrandr
 xorg-xrefresh
-xorg-xset
 xorg-xsetroot
 xorg-xvinfo
 xorg-xwayland
