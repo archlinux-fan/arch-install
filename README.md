@@ -130,6 +130,12 @@ nano /etc/pacman.conf
 uncomment ParalelDownloads = 5
 ```
 
+Če je počasno pa z reflektorjem dobi najhitrješe mirrorje. Drugače bo to itak v zadnji skripti/koraku narejeno
+```Bash
+pacman -S reflector
+systemctl enable reflector.timer
+```
+
 install base firmware (-i je pomoje da te vpraša vmes da potrdiš. -K je pa da nek prazen keyring vmes. Acceptaj default)
 ```Bash
 pacstrap -Ki /mnt base linux linux-lts linux-firmware
