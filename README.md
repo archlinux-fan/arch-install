@@ -174,14 +174,14 @@ mount /dev/ime_win_EFI_particije /mnt/win
 ```
 
 16. Posnami git, sudo in stakni skripto
-Download the git repository with git clone https://github.com/archlinux-fan/arch-install.git
+Download the git repository with git clone --depth 1 https://gitlab.com/archlinux-fan/arch-install.git
 
 ```Bash
 pacman -Sy git sudo nano
 ```
 
 ```Bash
-git clone https://github.com/archlinux-fan/arch-install.git # mora bit public najbrš
+git clone --depth 1 https://github.com/archlinux-fan/arch-install.git # mora bit public najbrš  # ('--depth 1' is so that it downloads latest version files only, no history)
 
 cd arch-install
 chmod +x base-uefi.sh
