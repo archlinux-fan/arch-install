@@ -86,13 +86,17 @@ printf " "
 sleep 5
 
 printf "microcode + graphic card drivers install"
-printf "sudo pacman -S amd-ucode" # cpu microcodes 
-printf "sudo pacman -S xf86-video-amdgpu"# xf86-video-vesa # amd grafika
-printf "sudo pacman -S mesa" # mesa
+printf "sudo pacman -S amd-ucode" # cpu microcodes
 printf " "
+printf "sudo pacman -S mesa" # provides the DRI driver for 3D acceleration
+printf "sudo pacman -S xf86-video-amdgpu" # DDX driver (which provides 2D acceleration in Xorg) 
+printf " "
+printf "Accelerated video decoding "
 printf "sudo pacman -S libva-mesa-driver" # VA-API drivers
 printf "sudo pacman -S mesa-vdpau" # VDPAU drivers
 printf "sudo pacman -S libva-utils" # libva-utils
+# Vulkan
+# https://wiki.archlinux.org/title/Vulkan
 printf " "
 printf " "
 printf "sudo pacman -S intel-ucode" # intel cpu
