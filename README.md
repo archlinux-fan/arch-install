@@ -29,7 +29,13 @@ A small summary:
 
 4. Zalaufaj Arch iz USB-ja
 
-5. Za črke vpiši:
+5. For slovenian keyboard:
+List them first if you dont know the correct one with:
+```Bash
+localectl list-keymaps)
+```
+
+Load keys
 ```Bash
 loadkeys slovene
 setfont lat2-16
