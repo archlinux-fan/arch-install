@@ -66,48 +66,14 @@ sudo pacman -S linux-headers
 sudo pacman -S bluez bluez-utils 
 systemctl enable bluetooth
 
-# network and printer automatic discovery
-# Avahi provides local hostname resolution using a "hostname.local" naming scheme. To enable it, install the nss-mdns package and start/enable avahi-daemon.service.
-# Then, edit the file /etc/nsswitch.conf and change the hosts line to include mdns_minimal [NOTFOUND=return] before resolve and dns:
-# hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns
-
-sudo pacman -S avahi nss-mdns
-systemctl enable avahi-daemon
-# click/enable option mdns in firewall GUI config "services" option - for printer to work
-
-# printer
-# printer needs ghostscript to print to pdf
-sudo pacman -S cups ghostscript
-systemctl enable cups.service
-
-# Firewall
-sudo pacman -S firewalld 
-systemctl enable firewalld
-
-
 # network (there is no other wifi tool otherwise. Use iwctl )
 sudo pacman -S networkmanager
 systemctl enable NetworkManager
 
-# mirorrs automatic sorting 
-sudo pacman -S reflector
-systemctl enable reflector.timer
-
-# trim SSD drive
-systemctl enable fstrim.timer
-
-
-# network-manager-applet dialog wpa_supplicant avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils cups hplip alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi acpi_call tlp virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset  flatpak sof-firmware nss-mdns acpid terminus-font
-
-# systemctl enable sshd
-# systemctl enable acpid 
-# systemctl enable tlp # You can comment this command out if you didn't install tlp, see above
-
-
-# sound
-sudo pacman -S pipewire pipewire-pulse wireplumber
 
 # echo "marko ALL=(ALL) ALL" >> /etc/sudoers.d/marko - to ne dela
+printf "\e[1;32mUncomment %wheel ALL=(ALL:ALL) ALL in sudoers file with\e[0m"
+printf "sudo nano /etc/sudoers or"
 printf "EDITOR=nano visudo"
 printf "Uncomment %wheel ... "
 printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
