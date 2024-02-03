@@ -10,3 +10,14 @@ makepkg -si
 
 # You can test it's version
 yay --version
+
+# internet
+yay -S brave-bin
+
+# music
+yay -S audacious-gtk3 audacious-plugins-gtk3
+
+# System info tools
+# yay hardinfo
+
+# yay ttf-ms-fonts
