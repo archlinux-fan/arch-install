@@ -87,9 +87,12 @@ sleep 5
 
 printf "microcode + graphic card drivers install"
 printf "sudo pacman -S amd-ucode" # cpu microcodes 
-printf "sudo pacman -S mesa libva-mesa-driver mesa-vdpau xf86-video-amdgpu"# 
-printf "sudo pacman -S mesa libva-mesa-driver mesa-vdpau xf86-video-amdgpu"# xf86-video-vesa libva-utils # amd grafika
-printf "sudo pacman -S mesa libva-mesa-driver mesa-vdpau xf86-video-amdgpu"# xf86-video-vesa libva-utils # amd grafika
+printf "sudo pacman -S xf86-video-amdgpu"# xf86-video-vesa # amd grafika
+printf "sudo pacman -S mesa" # mesa
+printf " "
+printf "sudo pacman -S libva-mesa-driver" # VA-API drivers
+printf "sudo pacman -S mesa-vdpau" # VDPAU drivers
+printf "sudo pacman -S libva-utils" # libva-utils
 printf " "
 printf " "
 printf "sudo pacman -S intel-ucode" # intel cpu
@@ -101,6 +104,7 @@ printf " "
 printf " "
 printf "sudo pacman -S libva-mesa-driver" # VA-API drivers
 printf "sudo pacman -S mesa-vdpau" # VDPAU drivers
+printf "sudo pacman -S libva-utils" # libva-utils
 printf " "
 printf " "
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
