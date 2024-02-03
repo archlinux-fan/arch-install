@@ -46,7 +46,7 @@ echo root:password | root
 # Add user and add it to groups
 useradd -m marko
 echo marko:password | root
-usermod -aG wheel,storage,audio,video,power -s /bin/bash marko
+usermod -G wheel -a marko
 
 # Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
 sudo pacman -S grub efibootmgr dosfstools mtools base-devel
