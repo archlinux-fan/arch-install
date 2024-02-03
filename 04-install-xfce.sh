@@ -1,23 +1,25 @@
 #!/bin/bash
 
-sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+# login manager
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+systemctl enable lightdm
 
-sudo pacman -S network-manager-applet
 
-# pavucontrol spodaj najbrš nerabim ker imamm xfce4-pulseaudio-plugin
-# sudo pacman -S pavucontrol 
+
+pacman -S network-manager-applet
+pacman -S pavucontrol # rabiš ga, da štelaš sound, ko klikneš v panelu na xfce4-pulseaudio-plugin
+
 
 # icons and theme
-# yay -S ttf-ms-fonts (to get Times new roman fonts etc?)
-sudo pacman -S arc-gtk-theme arc-icon-theme papirus-icon-theme
-yay -S simple-and-soft-cursor
 
-sudo pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-notifyd xfce4-panel xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-taskmanager xfce4-terminal xfce4-time-out-plugin xfce4-weather-plugin xfdesktop xfwm4 xfwm4-themes
-# xfce4-power-manager - for laptop battery
-# sudo pacman -S xfce4-power-manager
+pacman -S arc-gtk-theme arc-icon-theme papirus-icon-theme
+
+pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-notifyd xfce4-panel xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-taskmanager xfce4-terminal xfce4-time-out-plugin xfce4-weather-plugin xfdesktop xfwm4 xfwm4-themes
+
+# xfce4-power-manager - for laptop battery, za desktop tudi ampak brez veze. Za diske dat v sleep ipd
+# pacman -S xfce4-power-manager
 
 
-sudo systemctl enable lightdm
 
 
 printf " 
@@ -25,7 +27,7 @@ reboot now
 "
 
 # spodnji in xorg.xinit se že gor inštalirata
-# sudo pacman -S xorg-server
+# pacman -S xorg-server
 
 : <<'END_COMMENT'
 
