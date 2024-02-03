@@ -11,6 +11,9 @@ makepkg -si
 # You can test it's version
 yay --version
 
+# mouse cursor
+yay -S simple-and-soft-cursor
+
 # internet
 yay -S brave-bin
 
