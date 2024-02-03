@@ -59,16 +59,16 @@ sudo pacman -S grub efibootmgr dosfstools mtools base-devel
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB #change the directory to /boot/efi is you mounted the EFI partition at /boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# linux-headers
-sudo pacman -S linux-headers
-
-# bluetooth  
-sudo pacman -S bluez bluez-utils 
-systemctl enable bluetooth
+# linux-headers - you only need the headers in the case you want to build custom kernel modules and/or want to use DKMS packages
+# sudo pacman -S linux-headers
 
 # network (there is no other wifi tool otherwise. Use iwctl )
 sudo pacman -S networkmanager
 systemctl enable NetworkManager
+
+# bluetooth (needed if you use bluetooth mouse or keyboard)
+sudo pacman -S bluez bluez-utils 
+systemctl enable bluetooth
 
 
 # echo "marko ALL=(ALL) ALL" >> /etc/sudoers.d/marko - to ne dela
