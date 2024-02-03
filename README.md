@@ -187,12 +187,6 @@ sudo pacman-key --init
 sudo pacman-key --populate archlinux
 ```
 
-AUR
-Install yay, ker ga rabiš za naslednjo skripto
-```Bash
-./yay.sh
-```
-
 
 Exit the chroot environment by typing exit or pressing Ctrl+d.
 
