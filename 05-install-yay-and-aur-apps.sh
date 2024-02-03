@@ -14,6 +14,10 @@ yay --version
 # mouse cursor
 yay -S simple-and-soft-cursor
 
+# theme https://aur.archlinux.org/packages/nordic-bluish-accent-standard-buttons-theme
+# (regular not .git version)
+yay -S nordic-bluish-accent-standard-buttons-theme
+
 # internet
 yay -S brave-bin
 
