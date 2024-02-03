@@ -36,7 +36,7 @@ cp /etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d
 echo "KEYMAP=slovene
 FONT=lat2-16" >> /etc/vconsole.conf
 # To spodaj nisem ziher, če je res potreno dodat
-echo "FONT_MAP=8859-2" >> /etc/vconsole.conf
+# echo "FONT_MAP=8859-2" >> /etc/vconsole.conf
 
 # Hostname settings
 echo "Chose the hostname for your computer: (one word, small letters)"
@@ -61,7 +61,13 @@ echo "Chose the password for the $username user: (one word, small letters)"
 read userpass
 useradd -m $username
 echo $username:$userpass | chpasswd
-usermod -G wheel -a $username
+# usermod -G wheel -a $username - ne rabiš dodat userja v wheel grupo, ker imaš to spodaj, in mu daš itak vse pravice
+echo "$username ALL=(ALL) ALL" >> /etc/sudoers.d/$username
+
+# if it didn't work then uncomment #%wheel ALL=(ALL:ALL) ALL in sudoers file with"
+# sudo nano /etc/sudoers or
+# EDITOR=nano visudo"
+
 
 # Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
 sudo pacman -S grub efibootmgr dosfstools mtools base-devel
@@ -85,11 +91,6 @@ systemctl enable bluetooth
 pacman -S pipewire pipewire-pulse wireplumber
 
 
-# echo "marko ALL=(ALL) ALL" >> /etc/sudoers.d/marko - to ne dela
-printf "\e[1;32mUncomment %wheel ALL=(ALL:ALL) ALL in sudoers file with\e[0m"
-printf "sudo nano /etc/sudoers or"
-printf "EDITOR=nano visudo"
-printf "Uncomment %wheel ... "
 printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
 printf "Defaults !tty_tickets"
 printf " "
