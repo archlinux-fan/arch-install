@@ -32,7 +32,7 @@ A small summary:
 5. For slovenian keyboard:
 List them first if you dont know the correct one with:
 ```Bash
-localectl list-keymaps)
+localectl list-keymaps
 ```
 
 Load keys
