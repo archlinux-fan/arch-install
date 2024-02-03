@@ -4,8 +4,6 @@
 pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 systemctl enable lightdm
 
-
-
 pacman -S network-manager-applet
 pacman -S pavucontrol # rabiš ga, da štelaš sound, ko klikneš v panelu na xfce4-pulseaudio-plugin
 pacman -S xorg-xkill
