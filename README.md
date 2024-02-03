@@ -31,7 +31,8 @@ A small summary:
 
 4. Zalaufaj Arch iz USB-ja
 
-5. For slovenian keyboard:
+5. Set the console keyboard layout and font
+For slovenian keyboard:
 List them first if you dont know the correct one with:
 ```Bash
 localectl list-keymaps
@@ -47,12 +48,19 @@ Console fonts are located in /usr/share/kbd/consolefonts/. Set them
 setfont lat2-16
 ```
 
-6. če imaš že preko kabla internet za test če dela
+6. Connect to the internet
+Ensure your network interface is listed and enabled, for example with:
 ```Bash
-ping 8.8.8.8 
+ip link
+```
+enable the network card otherwise with 
+```Bash
+ip link set DEVICE up
 ```
 
-6a. Zrihtaj wifi network drugače  
+Connect to the network:
+- Ethernet—plug in the cable.
+- Wi-Fi—authenticate to the wireless network using iwctl.
 ```Bash
 iwctl
 device-list
@@ -60,6 +68,17 @@ station wlan0 get-networks   # 'wlan0' zamenjaš z imenom svoje kartice
 station wlan0 connnect 'ime wifi-ja' #vpip še pass
 ```
 
+The connection may be verified with ping:
+```Bash
+ping archlinux.org
+```
+
+7. Update the system clock
+In the live environment systemd-timesyncd is enabled by default and time will be synced automatically once a connection to the internet is established.
+Use timedatectl to ensure the system clock is accurate:
+```Bash
+timedatectl
+```
 
 ```Bash
 pacman -Sy # (Sinhroniziraj pakete)
@@ -67,8 +86,8 @@ pacman -Sy archlinux-keyring # (sinhronizira in inštalira še to zadnjo verzijo
 ```
 
 
-7. Naredi particije
-zlistaj particije in diske
+8. Partition the disks
+list partitions and disks
 ```Bash
 lsblk
 ```
@@ -82,25 +101,28 @@ narediš boot particijo 800M (če imaš Win + Linux, drugače je lahko manjša m
 narediš root partcijo z vsem ostalim prostorom (če nočeš swap particije). Za TYPE pustiš Linux filesystem.
 Write - vpiši "yes" in ENTER
 
-8. Formatiraj particije
+9. Format the partitions
 ```Bash
 mkfs.fat -F 32 /dev/efi_system_partition
 mkfs.ext4 /dev/root_partition
 ```
 
-9. Mount obeh particij + morda potem še win EFI particije, če rabiš dual boot z winsi
+10. Mount the file systems
+ + morda potem še win EFI particije, če rabiš dual boot z winsi
 ```Bash
 Mount big partion (file system)
 mount /dev/ime_diska /mnt
+
+Mount the boot partion with GRUB and kernels
 mkdir /mnt/boot
 mount /dev/ime_diska /mnt/boot
 ```
-preveri če vse štima
+test again with
 ```Bash
 lsblk
 ```
 
-10. Install stuff
+11. Install essential packages
 Speed tip:
 ```Bash
 pacman -Sy nano
@@ -113,7 +135,8 @@ install base firmware (-i je pomoje da te vpraša vmes da potrdiš. -K je pa da 
 pacstrap -Ki /mnt base linux linux-lts linux-firmware
 ```
 
-11. Mountaj particij fiksno za zmeraj. Prej so bile samo na USB
+Configure the system
+12. Mountaj particij fiksno za zmeraj. Prej so bile samo na USB
 Generate file system table (fstab)
 ```Bash
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -123,13 +146,15 @@ Preveriš lahko z:
 cat /mnt/etc/fstab
 ```
 
-#12. Go to chroot to our new root on nvme0n1p5
+
+#13. Chroot
+Change root into the new system
 ```Bash
 arch-chroot /mnt
 ```
 
 
-13. OPTIONAL če imaš še windows particijo in rabiš dual boot potem:
+14. OPTIONAL če imaš še windows particijo in rabiš dual boot potem:
 ```Bash
 pacman -S os-prober ntfs-3g (morda oba rabiš samo začasno. Ne vem pa kaj je pol ko se kernel updata)
 sudo nano /etc/default/grub
@@ -141,7 +166,7 @@ mkdir /mnt/win11
 mount /dev/ime_win_EFI_particije /mnt/win
 ```
 
-14. Posnami git, sudo in stakni skripto
+15. Posnami git, sudo in stakni skripto
 Download the git repository with git clone https://github.com/archlinux-fan/arch-install.git
 
 ```Bash
@@ -154,6 +179,12 @@ git clone https://github.com/archlinux-fan/arch-install.git # mora bit public na
 cd arch-install
 chmod +x base-uefi.sh
 run with sudo ./base_uefi.sh
+```
+
+ne vem kaj je to
+```Bash
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
 ```
 
 AUR
@@ -169,9 +200,4 @@ Optionally manually unmount all the partitions with umount -R /mnt: this allows 
 
 Finally, restart the machine by typing reboot: any partitions still mounted will be automatically unmounted by systemd. Remember to remove the installation medium and then login into the new system with the root acco
 
-ne vem kaj je to
-```Bash
-sudo pacman-key --init
-sudo pacman-key --populate archlinux
-```
 
