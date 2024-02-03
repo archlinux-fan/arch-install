@@ -23,4 +23,4 @@ yay -S audacious-gtk3 audacious-plugins-gtk3
 # System info tools
 # yay hardinfo
 
-# yay ttf-ms-fonts
+# yay -S ttf-ms-fonts (to get Times new roman fonts etc?)
