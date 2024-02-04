@@ -131,9 +131,9 @@ echo
 
 echo
 tput setab 1
-echo "###################################### Rebooting now in 5 seconds #####################################"; tput sgr0; tput setaf 1
-echo "#"
-echo "Press CTRL +C to stop script"
+echo "###################################### Rebooting now in 5 seconds #####################################"; tput sgr0; tput setaf 2
+echo "#"; tput sgr0; tput setaf 1; tput bold
+echo "Press CTRL +C to stop script"; tput sgr0; tput setaf 2
 echo "######################################################################################################"
 tput sgr0
 echo
