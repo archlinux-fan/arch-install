@@ -39,11 +39,22 @@ localectl list-keymaps
 ```
 
 Load keys
+List the most popular ones first, if you dont know which ones to use:
+```Bash
+ls /usr/share/kbd/keymaps/i386/qwerty/*.map.gz && ls /usr/share/kbd/keymaps/i386/qwertz/*.map.gz
+```
+Else (slovene, us, es)
+loadkeys slovene
 ```Bash
 loadkeys slovene
 ```
 
-Console fonts are located in /usr/share/kbd/consolefonts/. Set them
+Set console fonts 
+List them first, if you dont know which ones to use:
+```Bash
+ls /usr/share/kbd/consolefonts/
+```
+else (lat2-16 - for slovenian)
 ```Bash
 setfont lat2-16
 ```
