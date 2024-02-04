@@ -78,14 +78,13 @@ LC_MEASUREMENT=sl_SI.UTF-8
 LC_IDENTIFICATION=sl_SI.UTF-8
 LC_ALL=" >> /etc/locale.conf
 
-# /etc/X11/xorg.conf.d00-keyboard.conf file is need for Slovenian keyboard
-cp /etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d
 
-# If you set the console keyboard layout, make the changes persistent in /etc/vconsole.conf
-echo "KEYMAP=slovene
-FONT=lat2-16" >> /etc/vconsole.conf
-# To spodaj nisem ziher, če je res potreno dodat
-# echo "FONT_MAP=8859-2" >> /etc/vconsole.conf
+# If you set the console keyboard layout, make the changes persistent in /etc/vconsole.conf and generates /etc/X11/xorg.conf.d/00-keyboard.conf
+localectl set-keymap slovene
+
+
+# Set the font persistent in /etc/vconsole.conf
+echo "FONT=lat2-16" >> /etc/vconsole.conf
 
 # Hostname settings
 echo "Chose the hostname for your computer: (one word, small letters)"
@@ -155,7 +154,7 @@ printf "microcode + graphic card drivers install"
 printf "sudo pacman -S amd-ucode" # cpu microcodes
 printf " "
 printf "sudo pacman -S mesa" # provides the DRI driver for 3D acceleration
-printf "sudo pacman -S xf86-video-amdgpu" # DDX driver (which provides 2D acceleration in Xorg) 
+printf "sudo pacman -S xf86-video-amdgpu" # DDX driver (which provides 2D acceleration in Xorg - not needed at all? Eric Dubois removes this) 
 printf " "
 printf " "
 printf "sudo pacman -S intel-ucode" # intel cpu
