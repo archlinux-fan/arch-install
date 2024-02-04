@@ -128,13 +128,13 @@ Speed tip:
 ```Bash
 pacman -Sy nano
 nano /etc/pacman.conf
-uncomment ParalelDownloads = 5
+uncomment ParalelDownloads = 20
 ```
 
 Če je počasno pa z reflektorjem dobi najhitrješe mirrorje. Drugače bo to itak v zadnji skripti/koraku narejeno
 ```Bash
 pacman -S reflector
-systemctl enable reflector.timer
+reflector
 ```
 
 install base firmware (-i je pomoje da te vpraša vmes da potrdiš. -K je pa da nek prazen keyring vmes. Acceptaj default)
@@ -143,7 +143,7 @@ pacstrap -Ki /mnt base linux linux-lts linux-firmware
 ```
 
 Configure the system
-13. Mountaj particij fiksno za zmeraj. Prej so bile samo na USB
+13. Mountaj particije fiksno za zmeraj. Prej so bile samo na USB
 Generate file system table (fstab)
 ```Bash
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -181,11 +181,10 @@ pacman -Sy git sudo nano
 ```
 
 ```Bash
-git clone --depth 1 https://github.com/archlinux-fan/arch-install.git # mora bit public najbrš  # ('--depth 1' is so that it downloads latest version files only, no history)
+git clone --depth 1 https://github.com/archlinux-fan/arch-install.git # mora bit public najbrš  # ('--depth 1' is so that it downloads latest version files only, not the whole history)
 
 cd arch-install
-chmod +x base-uefi.sh
-run with sudo ./base_uefi.sh
+sudo sh base-uefi.sh
 ```
 
 ne vem kaj je to
