@@ -1,16 +1,12 @@
 #!/bin/bash
 
 # In Bash, set -e is a powerful option that controls how the script handles errors during execution. Let's break it down:
-#
-# set: This is a built-in command in Bash used to manage shell options and variables.
-# -e: This is a flag passed to the set command, representing the specific option you want to modify. In this case, -e stands for "exit on error."
-
+# 	set: This is a built-in command in Bash used to manage shell options and variables.
+# 	-e: This is a flag passed to the set command, representing the specific option you want to modify. In this case, -e stands for "exit on error."
 set -e 
 
-#!/bin/bash
-#set -e
 ##################################################################################################################
-# I got the ideas from:
+# I got inspiration from:
 # Author    : Erik Dubois 
 # Github    : https://github.com/erikdubois
 ##################################################################################################################
@@ -21,51 +17,43 @@ set -e
 
 
 
+
+	
 echo
 tput setaf 2
 echo "################################################################"
-echo "################### Set the time zone: #########################"
+echo "####################### Set the time : #########################"
 echo "################################################################"
 tput sgr0
 echo
-sudo ln -sf /usr/share/zoneinfo/Europe/Ljubljana /etc/localtime
 
 
+# Run time syncronization
+timedatectl set-ntp true
+echo "Check the time settings"
+echo
+timedatectl-status
+sleep 5
 
-
-# Run hwclock(8) to generate /etc/adjtime:
+# Run hwclock to generate file /etc/adjtime
 hwclock --systohc
 
-# Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales. Or just add them at the bottom of the file:
+# Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales. 
+# Or just add them at the bottom of the file (easier to read anyway):
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "sl_SI.UTF-8 UTF-8" >> /etc/locale.gen
 
 # Generate the locales by running:
 locale-gen
 
-# Create the /etc/locale.conf file, and set the LANG variable accordingly. Select prefered languages:
-echo "LANG=en_US.UTF-8
-LC_CTYPE=sl_SI.UTF-8
-LC_NUMERIC=sl_SI.UTF-8
-LC_TIME=sl_SI.UTF-8
-LC_COLLATE=sl_SI.UTF-8
-LC_MONETARY=sl_SI.UTF-8
-LC_MESSAGES=en_US.UTF-8
-LC_PAPER=sl_SI.UTF-8
-LC_NAME=sl_SI.UTF-8
-LC_ADDRESS=sl_SI.UTF-8
-LC_TELEPHONE=sl_SI.UTF-8
-LC_MEASUREMENT=sl_SI.UTF-8
-LC_IDENTIFICATION=sl_SI.UTF-8
-LC_ALL=" >> /etc/locale.conf
 
 
-# If you set the console keyboard layout, make the changes persistent in /etc/vconsole.conf and generates /etc/X11/xorg.conf.d/00-keyboard.conf
-localectl set-keymap slovene
 
 
-# Set the font persistent in /etc/vconsole.conf
-echo "FONT=lat2-16" >> /etc/vconsole.conf
+sh 100-set-locale*
+
+
+
 
 # Hostname settings
 echo "Chose the hostname for your computer: (one word, small letters)"
