@@ -7,50 +7,31 @@
 
 set -e 
 
-
-# Website   : https://www.arcolinuxiso.com
-# Website   : https://www.arcolinuxforum.com
+#!/bin/bash
+#set -e
+##################################################################################################################
+# I got the ideas from:
+# Author    : Erik Dubois 
+# Github    : https://github.com/erikdubois
 ##################################################################################################################
 #
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
-#tput setaf 0 = black text
-#tput setaf 1 = red text
-#tput setaf 2 = green text
-#tput setaf 3 = yellow text
-#tput setaf 4 = dark blue text
-#tput setaf 5 = purple text
-#tput setaf 6 = cyan text
-#tput setaf 7 = gray text
-#tput setaf 8 = light blue text
 
-#tput cuu 1 = move line up
-#tput el 1 = clear line
 
-#tput smul = underline text
-#tput bold = bold text
-
-#tput sgr0 = reset
-##################################################################################################################
-
-installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
-
-##################################################################################################################
 
 echo
 tput setaf 2
 echo "################################################################"
-echo "################### Making sure KDFONTOP at boot is gone"
+echo "################### Set the time zone: #########################"
 echo "################################################################"
 tput sgr0
 echo
+sudo ln -sf /usr/share/zoneinfo/Europe/Ljubljana /etc/localtime
 
 
 
-
-# Set the time zone:
-ln -sf /usr/share/zoneinfo/Europe/Ljubljana /etc/localtime
 
 # Run hwclock(8) to generate /etc/adjtime:
 hwclock --systohc
