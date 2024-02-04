@@ -5,5 +5,5 @@ sudo rm -rf /usr/share/backgrounds/xfce
 
 copy mine there
 ```Bash
-sudo cp *.* /usr/share/backgrounds/xfce
+sudo cp /personal/backgrounds/*.* /usr/share/backgrounds/xfce
 ```
