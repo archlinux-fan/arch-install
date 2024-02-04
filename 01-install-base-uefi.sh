@@ -10,15 +10,23 @@
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
-#tput setaf 0 = black
-#tput setaf 1 = red
-#tput setaf 2 = green
-#tput setaf 3 = yellow
-#tput setaf 4 = dark blue
-#tput setaf 5 = purple
-#tput setaf 6 = cyan
-#tput setaf 7 = gray
-#tput setaf 8 = light blue
+#tput setaf 0 = black text
+#tput setaf 1 = red text
+#tput setaf 2 = green text
+#tput setaf 3 = yellow text
+#tput setaf 4 = dark blue text
+#tput setaf 5 = purple text
+#tput setaf 6 = cyan text
+#tput setaf 7 = gray text
+#tput setaf 8 = light blue text
+
+#tput cuu 1 = move line up
+#tput el 1 = clear line
+
+#tput smul = underline text
+#tput bold = bold text
+
+#tput sgr0 = reset
 ##################################################################################################################
 
 installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
@@ -160,10 +168,13 @@ printf " "
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
 
 
-
+echo
+tput setaf 6
 echo "################################################################"
-echo "###################    T H E   E N D      ######################"
+echo "###### KDFONTOP message is gone"
 echo "################################################################"
+tput sgr0
+echo
 
 
 : <<'END_COMMENT'
@@ -199,3 +210,68 @@ For hardware-accelerated video decoding/encoding, you need either mesa-vdpau (ol
 Consult your distribution's documentation or GPU specs to determine which option is compatible and suitable for your setup.
 
 END_COMMENT
+
+
+
+
+
+
+
+
+
+
+: <<'END_COMMENT'
+
+   [ -d arc-theme ] && rm -rf arc-theme
+  # if there is no hidden folder then make one
+  [ -d $HOME"/.themes" ] || mkdir -p $HOME"/.themes"
+  cp -rf /tmp/at/share/themes/Arc $HOME"/.themes"
+  cp -rf /tmp/at/share/themes/Arc-Dark $HOME"/.themes"
+  cp -rf /tmp/at/share/themes/Arc-Darker $HOME"/.themes"
+
+  mv $HOME"/.themes/Arc" $HOME"/.themes/Arc-"$choice
+  mv $HOME"/.themes/Arc-Dark" $HOME"/.themes/Arc-"$choice"-Dark"
+  mv $HOME"/.themes/Arc-Darker" $HOME"/.themes/Arc-"$choice"-Darker"
+
+  echo "################################################################"
+  echo "Renaming the content of the index.theme"
+  echo "Arc-$choice-Darker"
+  find $HOME"/.themes/Arc-"$choice"-Darker" -name "index.theme" -type f -exec sed -i 's/'Name=Arc-Darker'/'Name=Arc-$choice-Darker'/g' {}  \;
+  find $HOME"/.themes/Arc-"$choice"-Darker" -name "index.theme" -type f -exec sed -i 's/'GtkTheme=Arc-Darker'/'GtkTheme=Arc-$choice-Darker'/g' {}  \;
+  find $HOME"/.themes/Arc-"$choice"-Darker" -name "index.theme" -type f -exec sed -i 's/'MetacityTheme=Arc-Darker'/'MetacityTheme=Arc-$choice-Darker'/g' {}  \;
+  echo "################################################################"
+  echo "Renaming inside the index.theme"
+  echo "Arc-$choice-Dark"
+  find $HOME"/.themes/Arc-"$choice"-Dark" -name "index.theme" -type f -exec sed -i 's/'Name=Arc-Dark'/'Name=Arc-$choice-Dark'/g' {}  \;
+  find $HOME"/.themes/Arc-"$choice"-Dark" -name "index.theme" -type f -exec sed -i 's/'GtkTheme=Arc-Dark'/'GtkTheme=Arc-$choice-Dark'/g' {}  \;
+  find $HOME"/.themes/Arc-"$choice"-Dark" -name "index.theme" -type f -exec sed -i 's/'MetacityTheme=Arc-Dark'/'MetacityTheme=Arc-$choice-Dark'/g' {}  \;
+  echo "################################################################"
+  echo "Renaming inside the index.theme"
+  echo "Arc-$choice"
+  find $HOME"/.themes/Arc-"$choice -name "index.theme" -type f -exec sed -i 's/'Name=Arc'/'Name=Arc-$choice'/g' {}  \;
+  find $HOME"/.themes/Arc-"$choice -name "index.theme" -type f -exec sed -i 's/'GtkTheme=Arc'/'GtkTheme=Arc-$choice'/g' {}  \;
+  find $HOME"/.themes/Arc-"$choice -name "index.theme" -type f -exec sed -i 's/'MetacityTheme=Arc'/'MetacityTheme=Arc-$choice'/g' {}  \;
+  }
+
+  makearc
+
+  echo "#####################################################################"
+  echo "#####################################################################"
+
+  rm -rf /tmp/at/{Arc,Arc-Darker,Arc-Dark}
+
+
+if grep -q main .git/config; then
+	echo "Using main"
+		git push -u origin main
+fi
+
+
+END_COMMENT
+
+
+
+
+
+
+
