@@ -20,8 +20,7 @@ A small summary:
 9. Chroot in with arch-chroot /mnt
 10. Download the git repository with git clone https://gitlab.com/archlinux-fan/arch-install.git
 11. cd arch-basic
-12. chmod +x base-uefi.sh
-13. run with ./base-uefi.sh
+12. sh base-uefi.sh (morda še sudo)
 
 
 1. Na winsih naredi free plac za 2 particije. 800MB za Dual boot, kjer sta kernela (navadni in LTS), ter drugo kjer bo linux.
