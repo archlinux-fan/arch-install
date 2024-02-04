@@ -33,19 +33,12 @@ A small summary:
 4. Zalaufaj Arch iz USB-ja
 
 5. Set the console keyboard layout and font
-For slovenian keyboard:
-List them first if you dont know the correct one with:
+List them first if you dont know the correct one with (they are all located at /usr/share/kbd/keymaps/):
 ```Bash
 localectl list-keymaps
 ```
 
-*Load keys*
-List the most popular ones first, if you dont know which ones to use:
-```Bash
-ls /usr/share/kbd/keymaps/i386/qwerty/*.map.gz && ls /usr/share/kbd/keymaps/i386/qwertz/*.map.gz
-```
-Else (slovene, us, es)
-loadkeys slovene
+Load them (examples: slovene, us, es)
 ```Bash
 loadkeys slovene
 ```
@@ -153,7 +146,7 @@ reflector
 
 install base firmware (-i je pomoje da te vpraša vmes da potrdiš. -K je pa da nek prazen keyring vmes. Acceptaj default)
 ```Bash
-pacstrap -Ki /mnt base linux linux-lts linux-firmware
+pacstrap -Ki /mnt base linux linux-lts linux-firmware (linux-lts je še drugi kernel zraven z long term support (bolj stabilen). Če je z enim nekaj narobe zalaufaš drugega potem na začetku pri izbiri v GRUB)
 ```
 
 Configure the system
