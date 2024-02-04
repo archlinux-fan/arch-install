@@ -35,20 +35,32 @@ sudo localectl set-keymap slovene
 # Create the /etc/locale.conf file, and set the LANG variable accordingly. Select prefered languages:
 sudo localectl set-locale LANG=en_US.UTF-8
 
-# add slovenian stuff for calendar, measurmenets, time format,...
-echo "LC_CTYPE=sl_SI.UTF-8
-LC_NUMERIC=sl_SI.UTF-8
-LC_TIME=sl_SI.UTF-8
-LC_COLLATE=sl_SI.UTF-8
-LC_MONETARY=sl_SI.UTF-8
-LC_MESSAGES=en_US.UTF-8
-LC_PAPER=sl_SI.UTF-8
-LC_NAME=sl_SI.UTF-8
-LC_ADDRESS=sl_SI.UTF-8
-LC_TELEPHONE=sl_SI.UTF-8
-LC_MEASUREMENT=sl_SI.UTF-8
-LC_IDENTIFICATION=sl_SI.UTF-8
-LC_ALL=" >> /etc/locale.conf
+echo
+tput setaf 3
+echo "################################################################"
+echo "Do you want add stuff for slovenian date, measurmenets (C), time format,...?"
+echo "Answer with Y/y or N/n"
+echo "################################################################"
+tput sgr0
+echo
+
+read response
+
+if [[ "$response" == [yY] ]]; then
+    echo "LC_CTYPE=sl_SI.UTF-8
+    LC_NUMERIC=sl_SI.UTF-8
+    LC_TIME=sl_SI.UTF-8
+    LC_COLLATE=sl_SI.UTF-8
+    LC_MONETARY=sl_SI.UTF-8
+    LC_MESSAGES=en_US.UTF-8
+    LC_PAPER=sl_SI.UTF-8
+    LC_NAME=sl_SI.UTF-8
+    LC_ADDRESS=sl_SI.UTF-8
+    LC_TELEPHONE=sl_SI.UTF-8
+    LC_MEASUREMENT=sl_SI.UTF-8
+    LC_IDENTIFICATION=sl_SI.UTF-8
+    LC_ALL=" >> /etc/locale.conf
+fi
 
 
 # Set the font persistent in /etc/vconsole.conf
