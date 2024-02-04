@@ -20,4 +20,7 @@ pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-notifyd xfce4-panel xf
 # xfce4-power-manager - for laptop battery, za desktop tudi ampak brez veze. Za diske dat v sleep ipd
 # pacman -S xfce4-power-manager
 
+sudo rm -rf /usr/share/backgrounds/xfce
+# add personal wallpapers command
+
 printf "reboot now to try lightdm"
