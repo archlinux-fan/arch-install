@@ -5,8 +5,7 @@
 # Author    : Erik Dubois 
 # Github    : https://github.com/erikdubois
 ##################################################################################################################
-
-
+clear
 
 ##################################################### Colors #####################################################
 color_bg="tput setab 0"
@@ -18,19 +17,18 @@ color_input_text="tput setaf 6"
 
 color_success_text="tput setaf 2"
 ##################################################################################################################
-clear
 
 echo
 $color_comment_text
-echo -n "###################################   "; $color_bg; echo -n "  Set the time zone (link):  "; tput sgr0; $color_comment_text; echo "   ##################################"
+printf "###################################   "; $color_bg; echo -n "  Set the time zone (link):  "; tput sgr0; $color_comment_text; echo "   ##################################"
 echo "# To find Region and city"
-echo -n "# "; $color_comment_command; echo "ls /usr/share/zoneinfo/REGION"; $color_comment_text
-echo -n "# "; $color_comment_command; echo "ls /usr/share/zoneinfo/REGION/CITY"; $color_comment_text
-echo -n "# "; $color_comment_command; echo "ls /usr/share/zoneinfo/Europe/Ljubljana"; $color_comment_text
+printf "# "; $color_comment_command; echo "ls /usr/share/zoneinfo/REGION"; $color_comment_text
+printf "# "; $color_comment_command; echo "ls /usr/share/zoneinfo/REGION/CITY"; $color_comment_text
+printf "# "; $color_comment_command; echo "ls /usr/share/zoneinfo/Europe/Ljubljana"; $color_comment_text
 echo "#"
 echo "# Run timedatectl set-timezone to generate file /etc/localtime"
 echo "# The command above creates a symlink:"
-echo -n "# "; $color_comment_command; echo "ln -sf /usr/share/zoneinfo/REGION/CITY /etc/localtime"; $color_comment_text
+printf "# "; $color_comment_command; echo "ln -sf /usr/share/zoneinfo/REGION/CITY /etc/localtime"; $color_comment_text
 echo "########################################################################################################"
 tput sgr0
 
@@ -61,10 +59,7 @@ done
 
 echo
 $color_success_text
-printf "Time zone is set to: "
-$color_bg
-printf " $timezone_new "
-tput sgr0
+printf "Time zone is set to: "; $color_bg; echo " $timezone_new "; tput sgr0
 echo
 
 sleep 2
