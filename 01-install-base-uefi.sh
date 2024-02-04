@@ -1,6 +1,11 @@
 #!/bin/bash
 
+# In Bash, set -e is a powerful option that controls how the script handles errors during execution. Let's break it down:
+#
+# set: This is a built-in command in Bash used to manage shell options and variables.
+# -e: This is a flag passed to the set command, representing the specific option you want to modify. In this case, -e stands for "exit on error."
 
+set -e 
 
 
 # Website   : https://www.arcolinuxiso.com
