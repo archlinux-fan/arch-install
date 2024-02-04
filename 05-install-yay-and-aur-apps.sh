@@ -1,9 +1,9 @@
 #!/bin/bash
 
-git clone https://aur.archlinux.org/yay.git
+git clone https://aur.archlinux.org/yay.git /tmp/yay-bin
 
 # Once done, switch to the cloned directory:
-cd yay
+cd /tmp/yay-bin
 
 # Build it. Follow instructions
 makepkg -si
