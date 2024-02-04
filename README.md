@@ -11,7 +11,7 @@ A small summary:
 
 If Dual boot with windows is needed:
 1. Na winsih naredi free plac za 2 particije. 800MB za Dual boot, kjer sta kernela (navadni in LTS), ter drugo kjer bo linux.
-
+----
 
 1. Z Rufusom inštaliraj Arch .iso fajl. Naj bo GPT, ker MBR je zastarelo in ne dela za EFI oz bolj nov UEFI (rabiš za dual boot, če ne je boot samo z BIOSom)
 2. v BIOSU disablaj secure boot.
