@@ -10,17 +10,18 @@ Follow official instalation guide: - https://wiki.archlinux.org/title/Installati
 A small summary:
 
 1. If needed, load your keymap
-2. Refresh the servers with pacman -Syy
-3. Partition the disk
-4. Format the partitions
-5. Mount the partitions
-6. Install the base packages into /mnt (pacstrap /mnt base linux linux-firmware git vim intel-ucode (or amd-ucode))
-7. Generate the FSTAB file with genfstab -U /mnt >> /mnt/etc/FSTAB
-8. Chroot in with arch-chroot /mnt
-9. Download the git repository with git clone https://gitlab.com/archlinux-fan/arch-install.git
-10. cd arch-basic
-11. chmod +x base-uefi.sh
-12. run with ./base-uefi.sh
+2. Set time
+3. Refresh the servers with pacman -Syy
+4. Partition the disk
+5. Format the partitions
+6. Mount the partitions
+7. Install the base packages into /mnt (pacstrap /mnt base linux linux-firmware git vim intel-ucode (or amd-ucode))
+8. Generate the FSTAB file with genfstab -U /mnt >> /mnt/etc/FSTAB
+9. Chroot in with arch-chroot /mnt
+10. Download the git repository with git clone https://gitlab.com/archlinux-fan/arch-install.git
+11. cd arch-basic
+12. chmod +x base-uefi.sh
+13. run with ./base-uefi.sh
 
 
 1. Na winsih naredi free plac za 2 particije. 800MB za Dual boot, kjer sta kernela (navadni in LTS), ter drugo kjer bo linux.
@@ -38,7 +39,7 @@ List them first if you dont know the correct one with:
 localectl list-keymaps
 ```
 
-Load keys
+*Load keys*
 List the most popular ones first, if you dont know which ones to use:
 ```Bash
 ls /usr/share/kbd/keymaps/i386/qwerty/*.map.gz && ls /usr/share/kbd/keymaps/i386/qwertz/*.map.gz
@@ -49,7 +50,8 @@ loadkeys slovene
 loadkeys slovene
 ```
 
-Set console fonts 
+
+*Set console fonts *
 List them first, if you dont know which ones to use:
 ```Bash
 ls /usr/share/kbd/consolefonts/
@@ -90,6 +92,7 @@ Use timedatectl to ensure the system clock is accurate:
 ```Bash
 timedatectl
 ```
+
 
 8. Sinhronize packages
 ```Bash
