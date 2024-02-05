@@ -40,7 +40,36 @@ sudo pacman -S rofi                     # Fast and flexible tool for application
 
 # System info tools
 sudo pacman -S neofetch                 # Displays system information in a stylish format
-sudo pacman -S vdpauinfo                # Provides information about VDPAU capabilities (video acceleration)
+
+    # Detailed hardware information
+    # sudo pacman -S hwinfo                   # Provides comprehensive overview of system hardware components and their attributes
+      
+    # Detailed CPU information
+    # sudo pacman -S lscpu                    # Displays detailed information about the CPU architecture, frequency, and cache
+      
+    # Sensor information and monitoring
+    # sudo pacman -S lm-sensors               # Enables monitoring of CPU temperatures, fan speeds, and other hardware sensors
+    # sudo pacman -S sensors                  # Reads and displays sensor data collected by lm-sensors
+      
+    # Hard disk information and health
+    # sudo pacman -S smartmontools            # Provides hard disk health and performance information
+    # sudo pacman -S hdparm                   # Allows querying and modifying hard disk parameters
+      
+    # Network information and connectivity
+    # sudo pacman -S ip                       # Command-line utility for network interface management and information
+    # sudo pacman -S net-tools                # Collection of essential network utilities (ping, traceroute, etc.)
+      
+    # System resources and process monitoring
+    # sudo pacman -S htop                     # Interactive text-based process viewer with sorting and filtering
+    # sudo pacman -S atop                     # Monitors and logs system resource usage over time
+    # sudo pacman -S glances                  # Modern curses-based tool for monitoring CPU, memory, disk, and network usage
+      
+    # Other useful tools
+    # sudo pacman -S inxi                     # Provides various system information in a concise format
+    # sudo pacman -S screenfetch              # Displays system information along with a customizable ASCII logo
+    # sudo pacman -S btop                     # Interactive process viewer with a graphical interface
+
+
 
 # System Management
 # sudo pacman -S zram-generator           # Tool for creating and managing zram devices (compressed RAM used as swap space)
