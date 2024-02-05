@@ -1,10 +1,12 @@
 #!/bin/bash
-#set -e
+
 ##################################################################################################################
 # I got inspiration from:
 # Author    : Erik Dubois 
 # Github    : https://github.com/erikdubois
 ##################################################################################################################
+
+
 
 # Hostname settings
 echo "Chose the hostname for your computer: (one word, small letters)"

@@ -5,10 +5,8 @@
 # Author    : Erik Dubois 
 # Github    : https://github.com/erikdubois
 ##################################################################################################################
-#
-#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
-#
-##################################################################################################################
+
+
 
 # NetworkManager is a graphical and command-line utility for managing network connections in Linux
 # I think you don't need dhcpcd since it has it's own. Not sure though

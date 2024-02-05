@@ -5,10 +5,7 @@
 # Author    : Erik Dubois 
 # Github    : https://github.com/erikdubois
 ##################################################################################################################
-#
-#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
-#
-##################################################################################################################
+
 
 
 #  'intel-media-driver: backend for Intel GPUs (>= Broadwell)'

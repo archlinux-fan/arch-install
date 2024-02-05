@@ -1,10 +1,12 @@
 #!/bin/bash
-#set -e
+
 ##################################################################################################################
 # I got inspiration from:
 # Author    : Erik Dubois 
 # Github    : https://github.com/erikdubois
 ##################################################################################################################
+
+
 
 # Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
 sudo pacman -S grub efibootmgr dosfstools mtools base-devel
