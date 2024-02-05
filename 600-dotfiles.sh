@@ -24,81 +24,40 @@ Move your existing dotfiles into this folder.
 Navigate to the folder in your terminal and initialize Git:
 
 cd ~/.dotfiles
-git init  
-
-4. Add a remote to connect to your GitHub repository:
-git remote add origin https://github.com/<your-username>/<your-dotfiles-repo>.git
+git init --bare
 
 
-5. Add files to the repository:
-git add .  
+Create an alias in your bash configuration file ~/.bashrc:
+
+Add the following line, replacing dotfiles with your preferred alias name:
+alias dots='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 
-6. Commit your changes:
-git commit -m "Initial commit of dotfiles"  
+In your terminal, run the following command to apply the changes so that command is recognised by the terminal or just restart the terminal
+source ~/.bashrc  
 
 
-7. Push your dotfiles to GitHub:
-git push -u origin main  
+also run the command:
+dots config status.showUntrackedFiles no
 
+Now, whenever you want to use Git commands with your dotfiles repository, you can use the dotfiles alias instead of typing the full command each time:
 
-8. Set up a post-commit hook for automatic synchronization:
-
-Create a file named .git/hooks/post-commit in your dotfiles folder.
-Add the following content to the file:
 Bash
-#!/bin/sh
-git push origin main  
-Make the file executable:
-Bash
-chmod +x .git/hooks/post-commit  
-Now, whenever you commit changes to your dotfiles, they will automatically be pushed to GitHub, ensuring synchronization.
+# To see status of tracked files:
+dotfiles status
 
-Additional notes:
+# To add a file to the repository:
+dotfiles add .bashrc
 
-To manage symlinks effectively, consider using a tool like stow or a custom script.
-For more advanced strategies and configuration options, refer to the Arch Wiki's Dotfiles page: https://wiki.archlinux.org/title/Dotfiles: https://wiki.archlinux.org/title/Dotfiles
-profilna slika
-ok. But I would only like to monitor a few pre specified folders in /home/.config folder (like /home/.config/xfce) so that any changes made in that folder are automatically pushed to github. I use bash by the way. So how can I specify that in git
+# To commit changes:
+dotfiles commit -m "Updated bash settings"
 
-Here's how to monitor and sync specific folders within /home/.config with GitHub, using Bash and Git:
-
-Create a dedicated Git repository:
-
-Create a new repository in a separate location, not within /home/.config. This avoids tracking the entire .config folder.
-Example: mkdir ~/dotfiles-config
-Initialize Git: cd ~/dotfiles-config && git init
-Add specific folders as submodules:
-
-Add the folders you want to track as submodules:
-git submodule add -f /home/.config/xfce
-# Add other folders as needed:
-# git submodule add -f /home/.config/other-folder  
-Commit and push:
-
-Commit the submodule changes: git commit -m "Added submodules"
-Push to GitHub: git push -u origin main
-Set up post-commit hook (optional):
-
-Create a post-commit hook in .git/hooks/ as before:
-#!/bin/sh
-git push origin main 
-
-Make it executable: chmod +x .git/hooks/post-commit
-Making changes and syncing:
-
-Make changes directly within the original folders (e.g., /home/.config/xfce).
-When ready to sync:
-Navigate to the main repository: cd ~/dotfiles-config
-Commit and push: git commit -m "Updated submodules" && git push
+# To push changes to a remote repository:
+dotfiles push origin master
+Kodo uporabljajte previdno. Več o tem
 Key points:
 
-Git submodules allow tracking specific folders within a larger repository.
-Changes in submodules are committed separately within their respective folders.
-Committing and pushing in the main repository updates submodules on GitHub.
-The post-commit hook automates pushing for convenience.
-Use git submodule update to fetch latest changes from GitHub to your local submodules.
-For more complex scenarios, consider tools like stow or custom scripts, as mentioned earlier.
-
-
+The alias doesn't store the command within the Git repository itself, but it provides a convenient way to access it from anywhere in your terminal.
+The alias is specific to your shell environment. If you use different shells, you'll need to set up the alias in each one.
+Remember to replace dotfiles with your preferred alias name.
 
