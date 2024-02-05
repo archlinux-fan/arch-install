@@ -14,7 +14,7 @@
 sudo pacman -S networkmanager
 
 # applet to run in a panel inside DE
-pacman -S network-manager-applet
+# pacman -S network-manager-applet # will be installed inside XFCE script
 
 
 systemctl enable NetworkManager
