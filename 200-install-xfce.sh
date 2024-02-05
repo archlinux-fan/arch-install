@@ -25,8 +25,10 @@ sudo pacman -S xorg-xkill                       # Allows killing applications wi
 # sudo pacman -S arc-gtk-theme                  # GTK theme set
 # sudo pacman -S arc-gtk-theme arc-icon-theme   # GTK icon set(nordic installed later from AUR is preferred)
 
+
 # Icons
 sudo pacman -S papirus-icon-theme               # Popular icon theme
+
 
 # Install XFCE components
 sudo pacman -S xfce4-battery-plugin             # Battery status indicator for XFCE panel
@@ -46,7 +48,6 @@ sudo pacman -S xfdesktop                        # Desktop environment components
 sudo pacman -S xfwm4                            # Window manager for XFCE
 sudo pacman -S xfwm4-themes                     # Themes for the XFWM4 window manager
 
-# XFCE power manager (skip for desktop)
 # sudo pacman -S xfce4-power-manager            # Power management for laptops (not needed for desktop)
 
 
