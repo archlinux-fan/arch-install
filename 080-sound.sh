@@ -16,7 +16,6 @@
 #
 # PipeWire: Installed automatically with pipewire-pulse.
 # WirePlumber: Included in pipewire-pulse.
-# Bluetooth and BlueZ stack: Ensured through bluez and bluez-utils.
 # Don't install JACK or its package unless you have a specific reason for using it in your audio workflow.
 
 
