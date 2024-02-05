@@ -13,8 +13,11 @@
 # network (there is no other wifi tool otherwise. Use iwctl )
 sudo pacman -S networkmanager
 
+# enable the NetworkManager service
+systemctl enable NetworkManager
+
+
 # applet to run in a panel inside DE
 # pacman -S network-manager-applet # will be installed inside XFCE script
 
 
-systemctl enable NetworkManager
