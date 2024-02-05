@@ -44,20 +44,23 @@ Now, whenever you want to use Git commands with your dotfiles repository, you ca
 
 Bash
 # To see status of tracked files:
-dotfiles status
+dots status
 
 # To add a file to the repository:
-dotfiles add .bashrc
+dots add .bashrc
+
+# To add a directory to the repository:
+dots add ~/.config/audacious/
 
 # To commit changes:
-dotfiles commit -m "Updated bash settings"
+dots commit -m "Updated bash settings"
 
 # To push changes to a remote repository:
-dotfiles push origin master
-Kodo uporabljajte previdno. Več o tem
+dots push origin master
+
 Key points:
 
 The alias doesn't store the command within the Git repository itself, but it provides a convenient way to access it from anywhere in your terminal.
 The alias is specific to your shell environment. If you use different shells, you'll need to set up the alias in each one.
-Remember to replace dotfiles with your preferred alias name.
+Remember to replace dots with your preferred alias name.
 
