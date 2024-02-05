@@ -37,6 +37,25 @@ sh 070-bluetooth*
 sh 080-sound*
 
 
+010-set-timezone
+011-set-time
+020-set-locale
+030-hosts
+040-user-group
+050-grub
+060-network
+070-bluetooth
+080-sound
+100-install-base-tools
+200-install-xfce
+300-post-install-config
+310-install-cups
+400-install-yay-and-aur-apps
+500-hardware-acceleration-AMD
+
+
+
+
 printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
 printf "Defaults !tty_tickets"
 printf " "
