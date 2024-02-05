@@ -1,16 +1,14 @@
 #!/bin/bash
 
-# network and printer automatic discovery
-# Avahi provides local hostname resolution using a "hostname.local" naming scheme. To enable it, install the nss-mdns package and start/enable avahi-daemon.service.
-# Then, edit the file /etc/nsswitch.conf and change the hosts line to include mdns_minimal [NOTFOUND=return] before resolve and dns:
-# hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns
-
-
-
-# printer
-# printer needs ghostscript (.pdf stuff) to print, cause it receives what to print in .pdf format
-pacman -S cups ghostscript
-systemctl enable cups.service
+##################################################################################################################
+# I got inspiration from:
+# Author    : Erik Dubois 
+# Github    : https://github.com/erikdubois
+##################################################################################################################
+#
+#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
+#
+##################################################################################################################
 
 
 
@@ -33,13 +31,21 @@ sudo pacman -S ghostscript               # PostScript interpreter for generating
 # Enable and start the CUPS service
 sudo systemctl enable --now cups.service      # Enable and start the CUPS printing service
 
-# Nework printers
+
+# Network and printer automatic discovery (network printers only)
 # Avahi and nss-mdns can be helpful for setting up printers in Arch Linux alongside CUPS, but they aren't strictly necessary depending on your specific setup.
 # Can be removed later once I think, but not sure 
 sudo pacman -S avahi
 sudo pacman -S nss-mdns
 
 systemctl enable avahi-daemon
+
+# Avahi provides local hostname resolution using a "hostname.local" naming scheme. To enable it, install the nss-mdns package and start/enable avahi-daemon.service.
+# Then, edit the file /etc/nsswitch.conf and change the hosts line to include mdns_minimal [NOTFOUND=return] before resolve and dns:
+# hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns
+
+
+
 
 # click/enable option mdns in firewall GUI config "services" option - for printer to work
 # better yet, change default zone form public to home, which has mdns enabled by default

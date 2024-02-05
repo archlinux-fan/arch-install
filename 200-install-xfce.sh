@@ -1,5 +1,16 @@
 #!/bin/bash
 
+##################################################################################################################
+# I got inspiration from:
+# Author    : Erik Dubois 
+# Github    : https://github.com/erikdubois
+##################################################################################################################
+#
+#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
+#
+##################################################################################################################
+
+
 # Login manager
 sudo pacman -S lightdm                          # Lightweight and fast login manager
 sudo pacman -S lightdm-gtk-greeter              # GTK 3 greeter for lightdm

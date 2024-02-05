@@ -1,5 +1,16 @@
 #!/bin/bash
 
+##################################################################################################################
+# I got inspiration from:
+# Author    : Erik Dubois 
+# Github    : https://github.com/erikdubois
+##################################################################################################################
+#
+#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
+#
+##################################################################################################################
+
+
 # File system
 sudo pacman -S file-roller              # Archiving tool for creating and managing compressed files
 sudo pacman -S gvfs                     # Virtual filesystem for accessing network resources and devices
