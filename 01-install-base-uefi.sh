@@ -23,36 +23,8 @@ sh 020-set-locale*
 
 sh 030-hosts*
 
+sh 040-user-group*
 
-# Hostname settings
-echo "Chose the hostname for your computer: (one word, small letters)"
-read hostname
-echo $hostname >> /etc/hostname
-
-# Hosts settings
-echo "127.0.0.1  localhost" >> /etc/hosts
-echo "::1        localhost" >> /etc/hosts
-echo "127.0.1.1  $hostname.localdomain $hostname" >> /etc/hosts
-
-# Users and pass
-# Set root pass
-echo "Chose the password for the root user: (one word, small letters)"
-read rootpass
-echo root:$rootpass | chpasswd # chpasswd is a command to create pass
-
-# Add user and add it to groups
-echo "Chose your username: (one word, small letters)"
-read username
-echo "Chose the password for the $username user: (one word, small letters)"
-read userpass
-useradd -m $username
-echo $username:$userpass | chpasswd
-# usermod -G wheel -a $username - ne rabiš dodat userja v wheel grupo, ker imaš to spodaj, in mu daš itak vse pravice
-echo "$username ALL=(ALL) ALL" >> /etc/sudoers.d/$username
-
-# if it didn't work then uncomment #%wheel ALL=(ALL:ALL) ALL in sudoers file with"
-# sudo nano /etc/sudoers or
-# EDITOR=nano visudo"
 
 
 # Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
