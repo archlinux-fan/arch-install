@@ -28,10 +28,8 @@ systemctl enable NetworkManager
 # List your network cards:
 # nmcli
 
-
 # List all visible Wi-Fi networks:
 # nmcli dev wifi list
-
 
 # connect
 # nmcli dev wifi connect <network_name> password <password>
