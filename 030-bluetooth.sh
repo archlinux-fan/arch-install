@@ -11,5 +11,12 @@
 ##################################################################################################################
 
 # bluetooth (needed if you use bluetooth mouse or keyboard)
-sudo pacman -S bluez bluez-utils 
+
+
+# bluez package provides Bluetooth stack management
+sudo pacman -S bluez
+
+# bluez-utils package includes tools for Bluetooth management like bluetoothctl
+sudo pacman -S bluez-utils
+
 systemctl enable bluetooth
