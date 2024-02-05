@@ -18,3 +18,4 @@ systemctl enable reflector.timer
 # enable the fstrim timer to trim SSD drive weekly
 systemctl enable fstrim.timer
 
+# sudo pacman -S mkinitcpio-firmware      # Optional firmware for the default linux kernel to get rid of the annoying 'WARNING: Possibly missing firmware for module:' messages
