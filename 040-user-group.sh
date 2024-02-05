@@ -25,3 +25,7 @@ echo "$username ALL=(ALL) ALL" >> /etc/sudoers.d/$username
 # if it didn't work then uncomment #%wheel ALL=(ALL:ALL) ALL in sudoers file with"
 # sudo nano /etc/sudoers or
 # EDITOR=nano visudo"
+
+printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
+printf "Defaults !tty_tickets"
+printf " "
