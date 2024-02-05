@@ -31,7 +31,8 @@ sudo pacman -S scrot                    # Command-line screenshot tool for captu
 
 # Tools
 # sudo pacman -S rnote                    # Feature-rich and visually appealing text editor
-# sudo pacman -S gpick                    # Advanced color picker tool for selecting and manipulating colors
+# sudo pacman -S xcolor                   # Advanced color picker tool for selecting and manipulating colors
+# sudo pacman -S gpick                    # Another lightweight X11 color picker with more color manipulation options but a less modern interface
 # sudo pacman -S gsimplecal               # Simple calendar application for basic date management
 # sudo pacman -S firejail                 # Sandbox tool for safely running applications without affecting system configuration
 
