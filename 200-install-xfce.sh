@@ -1,11 +1,20 @@
 #!/bin/bash
 
 # login manager
-pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S lightdm 
+pacman -S lightdm-gtk-greeter
+pacman -S lightdm-gtk-greeter-settings
+
+# enable the lightdm service
 systemctl enable lightdm
 
+# package is a GTK 3 front-end which works under Xorg environments with a systray
 pacman -S network-manager-applet
-pacman -S pavucontrol # rabiš ga, da štelaš sound, ko klikneš v panelu na xfce4-pulseaudio-plugin
+
+# package is needed to set sound levels in XFCE panel like xfce4-pulseaudio-plugin
+pacman -S pavucontrol
+
+# death icon to kill apps with a mouse
 pacman -S xorg-xkill
 
 # theme - morda ne rabim, ker staknem nordic z yay potem
@@ -14,8 +23,24 @@ pacman -S xorg-xkill
 # icons
 pacman -S papirus-icon-theme
 
-# install xfce
-pacman -S xfce4-battery-plugin xfce4-clipman-plugin xfce4-notifyd xfce4-panel xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-taskmanager xfce4-terminal xfce4-time-out-plugin xfce4-weather-plugin xfdesktop xfwm4 xfwm4-themes
+# install xfce and stuff
+pacman -S xfce4-battery-plugin
+pacman -S xfce4-clipman-plugin 
+pacman -S xfce4-notifyd 
+pacman -S xfce4-panel
+pacman -S xfce4-pulseaudio-plugin 
+pacman -S xfce4-screensaver
+pacman -S xfce4-screenshooter 
+pacman -S xfce4-session 
+pacman -S xfce4-settings 
+pacman -S xfce4-taskmanager 
+pacman -S xfce4-terminal 
+pacman -S xfce4-time-out-plugin 
+pacman -S xfce4-weather-plugin 
+pacman -S xfdesktop 
+pacman -S xfwm4 
+pacman -S xfwm4-themes
+
 
 # xfce4-power-manager - for laptop battery, za desktop tudi ampak brez veze. Za diske dat v sleep ipd
 # pacman -S xfce4-power-manager
