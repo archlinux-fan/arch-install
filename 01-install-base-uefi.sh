@@ -16,43 +16,18 @@ set -e
 ##################################################################################################################
 
 
-
-
+sh 010-set-timezone*
+sh 011-set-time*
 	
-echo
-tput setaf 2
-echo "################################################################"
-echo "####################### Set the time : #########################"
-echo "################################################################"
-tput sgr0
-echo
-
-
-# Run time syncronization
-timedatectl set-ntp true
-echo "Check the time settings"
-echo
-timedatectl-status
-sleep 5
-
-# Run hwclock to generate file /etc/adjtime
-hwclock --systohc
-
-# Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales. 
-# Or just add them at the bottom of the file (easier to read anyway):
-echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-echo "sl_SI.UTF-8 UTF-8" >> /etc/locale.gen
-
-# Generate the locales by running:
-locale-gen
 
 
 
 
 
-sh 100-set-locale*
 
+sh 050-set-locale*
 
+sh 020-hosts*
 
 
 # Hostname settings
@@ -100,12 +75,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 sudo pacman -S networkmanager
 systemctl enable NetworkManager
 
-# bluetooth (needed if you use bluetooth mouse or keyboard)
-sudo pacman -S bluez bluez-utils 
-systemctl enable bluetooth
-
-# sound
-pacman -S pipewire pipewire-pulse wireplumber
 
 
 printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
