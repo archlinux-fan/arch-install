@@ -19,15 +19,9 @@ set -e
 sh 010-set-timezone*
 sh 011-set-time*
 	
+sh 020-set-locale*
 
-
-
-
-
-
-sh 050-set-locale*
-
-sh 020-hosts*
+sh 030-hosts*
 
 
 # Hostname settings
