@@ -25,22 +25,16 @@ sh 030-hosts*
 
 sh 040-user-group*
 
-
-
-# Install grub and fix boot (os-prober rabiš če imaš še windows particijo)
-sudo pacman -S grub efibootmgr dosfstools mtools base-devel
-
-# Run grub install
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB #change the directory to /boot/efi is you mounted the EFI partition at /boot/efi
-grub-mkconfig -o /boot/grub/grub.cfg
+sh 050-grub*
 
 # linux-headers - you only need the headers in the case you want to build custom kernel modules and/or want to use DKMS packages
 # sudo pacman -S linux-headers
 
-# network (there is no other wifi tool otherwise. Use iwctl )
-sudo pacman -S networkmanager
-systemctl enable NetworkManager
+sh 060-network*
 
+sh 070-bluetooth*
+
+sh 080-sound*
 
 
 printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
