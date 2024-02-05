@@ -14,14 +14,14 @@ Run Arch from USB-ja
 1. If needed, load your keymap
 2. Connect to the internet
 3. Set time
-4. Refresh the servers with pacman -Syy
+4. Refresh the servers with `pacman -Syy`
 5. Partition the disk
 6. Format the partitions
 7. Mount the partitions
-8. Install the base packages into /mnt (pacstrap /mnt base linux linux-firmware git vim intel-ucode (or amd-ucode))
-9. Generate the FSTAB file with genfstab -U /mnt >> /mnt/etc/FSTAB
-10. Chroot in with arch-chroot /mnt
-11. Download the git repository with git clone https://gitlab.com/archlinux-fan/arch-install.git
+8. Install the base packages into /mnt (`pacstrap /mnt base linux linux-firmware`)
+9. Generate the FSTAB file with `genfstab -U /mnt >> /mnt/etc/FSTAB`
+10. Chroot in with `arch-chroot /mnt`
+11. Download the git repository with `git clone https://gitlab.com/archlinux-fan/arch-install.git`
 12. Start the installation script
 
 
@@ -170,14 +170,14 @@ pacman -S os-prober ntfs-3g (morda oba rabiš samo začasno. Ne vem pa kaj je po
 sudo nano /etc/default/grub
 uncomment GRUB_DISABLE_OS_PROBER_FALSE
 ```
-For Windows installed in UEFI mode, make sure the EFI system partition containing the Windows Boot Manager (bootmgfw.efi) is mounted. Run os-prober as root to detect and generate an entry for it
+For Windows installed in UEFI mode, make sure the EFI system partition containing the Windows Boot Manager (`bootmgfw.efi`) is mounted. Run os-prober as root to detect and generate an entry for it
 ```Bash
 mkdir /mnt/win11
 mount /dev/ime_win_EFI_particije /mnt/win
 ```
 
 *11. Posnami git, sudo in stakni skripto*
-Download the git repository with git clone --depth 1 https://gitlab.com/archlinux-fan/arch-install.git
+Download the git repository with `git clone --depth 1 https://gitlab.com/archlinux-fan/arch-install.git`
 
 ```Bash
 pacman -Sy git sudo nano
@@ -185,9 +185,10 @@ pacman -Sy git sudo nano
 
 ```Bash
 git clone --depth 1 https://github.com/archlinux-fan/arch-install.git # mora bit public najbrš  # ('--depth 1' is so that it downloads latest version files only, not the whole history)
-
+```
 
 *12 Run the installation script*
+```Bash
 cd arch-install
 sudo sh base-uefi.sh
 ```
