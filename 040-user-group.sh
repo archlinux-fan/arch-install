@@ -26,6 +26,7 @@ echo "$username ALL=(ALL) ALL" >> /etc/sudoers.d/$username
 # sudo nano /etc/sudoers or
 # EDITOR=nano visudo"
 
-printf "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
-printf "Defaults !tty_tickets"
-printf " "
+echo "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
+echo "I am not sure if it's working though"
+echo "Defaults !tty_tickets" >> /etc/sudoers.d/$username
+echo
