@@ -26,6 +26,11 @@ Navigate to the folder in your terminal and initialize Git:
 cd ~/.dotfiles
 git init --bare
 
+# do this before the next command with the token
+git remote add origin https://github.com/archlinux-fan/dotfiles.git
+
+# git remote set-url origin https://<personal access token>@github.com/<username>/<repository>.git
+git remote set-url origin https://<personal access token>@github.com/archlinux-fan/dotfiles.git
 
 Create an alias in your bash configuration file ~/.bashrc:
 
