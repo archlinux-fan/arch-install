@@ -8,14 +8,14 @@
 
 # Users and pass
 # Set root pass
-echo "Chose the password for the root user: (one word, small letters)"
+echo "Chose the password for the root user: (single word, small letters)"
 read rootpass
 echo root:$rootpass | chpasswd # chpasswd is a command to create pass
 
 # Add user and add it to groups
 echo "Chose your username: (one word, small letters)"
 read username
-echo "Chose the password for the $username user: (one word, small letters)"
+echo "Chose the password for the $username user: (single word, small letters)"
 read userpass
 useradd -m $username
 echo $username:$userpass | chpasswd
