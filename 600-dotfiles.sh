@@ -66,18 +66,17 @@ Bash
 dots status
 
 # To add a file to the repository:
-dots add .bashrc
+# dots add ~/.config/audacious 
+# dots add ~/.bashrc
 
-# To add a directory to the repository:
-dots add ~/.config/audacious/
+run with (make the script executable first):
+sh dotssync.sh
 
-# use a script to specify all the stuff at once add_config_folders.sh:
-#!/bin/bash
-dots add ~/.config/audacious 
-dots add ~/.bashrc
+# make sure .bash_profile has this line first so that the script can be run from any directory:
+PATH=${HOME}/.local/bin:${PATH}
 
-run with:
-sh add_config_folders.sh
+source .bash_profile # if neccesarry to pick up the latest change
+
 
 
 # To commit changes:
@@ -96,7 +95,7 @@ Remember to replace dots with your preferred alias name.
 dots reset 
 
 This command directly removes the specified file from the staging area. It won't delete the file from your filesystem unless you use the -f flag (caution: use with care as it's permanent).
-git rm <filename>
+dots rm <filename>
 
 
 
