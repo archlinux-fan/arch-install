@@ -52,6 +52,10 @@ source ~/.bashrc
 also run the command:
 dots config status.showUntrackedFiles no
 
+# add your personal stuff, otherwise commit doesn't work. Če daš --global flag, potem ne bo shranilo info v repotov config file ampak na home v .gitconfig, tega pa nočeš, ker potem je za vse repote
+dots config user.name "My_name"
+dots config user.email "my.email@email.com"
+
 Now, whenever you want to use Git commands with your dotfiles repository, you can use the dotfiles alias instead of typing the full command each time:
 
 Bash
@@ -72,9 +76,6 @@ dots add ~/.bashrc
 run with:
 sh add_config_folders.sh
 
-# add your personal stuff, otherwise commit doesn't work. Če daš --global flag, potem ne bo shranilo info v repotov config file ampak na home v .gitconfig, tega pa nočeš, ker potem je za vse repote
-dots config user.name "My_name"
-dots config user.email "my.email@email.com"
 
 # To commit changes:
 dots commit -m "Updated bash settings"
