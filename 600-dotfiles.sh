@@ -94,3 +94,12 @@ dots reset
 
 This command directly removes the specified file from the staging area. It won't delete the file from your filesystem unless you use the -f flag (caution: use with care as it's permanent).
 git rm <filename>
+
+
+
+
+
+za obnovit pri clean install daš pa:
+dots restore .
+ali bolj specifično
+dots restore --staged ./neka imena (ne znam točno)
