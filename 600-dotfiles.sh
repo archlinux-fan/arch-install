@@ -35,6 +35,9 @@ git branch -m main
 # do this before the next command with the token
 git remote add origin https://github.com/archlinux-fan/dotfiles.git
 
+# set the token in github.com
+Settings > Developer Settings > Personal access tokens (classic)
+
 # set the token if you use a private github
 # git remote set-url origin https://<personal access token>@github.com/<username>/<repository>.git
 git remote set-url origin https://<personal access token>@github.com/archlinux-fan/dotfiles.git
