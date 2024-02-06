@@ -89,6 +89,13 @@ pacman -Sy # (Sinhroniziraj pakete)
 pacman -Sy archlinux-keyring # (sinhronizira in inštalira še to zadnjo verzijo, ampak najbrš je itak že na USB nova zadnja)
 ```
 
+```Bash
+sudo pacman-key --init # The command sets up the key management system.
+sudo pacman-key --populate archlinux # The command adds the necessary keys to trust official Arch Linux packages
+```
+#In summary:
+#Installing archlinux-keyring and running the pacman-key commands are essential steps for ensuring package authenticity and security in Arch Linux. They work together to establish a trust chain and verify the signatures of packages you download, protecting your system from potential threats.
+
 
 *5. Partition the disks*
 list partitions and disks
@@ -191,12 +198,6 @@ git clone --depth 1 https://github.com/archlinux-fan/arch-install.git # mora bit
 ```Bash
 cd arch-install
 sudo sh base-uefi.sh
-```
-
-ne vem kaj je to
-```Bash
-sudo pacman-key --init # The command sets up the key management system.
-sudo pacman-key --populate archlinux # The command adds the necessary keys to trust official Arch Linux packages
 ```
 
 
