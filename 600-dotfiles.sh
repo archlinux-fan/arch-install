@@ -42,7 +42,7 @@ git remote set-url origin https://<personal access token>@github.com/archlinux-f
 Create an alias in your bash configuration file ~/.bashrc:
 
 Add the following line, replacing dotfiles with your preferred alias name:
-alias dots='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dots='git --git-dir=$HOME/.git/dotfiles --work-tree=$HOME'
 
 
 In your terminal, run the following command to apply the changes so that command is recognised by the terminal or just restart the terminal
