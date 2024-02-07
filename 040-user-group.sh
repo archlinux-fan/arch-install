@@ -34,3 +34,9 @@ echo "Defaults passwd_timeout=30			# Disable password prompt timeout" >> /etc/su
 echo "Defaults timestamp_type=global			# Disable per-terminal sudo" >> /etc/sudoers.d/$username
 echo "Defaults timestamp_timeout=30			# Reduce the number of times you have to type a password" >> /etc/sudoers.d/$username
 echo
+
+
+# Consider using sudo -b. 
+# This starts a background process with root privileges that lasts until you close the terminal window.
+# Use this with caution as the elevated access persists even after you close the current shell session within the window.
+# Remember to exit the background process when finished to revoke root privileges.
