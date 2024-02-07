@@ -24,7 +24,7 @@ Create a folder for your dotfiles if it doesn't exist (e.g., ~/.dotfiles).
 Move your existing dotfiles into this folder.
 Navigate to the folder in your terminal and initialize Git:
 
-cd ~/.git/.dotfiles
+cd ~/.git/dotfiles
 
 git init --bare
 
