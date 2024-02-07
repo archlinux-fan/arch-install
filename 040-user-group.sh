@@ -31,7 +31,7 @@ echo "$username ALL=(ALL) ALL" >> /etc/sudoers.d/$username
 echo "Add the below line which makes it so that you don't have to reinsert password in each terminal a user uses sudo in"
 echo "I am not sure if it's working though"
 echo "Defaults passwd_timeout=30			# Disable password prompt timeout" >> /etc/sudoers.d/$username
-echo "Defaults timestamp_type=global			# Disable per-terminal sudo" >> /etc/sudoers.d/$username
+echo "# Defaults timestamp_type=global			# Disable per-terminal sudo" >> /etc/sudoers.d/$username
 echo "Defaults timestamp_timeout=30			# Reduce the number of times you have to type a password" >> /etc/sudoers.d/$username
 echo
 
