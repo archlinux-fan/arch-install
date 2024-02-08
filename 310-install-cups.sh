@@ -34,12 +34,12 @@ sudo systemctl enable --now cups.service      # Enable and start the CUPS printi
 sudo pacman -S avahi
 sudo pacman -S nss-mdns
 
-systemctl enable avahi-daemon
 
 # Avahi provides local hostname resolution using a "hostname.local" naming scheme. To enable it, install the nss-mdns package and start/enable avahi-daemon.service.
 # Then, edit the file /etc/nsswitch.conf and change the hosts line to include mdns_minimal [NOTFOUND=return] before resolve and dns:
 # hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns
 
+systemctl enable avahi-daemon
 
 
 
