@@ -1,0 +1,12 @@
+#!/bin/bash
+
+##################################################################################################################
+# I got inspiration from:
+# Author    : Erik Dubois 
+# Github    : https://github.com/erikdubois
+##################################################################################################################
+
+
+
+# Music Brainz Picard
+pacman -S picard qt5-multimedia chromaprint # last to packageas are needed for listening/scaning files
