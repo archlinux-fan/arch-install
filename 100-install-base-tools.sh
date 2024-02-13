@@ -25,7 +25,7 @@ sudo pacman -S transmission-gtk         # BitTorrent client with a user-friendly
 sudo pacman -S guvcview                 # Tool for viewing and adjusting webcam settings
 sudo pacman -S mpv                      # Versatile media player with support for various formats
 sudo pacman -S ristretto                # Simple and fast image viewer
-sudo pacman -S scrot                    # Command-line screenshot tool for capturing and saving images
+# sudo pacman -S scrot                    # Command-line screenshot tool for capturing and saving images. I use XFCE xfce4-screenshooter
 # sudo pacman -S mtpaint                  # Simple and lightweight graphical paint program
 # sudo pacman -S peek                     # Tool for recording short screencasts as animated GIFs
 
