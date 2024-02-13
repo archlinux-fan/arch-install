@@ -48,7 +48,7 @@ sudo pacman -S rofi                     # Fast and flexible tool for application
 # sudo pacman -S libreoffice-still       # Full-featured office suite for creating and editing documents
 
 # System info tools
-sudo pacman -S neofetch                 # Displays system information in a stylish format
+# sudo pacman -S neofetch                 # Displays system information in a stylish format
 
     # Detailed hardware information
     # sudo pacman -S hwinfo                   # Provides comprehensive overview of system hardware components and their attributes
