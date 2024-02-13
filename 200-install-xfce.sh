@@ -39,7 +39,7 @@ sudo pacman -S papirus-icon-theme               # Popular icon theme
 
 
 # Install XFCE components
-sudo pacman -S xfce4-battery-plugin             # Battery status indicator for XFCE panel
+# sudo pacman -S xfce4-battery-plugin             # Battery status indicator for XFCE panel
 sudo pacman -S xfce4-clipman-plugin             # Clipboard manager for XFCE panel
 sudo pacman -S xfce4-notifyd                    # Notification daemon for XFCE
 sudo pacman -S xfce4-panel                      # Main panel for XFCE
@@ -47,14 +47,14 @@ sudo pacman -S xfce4-pulseaudio-plugin          # PulseAudio integration for XFC
 sudo pacman -S xfce4-screensaver                # Screen saver for XFCE
 sudo pacman -S xfce4-screenshooter              # Screenshot tool for XFCE
 sudo pacman -S xfce4-session                    # Session management for XFCE
-# sudo pacman -S xfce4-settings                   # Settings application for XFCE
+sudo pacman -S xfce4-settings                   # Settings application for XFCE - for appearance, choose icons,..
 sudo pacman -S xfce4-taskmanager                # Task manager for XFCE
 sudo pacman -S xfce4-terminal                   # Terminal emulator for XFCE
 # sudo pacman -S xfce4-time-out-plugin            # Automatic logout plugin for XFCE
 sudo pacman -S xfce4-weather-plugin             # Weather plugin for XFCE panel
 sudo pacman -S xfdesktop                        # Desktop environment components for XFCE
 sudo pacman -S xfwm4                            # Window manager for XFCE
-sudo pacman -S xfwm4-themes                     # Themes for the XFWM4 window manager
+# sudo pacman -S xfwm4-themes                     # Themes for the XFWM4 window manager
 
 # sudo pacman -S xfce4-power-manager            # Power management for laptops (not needed for desktop)
 
