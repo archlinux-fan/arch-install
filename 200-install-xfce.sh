@@ -47,10 +47,10 @@ sudo pacman -S xfce4-pulseaudio-plugin          # PulseAudio integration for XFC
 sudo pacman -S xfce4-screensaver                # Screen saver for XFCE
 sudo pacman -S xfce4-screenshooter              # Screenshot tool for XFCE
 sudo pacman -S xfce4-session                    # Session management for XFCE
-sudo pacman -S xfce4-settings                   # Settings application for XFCE
+# sudo pacman -S xfce4-settings                   # Settings application for XFCE
 sudo pacman -S xfce4-taskmanager                # Task manager for XFCE
 sudo pacman -S xfce4-terminal                   # Terminal emulator for XFCE
-sudo pacman -S xfce4-time-out-plugin            # Automatic logout plugin for XFCE
+# sudo pacman -S xfce4-time-out-plugin            # Automatic logout plugin for XFCE
 sudo pacman -S xfce4-weather-plugin             # Weather plugin for XFCE panel
 sudo pacman -S xfdesktop                        # Desktop environment components for XFCE
 sudo pacman -S xfwm4                            # Window manager for XFCE
