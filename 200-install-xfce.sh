@@ -31,7 +31,7 @@ sudo pacman -S xorg-xkill                       # Allows killing applications wi
 
 # Themes (currently not used. nordic-bluish-accent-standard-buttons-theme theme installed later from AUR is preferred)
 # sudo pacman -S arc-gtk-theme                  # GTK theme set
-# sudo pacman -S arc-gtk-theme arc-icon-theme   # GTK icon set(nordic installed later from AUR is preferred)
+# sudo pacman -S arc-icon-theme                 # GTK icon set(nordic installed later from AUR is preferred)
 
 
 # Icons
