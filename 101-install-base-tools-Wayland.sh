@@ -39,7 +39,7 @@ sudo pacman -S ristretto                # Simple and fast image viewer
 # Other
 sudo pacman -S bash-completion          # Provides tab completion for Bash commands and options
 sudo pacman -S mousepad                 # Xfce's default text editor
-sudo pacman -S rofi                     # Fast and flexible tool for application launching and searching
+sudo pacman -S wofi                     # Fast and flexible tool for application launching and searching
 
 # Multimedia
 # sudo pacman -S galculator              # Scientific calculator with advanced mathematical functions
