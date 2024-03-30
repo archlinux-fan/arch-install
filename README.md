@@ -65,7 +65,7 @@ ip link set DEVICE up
 - Wi-Fi — connect to your wireless network using iwctl.
 ```Bash
 iwctl
-device-list
+device list
 station wlan0 get-networks   # 'wlan0' zamenjaš z imenom svoje kartice 
 station wlan0 connnect 'ime wifi-ja' #vpip še pass
 ```
