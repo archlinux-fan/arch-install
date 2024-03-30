@@ -21,7 +21,7 @@ echo
 timedatectl set-ntp true
 echo "Check the time settings"
 echo
-timedatectl-status
+timedatectl status
 sleep 5
 
 # Run hwclock to generate file /etc/adjtime
