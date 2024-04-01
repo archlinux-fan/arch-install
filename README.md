@@ -141,6 +141,11 @@ nano /etc/pacman.conf
 uncomment ParalelDownloads = 20
 ```
 
+Uncomment VerbosePkgLists to display name, version and size of target packages formatted as a table for upgrade, sync and remove operations.
+```Bash
+VerbosePkgLists
+```
+
 Če je počasno pa z reflektorjem dobi najhitrješe mirrorje. Drugače bo to itak v zadnji skripti/koraku narejeno
 ```Bash
 pacman -S reflector
