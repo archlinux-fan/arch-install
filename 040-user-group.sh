@@ -23,6 +23,10 @@ useradd -m $username
 echo $username:$userpass | chpasswd
 # usermod -G wheel -a $username - ne rabiš dodat userja v wheel grupo, ker imaš to spodaj, in mu daš itak vse pravice
 echo "$username ALL=(ALL) ALL" >> /etc/sudoers.d/$username
+echo "Defaults passwd_timeout=10" >> /etc/sudoers.d/$username      # Disable password prompt timeout
+echo "Defaults timestamp_timeout=10" >> /etc/sudoers.d/$username      # Reduce the number of times you have to type a password
+#Defaults insults                               # Upon entering an incorrect password this will replace Sorry, try again. message with humoro>
+#Defaults pwfeedback                             # visual feedback when you input a password
 
 # if it didn't work then uncomment #%wheel ALL=(ALL:ALL) ALL in sudoers file with"
 # sudo nano /etc/sudoers or
@@ -34,6 +38,7 @@ echo "Defaults passwd_timeout=30			# Disable password prompt timeout" >> /etc/su
 echo "# Defaults timestamp_type=global			# Disable per-terminal sudo" >> /etc/sudoers.d/$username
 echo "Defaults timestamp_timeout=30			# Reduce the number of times you have to type a password" >> /etc/sudoers.d/$username
 echo
+
 
 
 # Consider using sudo -b. 
