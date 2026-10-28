@@ -1,0 +1,27 @@
+# Your answers for the install scripts, so you don't have to remember them.
+# Copy this file, fill it in, keep it somewhere safe (e.g. your private repo) and run:
+#   ./run.sh chroot  /path/to/settings
+#   ./run.sh desktop /path/to/settings
+# Anything empty is asked as usual. Never put passwords here.
+
+# chroot/10-locale.sh
+timezone=Europe/Berlin          # ls /usr/share/zoneinfo
+locale=de_DE                    # dates, numbers, units; messages stay English
+keymap=de                       # console and LUKS prompt keyboard
+font=                           # console font, e.g. lat2-16; empty = asked
+
+# chroot/20-hostname.sh, chroot/30-user.sh
+hostname=
+username=
+
+# chroot/50-system.sh, chroot/60-network.sh
+mirror_countries=Germany,Austria
+wifi_country=DE
+
+# desktop/30-gpu.sh: amd, intel or nvidia
+gpu=
+
+# desktop/70-dotfiles.sh
+dots_url=
+private_url=
+autologin=                      # y or n

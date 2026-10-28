@@ -1,0 +1,19 @@
+#!/bin/bash
+# Root password and your own user.
+
+# With sudo you rarely log in as root, but systemd's emergency shell asks for
+# this password when the system can't boot normally.
+echo "Root password:"
+passwd
+
+# -m creates the home folder, -G wheel adds the user to the admin group.
+[ -z "$username" ] && read -rp "Username (lowercase): " username
+useradd -m -G wheel "$username"
+echo "Password for $username:"
+passwd "$username"
+
+# sudo lets the wheel group run commands as root with their own password.
+# A file in /etc/sudoers.d is safer than editing /etc/sudoers itself.
+# Always edit these files with: visudo -f /etc/sudoers.d/wheel
+echo '%wheel ALL=(ALL:ALL) ALL' > /etc/sudoers.d/wheel
+chmod 440 /etc/sudoers.d/wheel
