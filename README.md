@@ -39,7 +39,7 @@ and pick one at boot. The stick keeps working as normal storage.
 Boot the stick, then:
 
 ```bash
-loadkeys de                     # keyboard layout; list: localectl list-keymaps
+loadkeys uk                     # keyboard layout; list: localectl list-keymaps
 setfont ter-132b                # bigger font, if the text is tiny
 iwctl station wlan0 connect "Your Wi-Fi"    # Wi-Fi; Ethernet works by itself
 ping -c 3 archlinux.org         # internet works?

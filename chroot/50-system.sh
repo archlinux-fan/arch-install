@@ -8,7 +8,7 @@ sed -i 's/^#Color/Color/; s/^#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf
 # The timer refreshes the list once a week, so downloads stay fast.
 # Its settings are in /etc/xdg/reflector/reflector.conf.
 pacman -S --needed reflector && systemctl enable reflector.timer
-[ -z "$mirror_countries" ] && read -rp "Mirror countries near you (e.g. Germany,France, Enter = all): " mirror_countries
+[ -z "$mirror_countries" ] && read -rp "Mirror countries near you (e.g. GB,FR, Enter = all): " mirror_countries
 [ -n "$mirror_countries" ] && echo "--country $mirror_countries" >> /etc/xdg/reflector/reflector.conf
 
 # fstrim tells the SSD once a week which blocks are free, which keeps it fast.

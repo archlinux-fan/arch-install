@@ -5,10 +5,10 @@
 # Anything empty is asked as usual. Never put passwords here.
 
 # chroot/10-locale.sh
-timezone=Europe/Berlin          # ls /usr/share/zoneinfo
-locale=de_DE                    # numbers, units, sorting; messages stay English
-time_locale=de_DE               # dates and times, e.g. en_GB for English names
-keymap=de                       # console and LUKS prompt keyboard
+timezone=Europe/London          # ls /usr/share/zoneinfo
+locale=en_GB                    # numbers, units, sorting; messages stay English
+time_locale=en_GB               # dates and times, can differ from locale
+keymap=uk                       # console and LUKS prompt keyboard
 font=                           # console font, e.g. lat2-16; empty = asked
 
 # chroot/20-hostname.sh, chroot/30-user.sh
@@ -16,8 +16,8 @@ hostname=
 username=
 
 # chroot/50-system.sh, chroot/60-network.sh
-mirror_countries=Germany,Austria
-wifi_country=DE
+mirror_countries=GB,FR
+wifi_country=GB
 
 # desktop/30-gpu.sh: amd, intel or nvidia
 gpu=

@@ -9,7 +9,7 @@ pacman -S --needed networkmanager && systemctl enable NetworkManager
 # Without a country set, the card uses the safest worldwide minimum:
 # fewer channels, lower power, shorter range. Check later with: iw reg get
 pacman -S --needed wireless-regdb
-[ -z "$wifi_country" ] && read -rp "Wi-Fi country code (e.g. DE, Enter to skip): " wifi_country
+[ -z "$wifi_country" ] && read -rp "Wi-Fi country code (e.g. GB, Enter to skip): " wifi_country
 [ -n "$wifi_country" ] && sed -i "s/^#\(WIRELESS_REGDOM=\"$wifi_country\"\)/\1/" /etc/conf.d/wireless-regdom
 
 # iw shows and sets Wi-Fi details (iw reg get, iw dev wlan0 link).
