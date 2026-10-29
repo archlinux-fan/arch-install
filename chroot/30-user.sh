@@ -14,6 +14,8 @@ passwd "$username"
 
 # sudo lets the wheel group run commands as root with their own password.
 # A file in /etc/sudoers.d is safer than editing /etc/sudoers itself.
-# Always edit these files with: visudo -f /etc/sudoers.d/wheel
-echo '%wheel ALL=(ALL:ALL) ALL' > /etc/sudoers.d/wheel
-chmod 440 /etc/sudoers.d/wheel
+# Files are read in name order and the last matching rule wins. The number puts
+# this one first, so a file of your own (e.g. named after you) can change its rules.
+# Always edit these files with: visudo -f /etc/sudoers.d/10-wheel
+echo '%wheel ALL=(ALL:ALL) ALL' > /etc/sudoers.d/10-wheel
+chmod 440 /etc/sudoers.d/10-wheel
