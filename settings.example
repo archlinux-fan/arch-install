@@ -6,7 +6,8 @@
 
 # chroot/10-locale.sh
 timezone=Europe/Berlin          # ls /usr/share/zoneinfo
-locale=de_DE                    # dates, numbers, units; messages stay English
+locale=de_DE                    # numbers, units, sorting; messages stay English
+time_locale=de_DE               # dates and times, e.g. en_GB for English names
 keymap=de                       # console and LUKS prompt keyboard
 font=                           # console font, e.g. lat2-16; empty = asked
 
