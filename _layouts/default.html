@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header>
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav>
+      <a href="{{ '/' | relative_url }}">Install</a>
+      <a href="{{ '/docs/scripts.html' | relative_url }}">Scripts</a>
+      <a href="{{ '/docs/tips.html' | relative_url }}">Tips</a>
+      <a href="{{ '/docs/private-repo.html' | relative_url }}">Private repo</a>
+      <a href="{{ site.repo_url }}">GitHub</a>
+    </nav>
+  </header>
+  <main>
+{{ content }}
+  </main>
+  <footer>
+    <a href="{{ site.repo_url }}">arch-install</a> · <a href="{{ site.dots_url }}">arch-dots</a> · Nord colours
+  </footer>
+</body>
+</html>

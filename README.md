@@ -7,6 +7,10 @@ A minimal Arch Linux install with the Hyprland desktop, in small readable script
 - Optional disk encryption (LUKS2), optional dual boot with Windows.
 - Only official packages, except one browser from the AUR.
 
+![Hyprland desktop with the Nord theme](https://raw.githubusercontent.com/archlinux-fan/arch-dots/main/screenshots/foot.png)
+
+The desktop comes from [arch-dots](https://github.com/archlinux-fan/arch-dots), more screenshots there.
+
 Read it as a website: [archlinux-fan.github.io/arch-install](https://archlinux-fan.github.io/arch-install/)
 
 This page gets you from the Arch ISO to the scripts. More:

@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll): the site is built from this repo, README.md is the home page.
+title: Arch Linux + Hyprland
+description: Minimal Arch Linux + Hyprland install in small readable scripts, every command explained.
+repo_url: https://github.com/archlinux-fan/arch-install
+dots_url: https://github.com/archlinux-fan/arch-dots
