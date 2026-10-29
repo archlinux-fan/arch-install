@@ -68,3 +68,38 @@ th { color: var(--head); }
 
 footer { padding-top: 1.5rem; padding-bottom: 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 footer a { color: var(--muted); }
+
+/* GitHub mark instead of the word */
+nav .github svg { width: 1.25em; height: 1.25em; vertical-align: -.25em; fill: currentColor; }
+
+/* Galleries: a grid of small pictures; gallery.js opens them large */
+main img { cursor: zoom-in; }
+.photos {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+    gap: 1.5rem 1rem; margin: 1.5rem 0; padding: 0; list-style: none;
+}
+.photos li, .photos figure { margin: 0; }
+.photos a { display: block; overflow: hidden; border-radius: 10px; box-shadow: 0 6px 24px rgba(0, 0, 0, .3); }
+.photos img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; margin: 0; border-radius: 0; box-shadow: none; transition: transform .3s; }
+.photos a:hover img { transform: scale(1.04); }
+.photos figcaption { margin-top: .5rem; color: var(--muted); font-size: .9em; line-height: 1.45; }
+
+.lightbox {
+    width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0;
+    padding: clamp(1rem, 4vw, 3rem); border: 0; background: rgb(20 23 30 / .94);
+}
+.lightbox[open] { display: grid; place-items: center; }
+.lightbox::backdrop { background: none; }
+.lightbox figure { display: grid; justify-items: center; gap: .75rem; max-width: 100%; margin: 0; }
+.lightbox img { max-width: 100%; max-height: calc(100dvh - 8rem); margin: 0; border-radius: 6px; box-shadow: none; cursor: default; }
+.lightbox figcaption { color: #D8DEE9; text-align: center; }
+.lightbox button {
+    position: absolute; width: 3rem; height: 3rem; padding: 0; border: 0; border-radius: 50%;
+    background: rgb(255 255 255 / .12); color: #ECEFF4; font-size: 1.8rem; line-height: 1; cursor: pointer;
+}
+.lightbox button:hover { background: rgb(255 255 255 / .25); }
+.lightbox .close { top: 1rem; right: 1rem; }
+.lightbox .prev, .lightbox .next { top: 50%; translate: 0 -50%; }
+.lightbox .prev { left: 1rem; }
+.lightbox .next { right: 1rem; }
+.lightbox.single .prev, .lightbox.single .next { display: none; }
