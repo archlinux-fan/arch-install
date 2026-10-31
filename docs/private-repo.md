@@ -63,7 +63,8 @@ git clone https://your-git-server/you/private.git /root/private
 /root/arch-install/run.sh chroot /root/private/install/settings
 ```
 
-After the first boot, clone it straight to `~/.private`. `desktop/70-dotfiles.sh` finds it there and links it with stow:
+After the first boot, clone it straight to `~/.private`. `desktop/70-dotfiles.sh` finds it there and links it with stow
+(another folder: set `private_dir` in your settings and clone it there):
 
 ```bash
 git clone https://your-git-server/you/private.git ~/.private

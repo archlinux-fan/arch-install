@@ -25,4 +25,5 @@ gpu=
 # desktop/70-dotfiles.sh
 dots_url=
 private_url=
+private_dir=                    # where it is cloned; empty = ~/.private (not asked)
 autologin=                      # y or n

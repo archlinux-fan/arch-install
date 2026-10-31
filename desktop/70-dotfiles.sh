@@ -11,9 +11,11 @@
 [ -n "$dots_url" ] && [ ! -d ~/.dots ] && git clone "$dots_url" ~/.dots
 [ -d ~/.dots ] && stow --no-folding -d ~/.dots -t ~ .
 
+# private_dir in the settings file puts it somewhere else than ~/.private.
+private_dir=${private_dir:-$HOME/.private}
 [ -z "$private_url" ] && read -rp "Private repo URL (Enter to skip): " private_url
-[ -n "$private_url" ] && [ ! -d ~/.private ] && git clone "$private_url" ~/.private
-[ -d ~/.private ] && stow --no-folding -d ~/.private -t ~ .
+[ -n "$private_url" ] && [ ! -d "$private_dir" ] && git clone "$private_url" "$private_dir"
+[ -d "$private_dir" ] && stow --no-folding -d "$private_dir" -t ~ .
 
 # Autologin on the first console (TTY1). Your ~/.zprofile then starts Hyprland
 # and hyprlock asks for the password. Makes sense with LUKS: you already typed a
