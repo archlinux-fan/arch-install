@@ -16,6 +16,8 @@ work mostly with the keyboard. The look comes from [arch-dots](https://github.co
 
 Read it as a website: [archlinux-fan.github.io/arch-install](https://archlinux-fan.github.io/arch-install/)
 
+Arch alone on the computer? Skip every closed box marked *Dual boot with Windows*.
+
 This page gets you from the USB stick to a working desktop. More:
 [how the scripts work](docs/scripts.md) · [tips](docs/tips.md) · [your own private repo](docs/private-repo.md)
 
@@ -27,9 +29,6 @@ This page gets you from the USB stick to a working desktop. More:
   Turn **Secure Boot off** in the firmware settings (a key right after power on: F2, Del, F10 or Esc, it depends on the maker).
   It can go back on later: [tips](docs/tips.md#later-if-you-want).
 - A USB stick of 2 GB or more (it gets erased) and internet. A network cable is easiest; Wi-Fi works too.
-- **Dual boot** (keep Windows next to Arch): in Windows shrink its partition (Disk Management → right-click C: → Shrink Volume)
-  and leave the space empty. If Windows uses BitLocker, save its recovery key first
-  (Microsoft account → Devices, or `manage-bde -protectors -get C:`).
 - Stuck? The [Arch Wiki installation guide](https://wiki.archlinux.org/title/Installation_guide) explains every step in more detail.
 
 A few words you'll meet:
@@ -40,17 +39,21 @@ A few words you'll meet:
 - **Package:** a program ready to install. `pacman` downloads and installs packages from Arch's servers.
 - **Partition:** a part of a disk. **Formatting** prepares it for files and erases it.
 
+<details markdown="1">
+<summary>Dual boot with Windows: skip this if Arch will be the only system</summary>
+
+Arch goes next to Windows, in space you free up first. In Windows shrink its partition
+(Disk Management → right-click C: → Shrink Volume) and leave the space empty.
+If Windows uses BitLocker, save its recovery key first (Microsoft account → Devices, or `manage-bde -protectors -get C:`).
+
+</details>
+
 ## 1. Boot the USB stick
 
 Download the ISO from [archlinux.org/download](https://archlinux.org/download/) (pick a mirror near you, the file is `archlinux-x86_64.iso`).
 
-Write it to the USB stick with [Ventoy](https://www.ventoy.net) (Windows and Linux): set up the stick once,
+Put it on the USB stick with [Ventoy](https://www.ventoy.net) (Windows and Linux): set up the stick once,
 then copy the ISO file onto it like any file. The stick keeps working as normal storage.
-On Linux you can also write it directly, where `/dev/sdX` is the stick (check with `lsblk`; the wrong name erases another disk):
-
-```bash
-dd bs=4M if=archlinux-x86_64.iso of=/dev/sdX conv=fsync oflag=direct status=progress
-```
 
 Plug the stick in, turn the computer on and press the boot menu key (F12, F11, F8 or Esc, it depends on the maker).
 Pick the USB stick (with UEFI in its name, if it shows twice), then *Arch Linux install medium*.
@@ -60,7 +63,6 @@ After a minute you see `root@archiso ~ #`: the computer waits for commands.
 loadkeys uk                     # your keyboard layout (uk, de, fr ...); the stick starts with the US one
 setfont ter-132b                # bigger letters, if the text is tiny
 ping -c 3 archlinux.org         # internet works? three answers = yes
-timedatectl                     # the clock: "System clock synchronized: yes"?
 ```
 
 All keyboard layouts: `localectl list-keymaps` (q quits the list). With a cable the internet works by itself.
@@ -90,13 +92,18 @@ cfdisk /dev/nvme0n1             # choose "gpt" if it asks
 
 cfdisk is a menu: arrow keys move, Enter picks.
 
-1. To erase the whole disk: select each old partition → **Delete**. Everything on them is gone.
-   **Dual boot:** delete nothing, use only the free space.
+1. Select each old partition → **Delete**. Everything on them is gone.
 2. **Free space** → **New** → type `1G` → **Type** → **EFI System**.
 3. **Free space** → **New** → Enter (the rest of the space) → **Type** → **Linux root (x86-64)**.
 4. **Write** → type `yes` → **Quit**.
 
-**Dual boot:** Windows has its own EFI partition, usually only 100 MB, too small for Linux, so Linux gets its own.
+<details markdown="1">
+<summary>Dual boot with Windows: skip this if Arch will be the only system</summary>
+
+Delete nothing: leave the Windows partitions as they are and create both new partitions in the free space
+(steps 2 to 4). Windows has its own EFI partition, usually only 100 MB, too small for Linux, so Linux gets its own.
+
+</details>
 
 Run `lsblk` again and give the two new partitions short names. The next commands use them;
 if you restart the computer before the end, set them again.
@@ -111,16 +118,10 @@ ROOT=/dev/nvme0n1p2     # your new root partition
 Formatting puts a file system on a partition. Mounting attaches it to a folder: everything written to `/mnt`
 lands on your new root partition.
 
-Pick **A** or **B** for the root partition.
+<details markdown="1">
+<summary>Encrypt the disk (LUKS2), good for laptops: open this before the next commands</summary>
 
-**A) Plain:** simple, no password at boot.
-
-```bash
-mkfs.ext4 $ROOT
-mount $ROOT /mnt
-```
-
-**B) Encrypted with LUKS2:** if the laptop is stolen, nobody can read your files. At every boot you type a passphrase.
+If the laptop is stolen, nobody can read your files. At every boot you type a passphrase.
 Forget it and the data is gone for good. Type it with the same keyboard layout as in step 1; the scripts set that layout for boot.
 
 ```bash
@@ -130,7 +131,18 @@ mkfs.ext4 /dev/mapper/root
 mount /dev/mapper/root /mnt
 ```
 
-**Both:** the EFI partition, readable by root only.
+Then skip the next two commands and go on with the EFI partition.
+
+</details>
+
+The root partition, without encryption:
+
+```bash
+mkfs.ext4 $ROOT
+mount $ROOT /mnt
+```
+
+The EFI partition, readable by root only:
 
 ```bash
 mkfs.fat -F 32 $ESP
@@ -156,8 +168,11 @@ arch-chroot /mnt                       # step inside the new system
 
 From now on the commands run inside your new system; the prompt changes to `[root@archiso /]#`.
 
-**Dual boot:** the boot menu shows Windows only if its boot files are on the same EFI partition.
-Copy them from the **Windows** EFI partition (about 100 MB, find it with `lsblk -f`: type `vfat`):
+<details markdown="1">
+<summary>Dual boot with Windows: skip this if Arch will be the only system</summary>
+
+The boot menu shows Windows only if its boot files are on the same EFI partition. Copy them from the
+**Windows** EFI partition: about 100 MB, type `vfat` in `lsblk -f`. Replace `nvme0n1p1` with it.
 
 ```bash
 mount --mkdir /dev/nvme0n1p1 /win
@@ -165,36 +180,38 @@ cp -r /win/EFI/Microsoft /boot/EFI/
 umount /win && rmdir /win
 ```
 
+</details>
+
 ## 5. Run the scripts
 
 Still inside the new system. `run.sh` runs the scripts of a folder one after another and asks
 `Run chroot/10-locale.sh? [Y/n]` before each; Enter means yes. They ask for your time zone, language,
 keyboard, a name for the computer, your user name and passwords. Pacman asks before every package: Enter installs it.
+The scripts go to `/tmp`, which is emptied when you leave the new system; your user gets its own copy.
 
 ```bash
-git clone https://github.com/archlinux-fan/arch-install /root/arch-install
-/root/arch-install/run.sh chroot
+git clone https://github.com/archlinux-fan/arch-install /tmp/arch-install
+/tmp/arch-install/run.sh chroot
 exit                            # leave the new system
 umount -R /mnt
 reboot                          # take the USB stick out when the screen goes dark
 ```
 
-The computer starts from the disk: the boot menu picks Arch Linux after 3 seconds. Type the LUKS passphrase
-if you chose B, then log in with your user name and password. This text screen is the console.
+The computer starts from the disk: the boot menu picks Arch Linux after 3 seconds. Type the passphrase
+if you encrypted the disk, then log in with your user name and password. This text screen is the console.
 
-Connect to the internet with `nmtui` (a menu: Activate a connection → your Wi-Fi → password; a cable works by itself), then:
+Connect to the internet with `nmtui` (a menu: Activate a connection → your Wi-Fi → password; a cable works by itself).
+The scripts are already in your home folder, in `arch-install`:
 
 ```bash
-git clone https://github.com/archlinux-fan/arch-install ~/arch-install
 ~/arch-install/run.sh desktop
-sudo rm -rf /root/arch-install
 ```
 
-These install the desktop and the programs; `sudo` asks your password. When asked for a dotfiles repo URL,
-paste `https://github.com/archlinux-fan/arch-dots` for the desktop in the pictures, or press Enter to skip.
-A private repo is only for your own settings ([what's that](docs/private-repo.md)); press Enter if you don't have one.
+These install the desktop and the programs; `sudo` asks your password. The graphics driver is picked by itself.
+When asked for a dotfiles repo, press Enter: you get the settings of the desktop in the pictures
+([arch-dots](https://github.com/archlinux-fan/arch-dots)), copied into your home folder.
 
-Reboot (`reboot`) and log in: mango starts by itself. Without arch-dots type `mango`.
+Reboot (`reboot`) and log in: mango starts by itself. If you answered `n` to the dotfiles, type `mango`.
 First keys (Super is the Windows key): **Super+Return** terminal, **Super+Space** app menu, **Super+Q** closes a window,
 **Super+1 … 0** switch workspace. More keys: [arch-dots](https://github.com/archlinux-fan/arch-dots#keys).
 

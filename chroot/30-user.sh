@@ -11,6 +11,10 @@ passwd
 useradd -m -G wheel "$username"
 echo "Password for $username:"
 passwd "$username"
+# A copy of these scripts in your home folder, for the desktop part after the first boot
+# (~/arch-install/run.sh desktop) and the optional scripts later. run.sh runs this from chroot/.
+[ -d "/home/$username/arch-install" ] || cp -r "$(dirname "$PWD")" "/home/$username/arch-install"
+chown -R "$username:" "/home/$username/arch-install"
 
 # sudo lets the wheel group run commands as root with their own password.
 # A file in /etc/sudoers.d is safer than editing /etc/sudoers itself.

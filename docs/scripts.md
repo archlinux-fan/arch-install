@@ -40,7 +40,9 @@ and pass it as the second argument:
 ./run.sh chroot /path/to/settings
 ```
 
-Anything missing from the file is asked as usual. Where to keep the file: [your own private repo](private-repo.md).
+Anything missing from the file is asked as usual. A few settings exist only in the file and are never asked:
+a separate locale for dates (`time_locale`), the console font, linking your dotfiles with stow (`dots_link`)
+and a private repo. Where to keep the file: [your own private repo](private-repo.md).
 
 ## chroot/
 
@@ -48,9 +50,9 @@ Run as root from the USB stick, inside the new system (`arch-chroot`), before it
 
 | Script | What it does |
 |---|---|
-| `10-locale.sh` | time zone, language, console keyboard and font |
+| `10-locale.sh` | time zone, language, console keyboard |
 | `20-hostname.sh` | name of the computer |
-| `30-user.sh` | root password, your user, sudo for the wheel group |
+| `30-user.sh` | root password, your user, sudo for the wheel group, a copy of these scripts in your home |
 | `40-boot.sh` | systemd-boot and boot entries; detects LUKS and adds the unlock step |
 | `50-system.sh` | pacman colors, fastest mirrors (reflector), weekly SSD trim |
 | `60-network.sh` | NetworkManager, firewall; Wi-Fi country rules (not installed by default) |
@@ -61,13 +63,13 @@ Run as your user after the first boot; `sudo` asks your password.
 
 | Script | What it does |
 |---|---|
-| `10-shell.sh` | zsh with suggestions and highlighting, fzf, git, stow, btop, 7zip |
+| `10-shell.sh` | zsh with suggestions and highlighting, fzf, git, btop, 7zip |
 | `20-audio-bluetooth.sh` | PipeWire, volume control, Bluetooth |
-| `30-gpu.sh` | AMD, Intel or NVIDIA drivers |
+| `30-gpu.sh` | AMD, Intel or NVIDIA drivers; finds which one you have |
 | `40-mango.sh` | mango, waybar, mako, rofi, lock screen, idle, wallpaper, screenshots, fonts |
 | `50-apps.sh` | foot, Thunar, lite-xl, mousepad, mpv, ristretto, xpdf, transmission |
 | `60-aur.sh` | yay and Brave Origin, the only AUR package |
-| `70-dotfiles.sh` | clones your dotfiles and private repo, links them with stow, optional autologin |
+| `70-dotfiles.sh` | copies your dotfiles into `~` (arch-dots by default) and applies their GTK theme, optional autologin; private repo and stow only from the settings file |
 
 ## optional/
 

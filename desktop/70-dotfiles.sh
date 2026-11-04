@@ -1,21 +1,47 @@
 #!/bin/bash
 # Dotfiles: your settings (mango, waybar, themes, zsh ...) kept in a git repo.
-# The repo mirrors your home folder; stow links every file into ~,
-# so ~/.config/mango/config.toml points into ~/.dots and changes land in git.
-# A private repo (ssh config, git name and e-mail, monitors) goes to ~/.private
-# the same way. A file must live in only one of the two repos.
-# --no-folding links files, not whole folders, so both repos can share a folder
-# and programs never write their own files into your repos.
+# The repo mirrors your home folder: its .config/mango/config.toml belongs in ~/.config/mango/.
+# Enter takes arch-dots, the desktop in the pictures.
+[ -z "$dots_url" ] && read -rp "Dotfiles repo URL (Enter = arch-dots, n = none): " dots_url
+dots_url=${dots_url:-https://github.com/archlinux-fan/arch-dots}
 
-[ -z "$dots_url" ] && read -rp "Dotfiles repo URL (Enter to skip): " dots_url
-[ -n "$dots_url" ] && [ ! -d ~/.dots ] && git clone "$dots_url" ~/.dots
-[ -d ~/.dots ] && stow --no-folding -d ~/.dots -t ~ .
+# stow links every file of a repo into ~. Only for dots_link=y and a private repo,
+# both set in the settings file; a first install doesn't need it.
+[[ $dots_link == [yY]* || -n $private_url ]] && sudo pacman -S --needed stow
 
-# private_dir in the settings file puts it somewhere else than ~/.private.
+if [[ $dots_link == [yY]* ]]; then
+    # Linked: ~/.config/mango/config.toml points into ~/.dots, so your changes land in git.
+    # --no-folding links files, not whole folders, so two repos can share a folder.
+    [ -d ~/.dots ] || git clone "$dots_url" ~/.dots
+    stow --no-folding -d ~/.dots -t ~ .
+elif [[ $dots_url != [nN]* ]]; then
+    # Copied once: plain files you can change freely. The repo's own files
+    # (git, README, docs, screenshots) stay out of ~.
+    # GLOBIGNORE also makes * include the hidden files.
+    git clone --depth 1 "$dots_url" /tmp/dots
+    (cd /tmp/dots && GLOBIGNORE='.git*:.stow-local-ignore:README*:docs:screenshots' && cp -r * ~)
+    rm -rf /tmp/dots
+fi
+
+# GTK apps on Wayland take the theme, icons, cursor and font from gsettings,
+# not from the dotfiles' settings.ini: copy them over once.
+ini=~/.config/gtk-3.0/settings.ini
+if [ -f "$ini" ]; then
+    # settings.ini name (after gtk-) : gsettings name
+    for p in theme-name:gtk-theme icon-theme-name:icon-theme cursor-theme-name:cursor-theme \
+             cursor-theme-size:cursor-size font-name:font-name; do
+        v=$(sed -n "s/^gtk-${p%:*}=//p" "$ini")
+        [ -n "$v" ] && gsettings set org.gnome.desktop.interface "${p#*:}" "$v"
+    done
+    grep -q '^gtk-application-prefer-dark-theme=1' "$ini" && gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+fi
+
+# Private repo (ssh config, git name and e-mail, monitors): only from the settings
+# file, see docs/private-repo.md. Cloned to ~/.private or private_dir, then linked
+# with stow. A file must live in only one of the two repos.
 private_dir=${private_dir:-$HOME/.private}
-[ -z "$private_url" ] && read -rp "Private repo URL (Enter to skip): " private_url
 [ -n "$private_url" ] && [ ! -d "$private_dir" ] && git clone "$private_url" "$private_dir"
-[ -d "$private_dir" ] && stow --no-folding -d "$private_dir" -t ~ .
+[ -n "$private_url" ] && stow --no-folding -d "$private_dir" -t ~ .
 
 # Autologin on the first console (TTY1). Your ~/.zprofile then starts mango
 # and swaylock asks for the password. Makes sense with LUKS: you already typed a

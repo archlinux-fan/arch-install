@@ -25,10 +25,9 @@ systemctl enable systemd-timesyncd
 [ -z "$locale" ] && read -rp "Your locale for numbers, units and sorting (e.g. en_US, fr_FR, Enter = en_GB): " locale
 locale=${locale:-en_GB}
 
-# Dates and times can use another locale, e.g. en_GB for English day and month
-# names with a 24-hour clock and Monday as the first day of the week.
-# The lock screen and waybar follow it.
-[ -z "$time_locale" ] && read -rp "Locale for dates and times (e.g. en_GB, Enter = $locale): " time_locale
+# Dates and times follow the same locale. time_locale in the settings file can set
+# another, e.g. en_GB for English day and month names with a 24-hour clock and
+# Monday as the first day of the week. The lock screen and waybar follow it.
 time_locale=${time_locale:-$locale}
 sed -i "s/^#\(en_US.UTF-8 UTF-8\)/\1/; s/^#\($locale.UTF-8 UTF-8\)/\1/; s/^#\($time_locale.UTF-8 UTF-8\)/\1/" /etc/locale.gen
 locale-gen
@@ -37,11 +36,12 @@ locale-gen
 # in English, LC_TIME sets the date and time format.
 printf 'LANG=%s.UTF-8\nLC_MESSAGES=en_US.UTF-8\nLC_TIME=%s.UTF-8\n' "$locale" "$time_locale" > /etc/locale.conf
 
-# Console keyboard layout and font, used in the text console (TTY) and in the
-# LUKS password prompt at boot, so your password is typed with the right layout.
-# Layouts: ls /usr/share/kbd/keymaps/**/*.map.gz    Fonts: ls /usr/share/kbd/consolefonts
-# lat2-16 covers Central European letters, LatArCyrHeb-16 covers most of Europe.
+# Console keyboard layout, used in the text console (TTY) and in the LUKS password
+# prompt at boot, so your password is typed with the right layout.
+# Layouts: ls /usr/share/kbd/keymaps/**/*.map.gz
+# The console font stays the default unless font is set in the settings file.
+# Fonts: ls /usr/share/kbd/consolefonts; lat2-16 covers Central European letters,
+# LatArCyrHeb-16 covers most of Europe.
 [ -z "$keymap" ] && read -rp "Console keymap (e.g. uk, fr, Enter = us): " keymap
-[ -z "$font" ] && read -rp "Console font (e.g. lat2-16, Enter = default): " font
 printf 'KEYMAP=%s\n' "${keymap:-us}" > /etc/vconsole.conf
 [ -n "$font" ] && printf 'FONT=%s\n' "$font" >> /etc/vconsole.conf

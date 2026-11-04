@@ -7,9 +7,9 @@
 # chroot/10-locale.sh
 timezone=Europe/London          # ls /usr/share/zoneinfo
 locale=en_GB                    # numbers, units, sorting; messages stay English
-time_locale=en_GB               # dates and times, can differ from locale
+time_locale=en_GB               # dates and times; only here, empty = same as locale
 keymap=uk                       # console and LUKS prompt keyboard
-font=                           # console font, e.g. lat2-16; empty = asked
+font=                           # console font, e.g. lat2-16; only here, empty = default
 
 # chroot/20-hostname.sh, chroot/30-user.sh
 hostname=
@@ -19,11 +19,12 @@ username=
 mirror_countries=GB,FR
 wifi_country=GB                 # only if wireless-regdb is uncommented
 
-# desktop/30-gpu.sh: amd, intel or nvidia
+# desktop/30-gpu.sh: amd, intel or nvidia; empty = found by lspci
 gpu=
 
 # desktop/70-dotfiles.sh
-dots_url=
-private_url=
-private_dir=                    # where it is cloned; empty = ~/.private (not asked)
+dots_url=                       # empty = asked, Enter there = arch-dots; n = none
+dots_link=                      # y = link with stow instead of copying, so changes land in git
+private_url=                    # only here, never asked; linked with stow
+private_dir=                    # where it is cloned; empty = ~/.private
 autologin=                      # y or n

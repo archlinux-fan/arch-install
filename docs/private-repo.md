@@ -63,17 +63,17 @@ On a fresh system you have no SSH key yet, so clone over HTTPS with your user na
 In the chroot:
 
 ```bash
-git clone https://your-git-server/you/private.git /root/private
-/root/arch-install/run.sh chroot /root/private/install/settings
+git clone https://your-git-server/you/private.git /tmp/private
+/tmp/arch-install/run.sh chroot /tmp/private/install/settings
 ```
 
-After the first boot, clone it straight to `~/.private`. `desktop/70-dotfiles.sh` finds it there and links it with stow
-(another folder: set `private_dir` in your settings and clone it there):
+After the first boot, clone it straight to `~/.private` (another folder: set `private_dir` in your settings and clone it there).
+With `private_url` set in your settings, `desktop/70-dotfiles.sh` links it into `~` with stow.
+`dots_link=y` links your dotfiles the same way instead of copying them, so a change in `~` is a change in their repo too.
 
 ```bash
 git clone https://your-git-server/you/private.git ~/.private
 ~/arch-install/run.sh desktop ~/.private/install/settings
-sudo rm -rf /root/private
 ```
 
 ## After the install

@@ -13,8 +13,6 @@ sudo pacman -S --needed fzf
 
 # git: version control, needed to clone dotfiles and AUR packages.
 sudo pacman -S --needed git
-# stow links your dotfiles from ~/.dots into your home folder.
-sudo pacman -S --needed stow
 # btop: system monitor for CPU, memory, disks, network and processes.
 sudo pacman -S --needed btop
 # jq reads JSON; used by waybar scripts.

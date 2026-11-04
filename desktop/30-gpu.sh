@@ -2,10 +2,15 @@
 # Graphics drivers.
 # mesa is the open source driver for AMD and Intel: OpenGL for the desktop and apps,
 # and hardware video decoding (VA-API). Vulkan is the newer graphics API used by games.
-# Check what you have with: lspci -k | grep -A2 VGA
 
-[ -z "$gpu" ] && read -rp "Graphics: [a]md, [i]ntel or [n]vidia? " gpu
-case $gpu in
+# lspci names the graphics chip. One maker found: that one is used. None, or two
+# (laptops with NVIDIA next to Intel or AMD): you're asked and see the list.
+[ -z "$gpu" ] && gpu=$(lspci | grep -iE 'vga|3d|display' | grep -ioE 'amd|intel|nvidia' | sort -fu)
+if [[ -z $gpu || $gpu == *$'\n'* ]]; then
+    lspci | grep -iE 'vga|3d|display'
+    read -rp "Graphics: [a]md, [i]ntel or [n]vidia? " gpu
+fi
+case ${gpu,,} in
 a*)
     sudo pacman -S --needed mesa
     # Vulkan driver. Steam needs it (optional/games.sh installs it): Windows games
