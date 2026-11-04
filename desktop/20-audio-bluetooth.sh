@@ -10,14 +10,19 @@ sudo pacman -S --needed wireplumber
 sudo pacman -S --needed pavucontrol
 # playerctl controls music and video players; used by the media keys.
 sudo pacman -S --needed playerctl
-# Extra firmware some sound cards need.
-sudo pacman -S --needed alsa-firmware
-# Firmware for the audio chip in many newer laptops; install it if you have no sound.
-# sudo pacman -S --needed sof-firmware
 
-# BlueZ is the Bluetooth stack, bluez-utils adds bluetoothctl.
+# BlueZ is the Bluetooth stack.
 # The service must be enabled, otherwise Bluetooth is off after every boot.
 sudo pacman -S --needed bluez && sudo systemctl enable bluetooth
-sudo pacman -S --needed bluez-utils
 # bluetui: pair and connect devices in the terminal.
 sudo pacman -S --needed bluetui
+
+# Not installed by default:
+# Firmware for the audio chip in many newer laptops (Sound Open Firmware);
+# install it if you have no sound.
+# sudo pacman -S --needed sof-firmware
+# Firmware for some older and pro sound cards that load it at start. Most built-in
+# sound (HD Audio) and USB audio don't need it; PipeWire doesn't replace it.
+# sudo pacman -S --needed alsa-firmware
+# bluetoothctl, the command line Bluetooth tool. bluetui does the same in a menu.
+# sudo pacman -S --needed bluez-utils

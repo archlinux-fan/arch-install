@@ -17,7 +17,7 @@ username=
 
 # chroot/50-system.sh, chroot/60-network.sh
 mirror_countries=GB,FR
-wifi_country=GB
+wifi_country=GB                 # only if wireless-regdb is uncommented
 
 # desktop/30-gpu.sh: amd, intel or nvidia
 gpu=

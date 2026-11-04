@@ -2,12 +2,15 @@
 
 [← Back](../README.md)
 
+Installing Arch for the first time? Skip this page; it's for your second computer or a reinstall.
+
+A git repo is a folder whose history git keeps; a git server (Gitea, GitHub ...) keeps a copy online.
 Your setup can live in three git repos:
 
 | Repo | Visibility | What's in it |
 |---|---|---|
 | this one | public | how to install |
-| dotfiles | public or private | how it looks and works: Hyprland, waybar, themes, zsh ... |
+| dotfiles | public or private | how it looks and works: mango, waybar, themes, zsh ... |
 | private | **private** | what is only yours: install answers, ssh config, git name and e-mail, monitor layout |
 
 Dotfiles can be shared, with family or with the world. Everything that names you, your machines or your
@@ -15,15 +18,16 @@ network goes to the private repo, on a server only you can read.
 
 ## Layout
 
-The private repo mirrors your home folder, like the dotfiles repo, plus files that stay out of `~`:
+The private repo mirrors your home folder (`~`), like the dotfiles repo, plus files that stay out of `~`.
+`stow` links each file into `~`, so `~/.ssh/config` is a link to `private/.ssh/config`:
 
 ```
 private/
-├── .stow-local-ignore      # what stow must not link into ~
-├── install/settings        # your answers for run.sh, see settings.example
-├── .ssh/config             # hosts and user names; never the keys
-├── .config/git/config      # your name and e-mail for commits
-└── .config/hypr/local.lua  # e.g. monitors, if your dotfiles load such a file
+├── .stow-local-ignore       # what stow must not link into ~
+├── install/settings         # your answers for run.sh, see settings.example
+├── .ssh/config              # hosts and user names; never the keys
+├── .config/git/config       # your name and e-mail for commits
+└── .config/mango/local.toml # e.g. monitors and keyboard, if your dotfiles load such a file
 ```
 
 `.stow-local-ignore`:

@@ -1,14 +1,16 @@
 #!/bin/bash
 # Graphics drivers.
-# mesa is the open source driver for AMD and Intel, including hardware video
-# decoding (VA-API). Vulkan is the modern graphics API used by games and some apps.
+# mesa is the open source driver for AMD and Intel: OpenGL for the desktop and apps,
+# and hardware video decoding (VA-API). Vulkan is the newer graphics API used by games.
 # Check what you have with: lspci -k | grep -A2 VGA
 
 [ -z "$gpu" ] && read -rp "Graphics: [a]md, [i]ntel or [n]vidia? " gpu
 case $gpu in
 a*)
     sudo pacman -S --needed mesa
-    sudo pacman -S --needed vulkan-radeon
+    # Vulkan driver. Steam needs it (optional/games.sh installs it): Windows games
+    # run through Proton, which turns DirectX into Vulkan. The desktop and video don't.
+    # sudo pacman -S --needed vulkan-radeon
     ;;
 i*)
     sudo pacman -S --needed mesa
@@ -24,7 +26,8 @@ n*)
     ;;
 esac
 
+# Not installed by default, only to test the driver:
 # glxinfo and eglinfo: check which driver is in use (glxinfo -B).
-sudo pacman -S --needed mesa-utils
+# sudo pacman -S --needed mesa-utils
 # vainfo: check that hardware video decoding works.
 # sudo pacman -S --needed libva-utils

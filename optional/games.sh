@@ -6,7 +6,9 @@
 sudo sed -i '/^#\[multilib\]/,/^#Include/ s/^#//' /etc/pacman.conf
 sudo pacman -Syu
 
-# 32-bit versions of your graphics driver. Pick the ones matching desktop/30-gpu.sh.
+# Steam needs a Vulkan driver, 64-bit and 32-bit. Pick the ones for your GPU:
+# AMD vulkan-radeon, Intel vulkan-intel (desktop/30-gpu.sh has it), NVIDIA nvidia-utils.
+sudo pacman -S --needed vulkan-radeon
 sudo pacman -S --needed lib32-mesa
 sudo pacman -S --needed lib32-vulkan-radeon
 # sudo pacman -S --needed lib32-vulkan-intel

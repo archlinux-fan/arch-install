@@ -15,19 +15,22 @@ sudo pacman -S --needed fzf
 sudo pacman -S --needed git
 # stow links your dotfiles from ~/.dots into your home folder.
 sudo pacman -S --needed stow
-# rsync copies and syncs folders, only the changed parts.
-sudo pacman -S --needed rsync
 # btop: system monitor for CPU, memory, disks, network and processes.
 sudo pacman -S --needed btop
 # jq reads JSON; used by waybar scripts.
 sudo pacman -S --needed jq
 
-# Archives: zip/unzip for .zip, 7zip for .7z and most other formats.
-sudo pacman -S --needed zip
-sudo pacman -S --needed unzip
+# Archives: 7zip packs and unpacks .zip, .7z and most other formats
+# (7z x file.zip). Thunar's "Extract here" uses it too.
 sudo pacman -S --needed 7zip
 
 # Not installed by default, uncomment what you need:
+# zip and unzip: only for scripts that call them by name; 7zip does .zip too.
+# sudo pacman -S --needed zip
+# sudo pacman -S --needed unzip
+# Copies and syncs folders, only the changed parts: backups, copies to another
+# computer over ssh. Nothing on the desktop needs it.
+# sudo pacman -S --needed rsync
 # Converts and resizes images and PDFs from the command line (magick in.png out.jpg).
 # sudo pacman -S --needed imagemagick
 # Older process viewer, simpler than btop.

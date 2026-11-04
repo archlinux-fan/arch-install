@@ -7,9 +7,8 @@ sudo pacman -S --needed foot
 # Thunar: file manager. The archive plugin adds "Extract here" to the right-click menu.
 sudo pacman -S --needed thunar
 sudo pacman -S --needed thunar-archive-plugin
-# gvfs: trash, network shares and USB drives in Thunar; gvfs-mtp adds Android phones.
+# gvfs: trash, network shares and USB drives in Thunar.
 sudo pacman -S --needed gvfs
-sudo pacman -S --needed gvfs-mtp
 # xarchiver: opens and creates zip, 7z, tar ... archives.
 sudo pacman -S --needed xarchiver
 
@@ -28,6 +27,8 @@ sudo pacman -S --needed transmission-gtk
 sudo pacman -S --needed firewall-config
 
 # Not installed by default:
+# Android phones on a USB cable in Thunar (MTP). Only for that.
+# sudo pacman -S --needed gvfs-mtp
 # Shows USB drives in Thunar when you plug them in and can auto-mount them.
 # sudo pacman -S --needed thunar-volman
 # Webcam viewer and settings (brightness, focus ...).
