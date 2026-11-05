@@ -3,8 +3,8 @@
 # mango only draws and arranges windows; bar, notifications, launcher, lock screen
 # and wallpaper are separate programs, started from ~/.config/mango.
 
-# The compositor. ~/.zprofile from the dotfiles starts it when you log in on
-# the first console; without them type: mango
+# The compositor. ~/.bash_profile from the dotfiles starts it when you log in on
+# the first console (zsh: ~/.config/zsh/.zprofile); without them type: mango
 sudo pacman -S --needed mangowm
 # Portal: lets apps share the screen and take screenshots through mango.
 # File open/save windows come from xdg-desktop-portal-gtk, installed with GTK 4.
@@ -59,7 +59,7 @@ sudo pacman -S --needed hicolor-icon-theme
 # sudo pacman -S --needed nwg-look
 # Clipboard history.
 # sudo pacman -S --needed cliphist
-# Graphical login screen. Not needed: log in on the console, mango starts from ~/.zprofile.
+# Graphical login screen. Not needed: log in on the console, mango starts from ~/.bash_profile.
 # sudo pacman -S --needed sddm && sudo systemctl enable sddm
 # Session manager that starts the compositor as a systemd unit; only for complex setups.
 # sudo pacman -S --needed uwsm

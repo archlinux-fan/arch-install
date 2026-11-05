@@ -15,7 +15,7 @@ Enter or `y` runs it, `n` skips it. The number in a name sets the order.
 ./run.sh desktop    # as your user, after the first boot
 ```
 
-Optional scripts are never run automatically. Start them when you want: `bash ~/arch-install/optional/zram.sh`.
+Optional scripts are never run automatically. Start them when you want: `bash ~/arch-install/optional/zram.sh` ([list](extras.md#optional-scripts)).
 
 Inside a script every package has its own line, so pacman asks for each one:
 
@@ -63,7 +63,7 @@ Run as your user after the first boot; `sudo` asks your password.
 
 | Script | What it does |
 |---|---|
-| `10-shell.sh` | zsh with suggestions and highlighting, fzf, git, btop, 7zip |
+| `10-shell.sh` | git, btop, jq, 7zip; the shell stays bash |
 | `20-audio-bluetooth.sh` | PipeWire, volume control, Bluetooth |
 | `30-gpu.sh` | AMD, Intel or NVIDIA drivers; finds which one you have |
 | `40-mango.sh` | mango, waybar, mako, rofi, lock screen, idle, wallpaper, screenshots, fonts |
@@ -73,15 +73,7 @@ Run as your user after the first boot; `sudo` asks your password.
 
 ## optional/
 
-Run by hand, as your user, whenever you want: `bash ~/arch-install/optional/<name>.sh`.
-
-| Script | What it does |
-|---|---|
-| `printing.sh` | CUPS, adds a network printer by IP, no drivers needed |
-| `zram.sh` | compressed swap in RAM |
-| `syncthing.sh` | sync folders with your phone and other computers |
-| `nfs.sh` | share folders with other Linux machines |
-| `games.sh` | multilib repo, Vulkan and 32-bit drivers, Steam |
+Never run by `run.sh`: zsh, printing, zram, Steam and more. What each one does: [Extras](extras.md#optional-scripts).
 
 ## Make it yours
 

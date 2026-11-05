@@ -1,15 +1,9 @@
 #!/bin/bash
 # Shell and command line tools.
 
-# zsh: the shell, with better completion than bash.
-# chsh makes it your login shell; it asks for your password.
-sudo pacman -S --needed zsh && chsh -s /usr/bin/zsh
-# Suggests the rest of a command from your history as you type (grey text, → accepts).
-sudo pacman -S --needed zsh-autosuggestions
-# Colors commands while you type: green = exists, red = typo.
-sudo pacman -S --needed zsh-syntax-highlighting
-# Fuzzy finder: Ctrl+R searches your history, Ctrl+T finds files.
-sudo pacman -S --needed fzf
+# The shell, which runs the commands you type, is bash: already installed and the one
+# nearly every guide uses. zsh, with suggestions from your history, is for later
+# and advanced: bash ~/arch-install/optional/zsh.sh
 
 # git: version control, needed to clone dotfiles and AUR packages.
 sudo pacman -S --needed git

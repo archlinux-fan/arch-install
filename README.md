@@ -19,7 +19,7 @@ Read it as a website: [archlinux-fan.github.io/arch-install](https://archlinux-f
 Arch alone on the computer? Skip every closed box marked *Dual boot with Windows*.
 
 This page gets you from the USB stick to a working desktop. More:
-[how the scripts work](docs/scripts.md) · [tips](docs/tips.md) · [your own private repo](docs/private-repo.md)
+[how the scripts work](docs/scripts.md) · [extras for later](docs/extras.md) · [tips](docs/tips.md)
 
 ## Before you start
 
@@ -215,5 +215,5 @@ Reboot (`reboot`) and log in: mango starts by itself. If you answered `n` to the
 First keys (Super is the Windows key): **Super+Return** terminal, **Super+Space** app menu, **Super+Q** closes a window,
 **Super+1 … 0** switch workspace. More keys: [arch-dots](https://github.com/archlinux-fan/arch-dots#keys).
 
-What every script does, the optional ones and how to skip the questions: [docs/scripts.md](docs/scripts.md).
-Keeping the system up to date: [tips](docs/tips.md).
+What every script does and how to skip the questions: [docs/scripts.md](docs/scripts.md).
+Later, if you want: zsh, a printer, Steam and more in [extras](docs/extras.md). Keeping the system up to date: [tips](docs/tips.md).

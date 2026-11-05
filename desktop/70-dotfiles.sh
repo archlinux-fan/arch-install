@@ -1,5 +1,5 @@
 #!/bin/bash
-# Dotfiles: your settings (mango, waybar, themes, zsh ...) kept in a git repo.
+# Dotfiles: your settings (mango, waybar, themes, shell ...) kept in a git repo.
 # The repo mirrors your home folder: its .config/mango/config.toml belongs in ~/.config/mango/.
 # Enter takes arch-dots, the desktop in the pictures.
 [ -z "$dots_url" ] && read -rp "Dotfiles repo URL (Enter = arch-dots, n = none): " dots_url
@@ -12,7 +12,9 @@ dots_url=${dots_url:-https://github.com/archlinux-fan/arch-dots}
 if [[ $dots_link == [yY]* ]]; then
     # Linked: ~/.config/mango/config.toml points into ~/.dots, so your changes land in git.
     # --no-folding links files, not whole folders, so two repos can share a folder.
+    # Arch gives every new user a ~/.bash_profile; stow won't replace it, so an unchanged one goes.
     [ -d ~/.dots ] || git clone "$dots_url" ~/.dots
+    cmp -s ~/.bash_profile /etc/skel/.bash_profile && rm ~/.bash_profile
     stow --no-folding -d ~/.dots -t ~ .
 elif [[ $dots_url != [nN]* ]]; then
     # Copied once: plain files you can change freely. The repo's own files
@@ -43,7 +45,7 @@ private_dir=${private_dir:-$HOME/.private}
 [ -n "$private_url" ] && [ ! -d "$private_dir" ] && git clone "$private_url" "$private_dir"
 [ -n "$private_url" ] && stow --no-folding -d "$private_dir" -t ~ .
 
-# Autologin on the first console (TTY1). Your ~/.zprofile then starts mango
+# Autologin on the first console (TTY1). Your ~/.bash_profile then starts mango
 # and swaylock asks for the password. Makes sense with LUKS: you already typed a
 # password at boot. Without LUKS anyone who turns on the computer gets your desktop
 # until swaylock is up, so prefer the normal TTY login there.

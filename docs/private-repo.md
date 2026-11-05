@@ -1,6 +1,6 @@
 # Your own private repo
 
-[← Back](../README.md)
+[← Back](extras.md)
 
 Installing Arch for the first time? Skip this page; it's for your second computer or a reinstall.
 
@@ -10,7 +10,7 @@ Your setup can live in three git repos:
 | Repo | Visibility | What's in it |
 |---|---|---|
 | this one | public | how to install |
-| dotfiles | public or private | how it looks and works: mango, waybar, themes, zsh ... |
+| dotfiles | public or private | how it looks and works: mango, waybar, themes, shell ... |
 | private | **private** | what is only yours: install answers, ssh config, git name and e-mail, monitor layout |
 
 Dotfiles can be shared, with family or with the world. Everything that names you, your machines or your
