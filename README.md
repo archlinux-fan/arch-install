@@ -218,3 +218,7 @@ First keys (Super is the Windows key): **Super+Return** terminal, **Super+Space*
 
 What every script does and how to skip the questions: [docs/scripts.md](docs/scripts.md).
 Later, if you want: zsh, a printer, Steam and more in [extras](docs/extras.md). Keeping the system up to date: [tips](docs/tips.md).
+
+## License
+
+[MIT](LICENSE): use, change and share it as you like; keep the copyright notice.

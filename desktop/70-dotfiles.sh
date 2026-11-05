@@ -18,10 +18,10 @@ if [[ $dots_link == [yY]* ]]; then
     stow --no-folding -d ~/.dots -t ~ .
 elif [[ $dots_url != [nN]* ]]; then
     # Copied once: plain files you can change freely. The repo's own files
-    # (git, README, docs, screenshots) stay out of ~.
+    # (git, README, LICENSE, docs, screenshots) stay out of ~.
     # GLOBIGNORE also makes * include the hidden files.
     git clone --depth 1 "$dots_url" /tmp/dots
-    (cd /tmp/dots && GLOBIGNORE='.git*:.stow-local-ignore:README*:docs:screenshots' && cp -r * ~)
+    (cd /tmp/dots && GLOBIGNORE='.git*:.stow-local-ignore:README*:LICENSE*:docs:screenshots' && cp -r * ~)
     rm -rf /tmp/dots
 fi
 
