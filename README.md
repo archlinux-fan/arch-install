@@ -187,7 +187,8 @@ umount /win && rmdir /win
 Still inside the new system. `run.sh` runs the scripts of a folder one after another and asks
 `Run chroot/10-locale.sh? [Y/n]` before each; Enter means yes. They ask for your time zone, language,
 keyboard, a name for the computer, your user name and passwords. Pacman asks before every package: Enter installs it.
-The scripts go to `/tmp`, which is emptied when you leave the new system; your user gets its own copy.
+The scripts go to `/tmp`, which is emptied when you leave the new system. `chroot/30-user.sh` copies them
+to your home folder, so after the reboot they are in `~/arch-install`.
 
 ```bash
 git clone https://github.com/archlinux-fan/arch-install /tmp/arch-install
@@ -201,7 +202,7 @@ The computer starts from the disk: the boot menu picks Arch Linux after 3 second
 if you encrypted the disk, then log in with your user name and password. This text screen is the console.
 
 Connect to the internet with `nmtui` (a menu: Activate a connection → your Wi-Fi → password; a cable works by itself).
-The scripts are already in your home folder, in `arch-install`:
+The scripts are already in your home folder (copied by `chroot/30-user.sh`):
 
 ```bash
 ~/arch-install/run.sh desktop
