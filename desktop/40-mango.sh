@@ -40,7 +40,7 @@ sudo pacman -S --needed waybar
 # Notifications.
 sudo pacman -S --needed mako
 # App launcher and menus.
-sudo pacman -S --needed rofi
+sudo pacman -S --needed fuzzel
 # Wi-Fi icon and menu in the bar (nm-applet).
 sudo pacman -S --needed network-manager-applet
 

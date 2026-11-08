@@ -37,6 +37,7 @@ Never run by `run.sh`. Start one as your user whenever you want: `bash ~/arch-in
 | Script | What it does |
 |---|---|
 | `zsh.sh` | zsh with suggestions and colors as your shell |
+| `firefox.sh` | Firefox rules for every profile: no telemetry, studies, sponsored content or Mozilla account |
 | `printing.sh` | CUPS, adds a network printer by IP, no drivers needed |
 | `zram.sh` | compressed swap in RAM |
 | `syncthing.sh` | sync folders with your phone and other computers |

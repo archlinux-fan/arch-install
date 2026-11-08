@@ -14,29 +14,14 @@ sudo pacman -S --needed xarchiver
 
 # Firefox: web browser.
 sudo pacman -S --needed firefox
-# Rules for every profile: no telemetry, studies, sponsored content or Mozilla account; DNS stays with the system.
-sudo mkdir -p /etc/firefox/policies
-sudo tee /etc/firefox/policies/policies.json > /dev/null <<'EOF'
-{
-  "policies": {
-    "DisableTelemetry": true,
-    "DisableFirefoxStudies": true,
-    "DisableFirefoxAccounts": true,
-    "DNSOverHTTPS": { "Enabled": false, "Locked": true },
-    "FirefoxHome": { "SponsoredTopSites": false, "SponsoredPocket": false },
-    "FirefoxSuggest": { "SponsoredSuggestions": false, "ImproveSuggest": false }
-  }
-}
-EOF
 
 # Text editors: lite-xl for code, mousepad for quick notes.
 sudo pacman -S --needed lite-xl
 sudo pacman -S --needed mousepad
 
-# Media: mpv plays video and audio, ristretto shows images, xpdf shows PDFs.
+# Media: mpv plays video and audio, ristretto shows images.
 sudo pacman -S --needed mpv
 sudo pacman -S --needed ristretto
-sudo pacman -S --needed xpdf
 
 # Torrent client.
 sudo pacman -S --needed transmission-gtk
@@ -44,6 +29,8 @@ sudo pacman -S --needed transmission-gtk
 sudo pacman -S --needed firewall-config
 
 # Not installed by default:
+# PDF viewer. Not needed: Firefox opens PDFs.
+# sudo pacman -S --needed xpdf
 # Android phones on a USB cable in Thunar (MTP). Only for that.
 # sudo pacman -S --needed gvfs-mtp
 # Shows USB drives in Thunar when you plug them in and can auto-mount them.
