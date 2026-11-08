@@ -11,8 +11,3 @@ sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
 (cd /tmp/yay-bin && makepkg -si)
 rm -rf /tmp/yay-bin
-
-# Brave Origin: Brave without Rewards, Wallet, VPN and AI. Not in the official repos.
-yay -S --needed brave-origin-bin
-# Regular Brave, only if you need its private windows with Tor (Brave Origin has no Tor).
-# yay -S --needed brave-bin

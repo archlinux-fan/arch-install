@@ -67,9 +67,9 @@ Run as your user after the first boot; `sudo` asks your password.
 | `20-audio-bluetooth.sh` | PipeWire, volume control, Bluetooth |
 | `30-gpu.sh` | AMD, Intel or NVIDIA drivers; finds which one you have |
 | `40-mango.sh` | mango, waybar, mako, rofi, lock screen, idle, wallpaper, screenshots, fonts |
-| `50-apps.sh` | foot, Thunar, lite-xl, mousepad, mpv, ristretto, xpdf, transmission |
-| `60-aur.sh` | yay and Brave Origin, the only AUR package |
-| `70-dotfiles.sh` | copies your dotfiles into `~` (arch-dots by default) and applies their GTK theme, optional autologin; private repo and stow only from the settings file |
+| `50-apps.sh` | foot, Thunar, Firefox and its system rules, lite-xl, mousepad, mpv, ristretto, xpdf, transmission |
+| `60-aur.sh` | yay, for AUR packages |
+| `70-dotfiles.sh` | copies your dotfiles into `~` (arch-dots by default) and applies their GTK theme, makes the Firefox profiles (`firefox-profiles`, if the dotfiles have it), optional autologin; private repo and stow only from the settings file |
 
 ## optional/
 

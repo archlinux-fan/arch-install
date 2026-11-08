@@ -7,7 +7,7 @@ and says what it does, then small scripts do the rest and ask before every step.
 - One package per line. Pacman, the package manager, asks `[Y/n]` for each one, so you install only what you want.
 - A comment above every command in the scripts explains what it is and why it's there.
 - Optional disk encryption (LUKS2), optional dual boot with Windows.
-- Only official Arch packages, except one browser from the AUR.
+- Only official Arch packages; yay is there if you want the AUR.
 
 ![mango desktop with the Nord theme](https://raw.githubusercontent.com/archlinux-fan/arch-dots/main/screenshots/fastfetch.png)
 

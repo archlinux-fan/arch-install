@@ -12,6 +12,23 @@ sudo pacman -S --needed gvfs
 # xarchiver: opens and creates zip, 7z, tar ... archives.
 sudo pacman -S --needed xarchiver
 
+# Firefox: web browser.
+sudo pacman -S --needed firefox
+# Rules for every profile: no telemetry, studies, sponsored content or Mozilla account; DNS stays with the system.
+sudo mkdir -p /etc/firefox/policies
+sudo tee /etc/firefox/policies/policies.json > /dev/null <<'EOF'
+{
+  "policies": {
+    "DisableTelemetry": true,
+    "DisableFirefoxStudies": true,
+    "DisableFirefoxAccounts": true,
+    "DNSOverHTTPS": { "Enabled": false, "Locked": true },
+    "FirefoxHome": { "SponsoredTopSites": false, "SponsoredPocket": false },
+    "FirefoxSuggest": { "SponsoredSuggestions": false, "ImproveSuggest": false }
+  }
+}
+EOF
+
 # Text editors: lite-xl for code, mousepad for quick notes.
 sudo pacman -S --needed lite-xl
 sudo pacman -S --needed mousepad

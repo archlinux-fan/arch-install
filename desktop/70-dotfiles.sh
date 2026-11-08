@@ -45,6 +45,9 @@ private_dir=${private_dir:-$HOME/.private}
 [ -n "$private_url" ] && [ ! -d "$private_dir" ] && git clone "$private_url" "$private_dir"
 [ -n "$private_url" ] && stow --no-folding -d "$private_dir" -t ~ .
 
+# Firefox profiles from the dotfiles ("default" and "pdf"); a private repo can list its own
+[ -x ~/.local/bin/firefox-profiles ] && ~/.local/bin/firefox-profiles
+
 # Autologin on the first console (TTY1). Your ~/.bash_profile then starts mango
 # and swaylock asks for the password. Makes sense with LUKS: you already typed a
 # password at boot. Without LUKS anyone who turns on the computer gets your desktop

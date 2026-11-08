@@ -27,7 +27,8 @@ private/
 ├── install/settings         # your answers for run.sh, see settings.example
 ├── .ssh/config              # hosts and user names; never the keys
 ├── .config/git/config       # your name and e-mail for commits
-└── .config/mango/local.toml # e.g. monitors and keyboard, if your dotfiles load such a file
+├── .config/mango/local.toml # e.g. monitors and keyboard, if your dotfiles load such a file
+└── .config/betterfox/profiles # your own Firefox profiles, if your dotfiles use firefox-profiles
 ```
 
 `.stow-local-ignore`:
