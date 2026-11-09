@@ -218,6 +218,7 @@ First keys (Super is the Windows key): **Super+Return** terminal, **Super+Space*
 
 What every script does and how to skip the questions: [docs/scripts.md](docs/scripts.md).
 Later, if you want: zsh, a printer, Steam and more in [extras](docs/extras.md). Keeping the system up to date: [tips](docs/tips.md).
+Want a wallpaper in your own colour? [Make your own](https://archlinux-fan.github.io/arch-wallpaper/) in the browser.
 
 ## License
 
