@@ -64,10 +64,10 @@ Run as your user after the first boot; `sudo` asks your password.
 | Script | What it does |
 |---|---|
 | `10-shell.sh` | git, btop, jq, 7zip; the shell stays bash |
-| `20-audio-bluetooth.sh` | PipeWire, volume control, Bluetooth |
+| `20-audio-bluetooth.sh` | PipeWire, media keys, Bluetooth |
 | `30-gpu.sh` | AMD, Intel or NVIDIA drivers; finds which one you have |
 | `40-mango.sh` | mango, waybar, mako, fuzzel, lock screen, idle, wallpaper, screenshots, fonts |
-| `50-apps.sh` | foot, Thunar, Firefox, lite-xl, mousepad, mpv, ristretto, transmission |
+| `50-apps.sh` | foot, Thunar, Firefox, lite-xl, mpv, ristretto, rtorrent |
 | `60-aur.sh` | yay, for AUR packages |
 | `70-dotfiles.sh` | copies your dotfiles into `~` (arch-dots by default) and applies their GTK theme, makes the Firefox profiles (`firefox-profiles`, if the dotfiles have it), optional autologin; private repo and stow only from the settings file |
 

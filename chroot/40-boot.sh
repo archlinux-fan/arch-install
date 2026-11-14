@@ -14,7 +14,9 @@ systemctl enable systemd-boot-update.service
 root_dev=$(findmnt -no SOURCE /)
 if [[ $root_dev == /dev/mapper/* ]]; then
     luks_dev=$(cryptsetup status "$root_dev" | awk '/device:/ {print $2}')
-    options="rd.luks.name=$(blkid -s UUID -o value "$luks_dev")=root root=/dev/mapper/root rw"
+    # discard lets the weekly fstrim (50-system.sh) reach the SSD through the encryption.
+    # The price: which blocks are free is visible from outside, never what is in the others.
+    options="rd.luks.name=$(blkid -s UUID -o value "$luks_dev")=root rd.luks.options=discard root=/dev/mapper/root rw"
     # sd-encrypt is the initramfs step that asks for the password and unlocks the disk.
     sed -i '/^HOOKS=/s/block filesystems/block sd-encrypt filesystems/' /etc/mkinitcpio.conf
 else

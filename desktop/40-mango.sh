@@ -7,7 +7,7 @@
 # the first console (zsh: ~/.config/zsh/.zprofile); without them type: mango
 sudo pacman -S --needed mangowm
 # Portal: lets apps share the screen and take screenshots through mango.
-# File open/save windows come from xdg-desktop-portal-gtk, installed with GTK 4.
+# File open/save windows are the apps' own (GTK) and need no portal.
 sudo pacman -S --needed xdg-desktop-portal-wlr
 # Polkit agent: the password window when a GUI app needs admin rights
 # (firewall-config, mounting a disk). Without it such actions silently fail.
@@ -23,10 +23,10 @@ sudo pacman -S --needed swaylock
 sudo pacman -S --needed swaybg
 
 # Screenshots: slurp selects a region or window, grim captures it,
-# satty draws arrows and text on it. grim + slurp also pick a color.
+# swappy draws arrows and text on it. grim + slurp also pick a color.
 sudo pacman -S --needed grim
 sudo pacman -S --needed slurp
-sudo pacman -S --needed satty
+sudo pacman -S --needed swappy
 # Or hyprpicker as the color picker, with a zoom lens: click anywhere to copy the color.
 # sudo pacman -S --needed hyprpicker
 
@@ -39,10 +39,8 @@ sudo pacman -S --needed wl-clip-persist
 sudo pacman -S --needed waybar
 # Notifications.
 sudo pacman -S --needed mako
-# App launcher and menus.
+# App launcher and menus (arch-dots: also Wi-Fi, Bluetooth, sound output, SSH).
 sudo pacman -S --needed fuzzel
-# Wi-Fi icon and menu in the bar (nm-applet).
-sudo pacman -S --needed network-manager-applet
 
 # Fonts: Noto covers almost every language, noto-fonts-emoji adds color emoji,
 # Font Awesome provides the icons in waybar.

@@ -8,11 +8,6 @@ sudo tee /etc/firefox/policies/policies.json > /dev/null <<'EOF'
 {
   "policies": {
     "AppAutoUpdate": false,
-    "AppAutoUpdate_comment": "Change to true to enable auto-updates",
-    "CrashReportsSubmit": {
-      "ForceAutoSubmit": false
-    },
-    "CrashReportsSubmit_comment": "Only implemented in Firefox ESR",
     "DisableTelemetry": true,
     "DisableFirefoxStudies": true,
     "DisableFirefoxAccounts": true,

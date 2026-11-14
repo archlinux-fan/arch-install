@@ -15,20 +15,21 @@ sudo pacman -S --needed xarchiver
 # Firefox: web browser.
 sudo pacman -S --needed firefox
 
-# Text editors: lite-xl for code, mousepad for quick notes.
+# Text editor, for code and for notes.
 sudo pacman -S --needed lite-xl
-sudo pacman -S --needed mousepad
 
 # Media: mpv plays video and audio, ristretto shows images.
 sudo pacman -S --needed mpv
 sudo pacman -S --needed ristretto
 
-# Torrent client.
-sudo pacman -S --needed transmission-gtk
+# Torrent client in the terminal; with arch-dots a double click on a .torrent file starts it.
+sudo pacman -S --needed rtorrent
 # Firewall settings window.
 sudo pacman -S --needed firewall-config
 
 # Not installed by default:
+# Second, simpler text editor for quick notes.
+# sudo pacman -S --needed mousepad
 # PDF viewer. Not needed: Firefox opens PDFs.
 # sudo pacman -S --needed xpdf
 # Android phones on a USB cable in Thunar (MTP). Only for that.
