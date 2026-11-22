@@ -32,7 +32,7 @@ chsh -s /bin/bash         # back to bash
 
 ## Optional scripts
 
-Never run by `run.sh`. Start one as your user whenever you want: `bash ~/arch-install/optional/<name>.sh`.
+Never run by `run.sh` or `tui.sh`. Start one as your user whenever you want: `bash ~/arch-install/optional/<name>.sh`.
 
 | Script | What it does |
 |---|---|

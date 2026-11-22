@@ -15,6 +15,10 @@ Enter or `y` runs it, `n` skips it. The number in a name sets the order.
 ./run.sh desktop    # as your user, after the first boot
 ```
 
+Or let a menu run them: `tui.sh` does the whole install, you check packages in a list instead of answering pacman
+([install with menus](menu.md)). It reads every `pacman` line and the comment above it from these scripts,
+so a package you add to a script shows up in its list.
+
 Optional scripts are never run automatically. Start them when you want: `bash ~/arch-install/optional/zram.sh` ([list](extras.md#optional-scripts)).
 
 Inside a script every package has its own line, so pacman asks for each one:
@@ -40,6 +44,8 @@ and pass it as the second argument:
 ./run.sh chroot /path/to/settings
 ```
 
+`tui.sh` reads the same file (`bash tui.sh /path/to/settings`) and its **Save settings** writes your choices back into it.
+
 Anything missing from the file is asked as usual. A few settings exist only in the file and are never asked:
 a separate locale for dates (`time_locale`), the console font, linking your dotfiles with stow (`dots_link`)
 and a private repo. Where to keep the file: [your own private repo](private-repo.md).
@@ -60,6 +66,7 @@ Run as root from the USB stick, inside the new system (`arch-chroot`), before it
 ## desktop/
 
 Run as your user after the first boot; `sudo` asks your password.
+`tui.sh` runs them before the first boot, as your user inside the new system.
 
 | Script | What it does |
 |---|---|
@@ -78,4 +85,4 @@ Never run by `run.sh`: zsh, printing, zram, Steam and more. What each one does: 
 ## Make it yours
 
 Fork the repo, comment out what you don't want, uncomment what you do. Keep one package per line
-and the comment above it, and the scripts stay easy to read for the next person.
+and the comment above it: the scripts stay easy to read for the next person, and `tui.sh` lists them.

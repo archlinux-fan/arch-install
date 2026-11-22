@@ -8,6 +8,7 @@ and says what it does, then small scripts do the rest and ask before every step.
 - A comment above every command in the scripts explains what it is and why it's there.
 - Optional disk encryption (LUKS2), optional dual boot with Windows.
 - Only official Arch packages; yay is there if you want the AUR.
+- Rather pick everything in a menu, like an installer? [tui.sh](docs/menu.md) runs the same scripts for you.
 
 ![mango desktop with the Nord theme](https://raw.githubusercontent.com/archlinux-fan/arch-dots/main/screenshots/fastfetch.png)
 
@@ -19,7 +20,7 @@ Read it as a website: [archlinux-fan.github.io/arch-install](https://archlinux-f
 Arch alone on the computer? Skip every closed box marked *Dual boot with Windows*.
 
 This page gets you from the USB stick to a working desktop. More:
-[how the scripts work](docs/scripts.md) · [extras for later](docs/extras.md) · [tips](docs/tips.md)
+[install with menus](docs/menu.md) · [how the scripts work](docs/scripts.md) · [extras for later](docs/extras.md) · [tips](docs/tips.md)
 
 ## Before you start
 
@@ -73,6 +74,21 @@ iwctl device list                       # your Wi-Fi card, usually wlan0
 iwctl station wlan0 get-networks        # networks in range
 iwctl station wlan0 connect "Your Wi-Fi"   # asks for the Wi-Fi password
 ```
+
+<details markdown="1">
+<summary>Rather pick everything in a menu? tui.sh does steps 2 to 5 for you</summary>
+
+Like the installer of Windows: you choose in menus (disk, user name, programs ...), then **Install** does the rest,
+the desktop included. It runs the same scripts as the steps below.
+
+```bash
+curl -L https://github.com/archlinux-fan/arch-install/archive/main.tar.gz | tar xz   # download the scripts
+bash arch-install-main/tui.sh                                                        # start the menu
+```
+
+Arrow keys move, Enter picks, Space checks, Esc goes back. Every line explained: [install with menus](docs/menu.md).
+
+</details>
 
 ## 2. Partitions
 

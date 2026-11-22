@@ -2,6 +2,7 @@
 # Copy this file, fill it in, keep it somewhere safe (e.g. your private repo) and run:
 #   ./run.sh chroot  /path/to/settings
 #   ./run.sh desktop /path/to/settings
+#   bash tui.sh /path/to/settings     (the menu; Save settings writes your choices back here)
 # Anything empty is asked as usual. Never put passwords here.
 
 # chroot/10-locale.sh
@@ -28,3 +29,18 @@ dots_link=                      # y = link with stow instead of copying, so chan
 private_url=                    # only here, never asked; linked with stow
 private_dir=                    # where it is cloned; empty = ~/.private
 autologin=                      # y or n
+
+# tui.sh only; run.sh ignores these. Empty = a US default or found by itself.
+disk=                           # e.g. /dev/nvme0n1, see lsblk
+layout=                         # erase (the whole disk) or dualboot (then esp, root, winesp)
+esp=
+root=
+winesp=                         # Windows EFI partition; its boot files are copied
+luks=                           # yes or no
+kernels=                        # e.g. "linux linux-lts"
+ucode=                          # amd-ucode, intel-ucode or none
+packages=                       # base packages for pacstrap, e.g. "dosfstools nano sudo git"
+extra=                          # more base packages
+pkg_add=                        # commented-out packages to install, e.g. "mousepad htop"
+pkg_skip=                       # packages to leave out, e.g. "rtorrent"
+script_skip=                    # scripts to leave out, e.g. desktop/60-aur.sh

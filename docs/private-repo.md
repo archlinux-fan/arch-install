@@ -24,7 +24,7 @@ The private repo mirrors your home folder (`~`), like the dotfiles repo, plus fi
 ```
 private/
 ├── .stow-local-ignore       # what stow must not link into ~
-├── install/settings         # your answers for run.sh, see settings.example
+├── install/settings         # your answers for run.sh and tui.sh, see settings.example
 ├── .ssh/config              # hosts and user names; never the keys
 ├── .config/git/config       # your name and e-mail for commits
 ├── .config/mango/local.toml # e.g. monitors and keyboard, if your dotfiles load such a file
@@ -76,6 +76,27 @@ With `private_url` set in your settings, `desktop/70-dotfiles.sh` links it into 
 git clone https://your-git-server/you/private.git ~/.private
 ~/arch-install/run.sh desktop ~/.private/install/settings
 ```
+
+## Use it with the menu (tui.sh)
+
+Prepare the file on the computer you have now. This shows the menu as a preview and changes nothing but the file:
+
+```bash
+bash ~/arch-install/tui.sh ~/private/install/settings
+```
+
+Pick the disk, encryption, packages ..., then **Save settings**: your choices go into the file, its comments stay.
+Commit and push. On the USB stick, after step 1 of the install page:
+
+```bash
+pacman -Sy git           # git isn't on the USB stick; this adds it there only, until the restart
+git clone https://your-git-server/you/private.git
+curl -L https://github.com/archlinux-fan/arch-install/archive/main.tar.gz | tar xz
+bash arch-install-main/tui.sh private/install/settings
+```
+
+Everything is filled in: check it and pick Install. The desktop part clones the private repo again,
+so it asks for your git user name and password once more.
 
 ## After the install
 
