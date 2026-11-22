@@ -27,12 +27,15 @@ fi
 # The "microcode" hook already puts CPU microcode (amd-ucode / intel-ucode) inside it.
 mkinitcpio -P
 
-# Menu settings: seconds to wait, default entry, no editing of kernel options at boot.
-printf 'default linux.conf\ntimeout 3\neditor no\n' > /boot/loader/loader.conf
-
 # One menu entry per installed kernel (linux, and linux-lts, linux-hardened or linux-zen if installed).
+# The first one found here starts by default, so linux when you have it.
+default=
 for kernel in linux linux-lts linux-hardened linux-zen; do
     [ -f "/boot/vmlinuz-$kernel" ] || continue
+    default=${default:-$kernel}
     printf 'title   Arch Linux (%s)\nlinux   /vmlinuz-%s\ninitrd  /initramfs-%s.img\noptions %s\n' \
         "$kernel" "$kernel" "$kernel" "$options" > "/boot/loader/entries/$kernel.conf"
 done
+
+# Menu settings: seconds to wait, default entry, no editing of kernel options at boot.
+printf 'default %s.conf\ntimeout 3\neditor no\n' "$default" > /boot/loader/loader.conf
