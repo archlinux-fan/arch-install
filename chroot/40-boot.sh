@@ -30,8 +30,8 @@ mkinitcpio -P
 # Menu settings: seconds to wait, default entry, no editing of kernel options at boot.
 printf 'default linux.conf\ntimeout 3\neditor no\n' > /boot/loader/loader.conf
 
-# One menu entry per installed kernel (linux, and linux-lts if you installed it as a backup).
-for kernel in linux linux-lts; do
+# One menu entry per installed kernel (linux, and linux-lts, linux-hardened or linux-zen if installed).
+for kernel in linux linux-lts linux-hardened linux-zen; do
     [ -f "/boot/vmlinuz-$kernel" ] || continue
     printf 'title   Arch Linux (%s)\nlinux   /vmlinuz-%s\ninitrd  /initramfs-%s.img\noptions %s\n' \
         "$kernel" "$kernel" "$kernel" "$options" > "/boot/loader/entries/$kernel.conf"
