@@ -7,6 +7,8 @@ You make your choices first, with the arrow keys. Then **Install** does steps 2 
 [install page](../README.md) by itself, the desktop included.
 It runs the same scripts as the step by step way, so you get the same system.
 
+![The menu: picking a time zone, a package in the desktop scripts and the mirror countries](../assets/img/tui.gif)
+
 | | Step by step (`run.sh`) | Menu (`tui.sh`) |
 |---|---|---|
 | You type | every command from the install page | two commands that start the menu |

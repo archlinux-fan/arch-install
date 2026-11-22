@@ -81,6 +81,8 @@ iwctl station wlan0 connect "Your Wi-Fi"   # asks for the Wi-Fi password
 Like the installer of Windows: you choose in menus (disk, user name, programs ...), then **Install** does the rest,
 the desktop included. It runs the same scripts as the steps below.
 
+![The tui.sh menu](assets/img/tui.gif)
+
 ```bash
 curl -L https://github.com/archlinux-fan/arch-install/archive/main.tar.gz | tar xz   # download the scripts
 bash arch-install-main/tui.sh                                                        # start the menu

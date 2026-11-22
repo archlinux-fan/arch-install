@@ -37,7 +37,8 @@ menu() {
     local title=$1 i=${start:-0} top=0 key n x c d buf= rows cols; shift
     local items=("$@")
     while true; do
-        read -r rows cols < <(stty size 2>/dev/null); : "${rows:=24}" "${cols:=80}"
+        read -r rows cols < <(stty size 2>/dev/null)
+        ((rows > 8)) || rows=24; ((cols > 20)) || cols=80     # serial consoles report 0 0
         rows=$((rows - (info ? 11 : 5)))
         ((i < top)) && top=$i
         ((i >= top + rows)) && top=$((i - rows + 1))
@@ -119,7 +120,7 @@ input() {
 
 screen() { printf '\e[H\e[J\e[?25h%s\n\n' "$1"; }
 pause() { read -rsp $'\nPress Enter.'; }
-row() { printf '%-20s%s' "$1" "$2"; }
+row() { printf "%-${3:-20}s%s" "$1" "$2"; }   # row LABEL VALUE [WIDTH]
 online() { ping -c1 -W2 archlinux.org &>/dev/null && net=online || net=offline; }
 has() { [[ " $1 " == *" $2 "* ]]; }
 # put VAR WORD 0|1: removes WORD from the list in VAR, or adds it
@@ -192,7 +193,7 @@ scripts() {
         for n in "${!files[@]}"; do
             f=${files[n]#$repo/}
             has "$script_skip" "$f" || sel[n]=1
-            items+=("$(row "${f#*/}" "$(tally "${files[n]}")")")
+            items+=("$(row "${f#*/}" "$(tally "${files[n]}")" 24)")
         done
         start=$pos check=1 help='Up/Down move  Space on/off  Enter packages  Esc back' menu "$2" "${items[@]}"
         c=$?
