@@ -268,7 +268,9 @@ mirrors() {
         [[ $l =~ ^(.*[^ ])\ +([A-Z]{2})\ +([0-9]+)$ ]] || continue
         [[ $m == *",${BASH_REMATCH[2],,},"* || $m == *",${BASH_REMATCH[1],,},"* ]] && sel[${#codes[@]}]=1
         codes+=("${BASH_REMATCH[2]}")
-        items+=("$(printf '%-24s%3s' "${BASH_REMATCH[1]}" "${BASH_REMATCH[3]}")")
+        # printf pads by bytes and é is two, so pad by the letter count ${#l}
+        l=${BASH_REMATCH[1]}
+        items+=("$l$(printf '%*s' $((27 - ${#l})) "${BASH_REMATCH[3]}")")
     done
     first=("${!sel[@]}")
     start=${first[0]:-0} check=1 menu "Mirror countries near you; the number is how many mirrors (none = all)" "${items[@]}" || return
